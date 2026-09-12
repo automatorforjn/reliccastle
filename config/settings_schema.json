@@ -106,13 +106,13 @@
     "settings": [
       {
         "type": "image_picker",
-        "id": "relic_world_desktop",
+        "id": "relic_world_image",
         "label": "Desktop world background",
         "info": "Optional. Uses the Relic Castle fallback atmosphere when empty."
       },
       {
         "type": "image_picker",
-        "id": "relic_world_mobile",
+        "id": "relic_world_image_mobile",
         "label": "Mobile world background",
         "info": "Optional. Desktop background is used when empty."
       },
@@ -138,7 +138,7 @@
       },
       {
         "type": "range",
-        "id": "relic_section_opacity",
+        "id": "relic_section_surface_opacity",
         "min": 40,
         "max": 100,
         "step": 5,

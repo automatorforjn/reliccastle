@@ -3,9 +3,7 @@
 {%- style -%}
 
   /* =========================================================
-     POKE CENTRAL — RICH TEXT / LIQUID GLASS
-     CONTENT REMAINS TRANSPARENT.
-     ONLY THE ACTION CONTROL BECOMES GLASS.
+    RELIC CASTLE — RICH TEXT / LIQUID GLASS
      ========================================================= */
 
   .section-{{ section.id }}-padding {
@@ -31,10 +29,9 @@
 
     /*
       IMPORTANT:
-      Do NOT paint a solid background over the cyber environment.
-      The fixed cyber background lives underneath this layer.
+      Keep this native section material translucent so the world remains visible.
     */
-    background: transparent !important;
+    background: color-mix(in srgb, rgb(var(--color-background)) var(--relic-section-surface-opacity), transparent) !important;
   }
 
 
@@ -51,12 +48,7 @@
      but its actual hue is now driven by the selected Shopify scheme.
   */
   #shopify-section-{{ section.id }} .color-{{ section.settings.color_scheme }} {
-    background:
-      linear-gradient(
-        180deg,
-        rgba(var(--color-background), .78),
-        rgba(var(--color-background), .52)
-      ) !important;
+    background: color-mix(in srgb, rgb(var(--color-background)) var(--relic-section-surface-opacity), transparent) !important;
     color: rgb(var(--color-foreground));
   }
 
@@ -399,6 +391,7 @@
         content-container--full-width
       {% endif %}
       section-{{ section.id }}-padding
+      relic-rich-text
     "
   >
 
