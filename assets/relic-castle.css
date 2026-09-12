@@ -48,31 +48,29 @@ body.relic-castle-theme {
   text-rendering: optimizeLegibility;
 }
 
-body.relic-castle-theme::before {
-  content: "";
+.relic-world {
   position: fixed;
   inset: 0;
-  z-index: -10;
+  z-index: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(180deg, rgba(4,10,18,.08), rgba(3,7,13,.64)),
-    var(--relic-atmosphere-url),
-    var(--relic-sand-url);
-  background-size: cover, cover, min(1500px, 135vw) auto;
+    linear-gradient(180deg, rgb(3 7 13 / calc(var(--relic-world-darkness) * .34)), rgb(3 7 13 / var(--relic-world-darkness))),
+    var(--relic-world-desktop),
+    var(--relic-world-sand);
   background-position: center top, center top, center bottom;
   background-repeat: no-repeat;
-  opacity: .62;
+  background-size: cover, cover, min(1500px, 135vw) auto;
+  opacity: var(--relic-world-strength);
 }
 
-body.relic-castle-theme::after {
+.relic-world::after {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: -9;
   pointer-events: none;
   background-image:
-    linear-gradient(90deg, rgba(216,182,117,.025), transparent 22% 78%, rgba(216,182,117,.025)),
-    var(--relic-arch-url);
+    linear-gradient(90deg, rgb(216 182 117 / .025), transparent 22% 78%, rgb(216 182 117 / .025)),
+    var(--relic-world-arch);
   background-size: cover, cover;
   background-position: center, center bottom;
   background-repeat: no-repeat;
@@ -83,6 +81,17 @@ body.relic-castle-theme #MainContent {
   position: relative;
   z-index: 1;
   background: transparent;
+}
+
+body.relic-castle-theme > :not(.relic-world) {
+  position: relative;
+  z-index: 1;
+}
+
+body.relic-castle-theme .shopify-section-header,
+body.relic-castle-theme .header-wrapper,
+body.relic-castle-theme .shopify-section-group-header-group {
+  z-index: 3;
 }
 
 body.relic-castle-theme .shopify-section:not(.section-header) {
@@ -421,6 +430,25 @@ body.relic-castle-theme .article-card:hover {
   transform: translateY(-3px);
   border-color: color-mix(in srgb, rgb(var(--color-button)) 46%, var(--relic-gold));
   box-shadow: 0 28px 70px rgba(0,0,0,.38);
+}
+
+body.relic-castle-theme .pc-featured-collection .product-grid > .grid__item {
+  display: flex;
+}
+
+body.relic-castle-theme .pc-featured-collection .product-grid > .grid__item > .card-wrapper {
+  display: flex;
+  width: 100%;
+}
+
+body.relic-castle-theme .pc-featured-collection .product-grid > .grid__item .card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+body.relic-castle-theme .pc-featured-collection .product-grid > .grid__item .card__content {
+  flex: 1 1 auto;
 }
 
 body.relic-castle-theme .card__media,
@@ -802,13 +830,18 @@ body.relic-castle-theme .footer-block__heading {
 }
 
 @media screen and (max-width: 749px) {
-  body.relic-castle-theme::after { opacity: .07; }
+  .relic-world {
+    background-image:
+      linear-gradient(180deg, rgb(3 7 13 / calc(var(--relic-world-darkness) * .34)), rgb(3 7 13 / var(--relic-world-darkness))),
+      var(--relic-world-mobile),
+      var(--relic-world-sand);
+    background-size: cover, cover, min(1500px, 180vw) auto;
+  }
 
   body.relic-castle-theme .relic-header-wrapper .header { min-height: 68px; }
 
   body.relic-castle-theme .header__heading-logo,
   body.relic-castle-theme .header__heading-logo.motion-reduce {
-    max-height: 46px;
     max-width: min(70vw, 250px);
   }
 

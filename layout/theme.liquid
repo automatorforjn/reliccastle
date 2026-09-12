@@ -325,7 +325,12 @@
   </head>
 
   <body class="gradient relic-castle-theme{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}"
-    style="--relic-atmosphere-url: url('{{ 'relic-atmosphere.svg' | asset_url }}'); --relic-arch-url: url('{{ 'relic-arch.svg' | asset_url }}'); --relic-prism-url: url('{{ 'relic-prism.svg' | asset_url }}'); --relic-seal-url: url('{{ 'relic-seal.svg' | asset_url }}'); --relic-sand-url: url('{{ 'relic-sand-drift.svg' | asset_url }}');">
+    style="--relic-world-darkness: {{ settings.relic_world_darkness | default: 58 | divided_by: 100.0 }}; --relic-world-strength: {{ settings.relic_world_strength | default: 62 | divided_by: 100.0 }}; --relic-section-opacity: {{ settings.relic_section_opacity | default: 78 | divided_by: 100.0 }};">
+    <div
+      class="relic-world"
+      aria-hidden="true"
+      style="--relic-world-desktop: {% if settings.relic_world_desktop != blank %}url('{{ settings.relic_world_desktop | image_url: width: 2400 }}'){% else %}url('{{ 'relic-atmosphere.svg' | asset_url }}'){% endif %}; --relic-world-mobile: {% if settings.relic_world_mobile != blank %}url('{{ settings.relic_world_mobile | image_url: width: 1400 }}'){% elsif settings.relic_world_desktop != blank %}url('{{ settings.relic_world_desktop | image_url: width: 2400 }}'){% else %}url('{{ 'relic-atmosphere.svg' | asset_url }}'){% endif %}; --relic-world-arch: url('{{ 'relic-arch.svg' | asset_url }}'); --relic-world-sand: url('{{ 'relic-sand-drift.svg' | asset_url }}');"
+    ></div>
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>

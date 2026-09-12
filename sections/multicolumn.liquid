@@ -35,6 +35,7 @@
       background-{{ section.settings.background_style }}
     {% endunless %}
     {% if section.settings.title == blank %}no-heading{% endif %}
+    relic-multicolumn-theme relic-glass-cards
     {% if section.settings.pc_chase_odds %}pc-chase-odds{% endif %}
   "
 >
@@ -444,14 +445,14 @@
 
     {
       "type": "header",
-      "content": "Poke Central Chase & Odds"
+      "content": "Chase Archive"
     },
     {
       "type": "checkbox",
       "id": "pc_chase_odds",
-      "label": "Enable Poke Central Chase & Odds",
+      "label": "Enable Chase Archive presentation",
       "default": false,
-      "info": "Adds the Poke Central Chase visual layer while Shopify keeps control of the section and grid layout."
+      "info": "Use only for the Chase Archive. Shopify keeps control of the section and grid layout."
     },
 
     {

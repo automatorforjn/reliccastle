@@ -1015,7 +1015,7 @@
 /* Release BOTH the Shopify grid item ratio and the shell ratio. */
 .multicolumn.pc-chase-odds
 .pc-chase-column--no-collectible {
-  aspect-ratio: auto !important;
+  aspect-ratio: auto;
   height: auto;
   min-height: 0;
 }
@@ -1030,7 +1030,7 @@
 .pc-chase-column--ratio-circle .pc-chase-column-shell--no-collectible,
 .multicolumn.pc-chase-odds
 .pc-chase-column--ratio-adapt .pc-chase-column-shell--no-collectible {
-  aspect-ratio: auto !important;
+  aspect-ratio: auto;
   height: auto;
   min-height: 0;
   max-height: none;
@@ -1214,14 +1214,14 @@
 @media screen and (max-width: 749px) {
   .multicolumn.pc-chase-odds
   .pc-chase-column--no-collectible {
-    aspect-ratio: auto !important;
+    aspect-ratio: auto;
     height: auto;
     min-height: 0;
   }
 
   .multicolumn.pc-chase-odds
   .pc-chase-column-shell--no-collectible {
-    aspect-ratio: auto !important;
+    aspect-ratio: auto;
     height: auto;
     min-height: 0;
   }

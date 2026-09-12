@@ -133,7 +133,7 @@
       "settings": {
         "title": "HOW THE LIVE VAULT WORKS",
         "heading_size": "hxl",
-        "pc_chase_odds": true,
+        "pc_chase_odds": false,
         "image_width": "full",
         "image_ratio": "adapt",
         "button_label": "",
@@ -267,7 +267,7 @@
       "settings": {
         "title": "THE RELIC STANDARD",
         "heading_size": "h1",
-        "pc_chase_odds": true,
+        "pc_chase_odds": false,
         "image_width": "full",
         "image_ratio": "adapt",
         "button_label": "",
@@ -331,7 +331,7 @@
       "settings": {
         "title": "TRUST & AUTHENTICITY",
         "heading_size": "hxl",
-        "pc_chase_odds": true,
+        "pc_chase_odds": false,
         "image_width": "full",
         "image_ratio": "adapt",
         "button_label": "",

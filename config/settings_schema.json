@@ -102,6 +102,53 @@
     ]
   },
   {
+    "name": "Relic Castle Atmosphere",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "relic_world_desktop",
+        "label": "Desktop world background",
+        "info": "Optional. Uses the Relic Castle fallback atmosphere when empty."
+      },
+      {
+        "type": "image_picker",
+        "id": "relic_world_mobile",
+        "label": "Mobile world background",
+        "info": "Optional. Desktop background is used when empty."
+      },
+      {
+        "type": "range",
+        "id": "relic_world_darkness",
+        "min": 0,
+        "max": 90,
+        "step": 5,
+        "unit": "%",
+        "default": 60,
+        "label": "World darkness"
+      },
+      {
+        "type": "range",
+        "id": "relic_world_strength",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "default": 60,
+        "label": "Atmosphere strength"
+      },
+      {
+        "type": "range",
+        "id": "relic_section_opacity",
+        "min": 40,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "default": 80,
+        "label": "Section surface opacity"
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.typography.name",
     "settings": [
       {

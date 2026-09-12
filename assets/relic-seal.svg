@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
-  <g fill="none" stroke="#d8b675">
-    <path d="M160 28l72 72-72 118-72-118Z" opacity=".22"/>
-    <path d="M160 56l44 48-44 74-44-74Z" opacity=".14"/>
-    <path d="M94 230h132" opacity=".24"/>
-    <path d="M112 230v-42h20v-26h18v18h20v-18h18v26h20v42" opacity=".32"/>
-  </g>
-  <path d="M160 128l7 16 16 7-16 7-7 16-7-16-16-7 16-7Z" fill="#f1d59b" opacity=".56"/>
-</svg>
