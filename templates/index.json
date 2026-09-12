@@ -13,8 +13,8 @@
       "type": "video",
       "name": "PRISM ARCHIVE // LIVE VAULT",
       "settings": {
-        "heading": "PRISM ARCHIVE // LIVE VAULT",
-        "heading_size": "hxxl",
+        "heading": "THE LIVE VAULT",
+        "heading_size": "hxl",
         "enable_video_looping": true,
         "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
         "cover_image": "shopify://shop_images/Codex_Image_Sep_12_2026_08_13_18_AM.png",
@@ -33,7 +33,7 @@
         "collection": "zip-line",
         "products_to_show": 4,
         "title": "THE SEALED VAULT",
-        "heading_size": "hxxl",
+        "heading_size": "hxl",
         "description": "<p>Factory-sealed Japanese imports, curated sets, and live-break inventory.</p>",
         "show_description": false,
         "description_style": "uppercase",
@@ -49,8 +49,8 @@
         "show_vendor": true,
         "show_rating": false,
         "quick_add": "none",
-        "columns_mobile": "1",
-        "swipe_on_mobile": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
         "padding_top": 4,
         "padding_bottom": 48
       }
@@ -68,9 +68,9 @@
             "pc_card_width": "three_quarters",
             "pc_card_ratio": "pokemon_standard",
             "title": "Pikachu ex SAR",
-            "text": "<p>Super Secret Rare<br/>Est. Pull Rate: 1 in 4</p>",
-            "link_label": "Buy Pack Slot",
-            "link": ""
+            "text": "<p>Featured archive card</p>",
+            "link_label": "Explore sealed products",
+            "link": "/collections/all"
           }
         },
         "chase_charizard": {
@@ -82,9 +82,9 @@
             "pc_card_width": "three_quarters",
             "pc_card_ratio": "pokemon_standard",
             "title": "Charizard ex IR",
-            "text": "<p>Super Secret Rare<br/>Est. Pull Rate: 1 in 4</p>",
-            "link_label": "Buy Pack Slot",
-            "link": ""
+            "text": "<p>Featured archive card</p>",
+            "link_label": "Explore sealed products",
+            "link": "/collections/all"
           }
         },
         "chase_mystery": {
@@ -97,8 +97,8 @@
             "pc_card_ratio": "pokemon_standard",
             "title": "Mystery Chase",
             "text": "<p>Rotating featured hit<br/>Revealed with the current live break.</p>",
-            "link_label": "View Live Breaks",
-            "link": ""
+            "link_label": "Explore sealed products",
+            "link": "/collections/all"
           }
         }
       },
@@ -124,11 +124,149 @@
         "padding_top": 20,
         "padding_bottom": 36
       }
+    },
+    "how_it_works": {
+      "type": "multicolumn",
+      "name": "HOW IT WORKS // ARCHIVE FLOW",
+      "blocks": {
+        "how_scan": {
+          "type": "column",
+          "settings": {
+            "title": "01 // SELECT",
+            "text": "<p>Choose a sealed product or reserve a live-break slot from the archive.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "how_open": {
+          "type": "column",
+          "settings": {
+            "title": "02 // OPEN",
+            "text": "<p>Watch the live reveal as every pack is opened and documented on stream.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "how_claim": {
+          "type": "column",
+          "settings": {
+            "title": "03 // CLAIM",
+            "text": "<p>Your pulls are protected, catalogued, and shipped from the Relic Castle vault.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "how_scan",
+        "how_open",
+        "how_claim"
+      ],
+      "settings": {
+        "title": "HOW THE LIVE VAULT WORKS",
+        "heading_size": "hxl",
+        "pc_chase_odds": false,
+        "button_label": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "community_pulls": {
+      "type": "multicolumn",
+      "name": "COMMUNITY PULLS // ARCHIVE NOTES",
+      "blocks": {
+        "community_protection": {
+          "type": "column",
+          "settings": {
+            "title": "PROTECTED SHIPMENTS",
+            "text": "<p>Every winning pull is sleeved, secured, and prepared for its next collector.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "community_imports": {
+          "type": "column",
+          "settings": {
+            "title": "CURATED IMPORTS",
+            "text": "<p>Japanese sealed product and rare archive pieces sourced with care.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "community_record": {
+          "type": "column",
+          "settings": {
+            "title": "THE PULL RECORD",
+            "text": "<p>Follow the live archive and see which relics emerge from each break.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "community_protection",
+        "community_imports",
+        "community_record"
+      ],
+      "settings": {
+        "title": "COMMUNITY PULLS",
+        "heading_size": "hxl",
+        "pc_chase_odds": false,
+        "button_label": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "relic_standard": {
+      "type": "rich-text",
+      "name": "RELIC STANDARD // GUARANTEE",
+      "blocks": {
+        "standard_heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "THE RELIC STANDARD",
+            "heading_size": "hxl"
+          }
+        },
+        "standard_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Every order is handled like an artifact. Authentic product, careful packing, transparent live breaks, and collector-first service are the Relic Standard.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "standard_heading",
+        "standard_text"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 48,
+        "padding_bottom": 56
+      }
     }
   },
   "order": [
     "main_hero_vault",
     "sealed_vault_grid",
-    "chase_archive"
+    "how_it_works",
+    "chase_archive",
+    "community_pulls",
+    "relic_standard"
   ]
 }

@@ -128,6 +128,9 @@
     "show_cart_note": false,
     "cart_drawer_collection": "",
     "cart_color_scheme": "scheme-1",
+    "relic_world_darkness": 50,
+    "relic_world_strength": 90,
+    "relic_section_surface_opacity": 50,
     "sections": {
       "main-password-header": {
         "type": "main-password-header",

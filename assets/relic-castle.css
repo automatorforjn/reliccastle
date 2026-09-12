@@ -53,13 +53,13 @@ body.relic-castle-theme {
   z-index: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(180deg, rgb(3 7 13 / calc(var(--relic-world-darkness) * .30)), rgb(3 7 13 / var(--relic-world-darkness))),
+    linear-gradient(180deg, rgb(3 7 13 / calc(var(--relic-world-darkness) * .10)), rgb(3 7 13 / calc(var(--relic-world-darkness) * .56))),
     var(--relic-world-desktop),
     var(--relic-world-sand);
   background-position: center top, center top, center bottom;
   background-repeat: no-repeat;
   background-size: cover, cover, min(1600px, 140vw) auto;
-  opacity: var(--relic-world-strength);
+  opacity: max(.86, var(--relic-world-strength));
 }
 
 .relic-world::after {
@@ -68,12 +68,13 @@ body.relic-castle-theme {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(90deg, rgb(216 182 117 / .035), transparent 22% 78%, rgb(216 182 117 / .035)),
+    radial-gradient(ellipse at 50% 42%, rgb(216 182 117 / .12), transparent 52%),
+    linear-gradient(90deg, rgb(216 182 117 / .055), transparent 22% 78%, rgb(216 182 117 / .055)),
     var(--relic-world-arch);
   background-size: cover, cover;
   background-position: center, center bottom;
   background-repeat: no-repeat;
-  opacity: .16;
+  opacity: .34;
 }
 
 body.relic-castle-theme #MainContent {
@@ -103,6 +104,15 @@ body.relic-castle-theme .shopify-section:not(.section-header) > .gradient {
   background: rgba(7, 14, 20, calc(var(--relic-section-surface-opacity) / 100));
   backdrop-filter: blur(2px) saturate(1.08);
   -webkit-backdrop-filter: blur(2px) saturate(1.08);
+  border-radius: 0;
+}
+
+body.relic-castle-theme .shopify-section:not(.section-header) .page-width {
+  max-width: var(--page-width);
+}
+
+body.relic-castle-theme .shopify-section:not(.section-header) .page-width > * {
+  max-width: 100%;
 }
 
 body.relic-castle-theme .shopify-section:not(.section-header)::after {
@@ -114,6 +124,184 @@ body.relic-castle-theme .shopify-section:not(.section-header)::after {
   height: 1px;
   pointer-events: none;
   background: linear-gradient(90deg, transparent, rgba(216,182,117,.20), rgba(255,255,255,.05), rgba(216,182,117,.20), transparent);
+}
+
+body.relic-castle-theme #MainContent > .shopify-section {
+  background: transparent;
+}
+
+body.relic-castle-theme #MainContent > .shopify-section > .gradient,
+body.relic-castle-theme #MainContent > .shopify-section > .color-scheme-1,
+body.relic-castle-theme #MainContent > .shopify-section > .color-scheme-2 {
+  background:
+    linear-gradient(180deg, rgba(3, 8, 15, .18), rgba(3, 8, 15, .06) 45%, rgba(3, 8, 15, .22));
+}
+
+body.relic-castle-theme #MainContent > .shopify-section:first-child {
+  padding-top: 12px;
+}
+
+body.relic-castle-theme .video-section {
+  position: relative;
+  overflow: visible;
+}
+
+body.relic-castle-theme .relic-section--live-vault .title-wrapper {
+  max-width: 760px;
+  margin: 0 auto 18px;
+  text-align: center;
+}
+
+body.relic-castle-theme .relic-section--live-vault .title {
+  margin: 0;
+  color: var(--relic-ivory);
+  font-size: clamp(2.8rem, 5vw, 5.6rem);
+  line-height: .9;
+  letter-spacing: .015em;
+  text-shadow: 0 8px 30px rgba(0,0,0,.42);
+}
+
+body.relic-castle-theme .relic-section--live-vault .relic-video-frame {
+  max-width: min(1180px, 100%);
+}
+
+@media screen and (min-width: 990px) {
+  body.relic-castle-theme .relic-section--live-vault .video-section__media {
+    height: clamp(520px, 54vh, 620px);
+    min-height: 0;
+    aspect-ratio: auto;
+    padding-top: 0 !important;
+  }
+
+  body.relic-castle-theme .relic-section--live-vault .video-section__poster,
+  body.relic-castle-theme .relic-section--live-vault .video-section__poster img {
+    height: 100%;
+  }
+
+  body.relic-castle-theme .relic-section--live-vault .video-section__poster img {
+    object-fit: cover;
+  }
+}
+
+body.relic-castle-theme .relic-section--live-vault {
+  padding-bottom: 18px;
+}
+
+body.relic-castle-theme .video-section::before {
+  content: "";
+  position: absolute;
+  inset: 5% -8% 2%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at center, rgba(216,182,117,.16), transparent 58%),
+    linear-gradient(180deg, transparent, rgba(2, 7, 13, .52));
+  filter: blur(24px);
+}
+
+body.relic-castle-theme .video-section .video-section__media,
+body.relic-castle-theme .video-section .deferred-media {
+  border: 1px solid rgba(216,182,117,.52);
+  border-radius: 8px;
+  box-shadow:
+    0 28px 72px rgba(0,0,0,.48),
+    0 0 0 1px rgba(255,255,255,.08),
+    inset 0 1px 0 rgba(255,255,255,.18);
+}
+
+body.relic-castle-theme .featured-collection .page-width {
+  position: relative;
+}
+
+body.relic-castle-theme .pc-featured-collection .collection {
+  overflow: visible;
+}
+
+body.relic-castle-theme .pc-featured-collection .collection__title,
+body.relic-castle-theme .pc-featured-collection .slider-component {
+  max-width: var(--page-width);
+  margin-inline: auto;
+}
+
+body.relic-castle-theme .pc-featured-collection .product-grid {
+  align-items: stretch;
+}
+
+body.relic-castle-theme .featured-collection .title-wrapper-with-link {
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(216,182,117,.24);
+}
+
+body.relic-castle-theme .featured-collection .grid {
+  gap: clamp(12px, 1.5vw, 22px);
+}
+
+body.relic-castle-theme .featured-collection .card-wrapper {
+  height: 100%;
+}
+
+body.relic-castle-theme .featured-collection .card {
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(216,182,117,.28);
+  border-radius: 6px;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.055), rgba(4,9,15,.78));
+  box-shadow:
+    0 16px 38px rgba(0,0,0,.34),
+    inset 0 1px 0 rgba(255,255,255,.10);
+}
+
+body.relic-castle-theme .featured-collection .card__inner {
+  background: transparent;
+}
+
+body.relic-castle-theme .featured-collection .card__content {
+  padding: 14px 14px 16px;
+}
+
+body.relic-castle-theme .pc-featured-collection .card__information {
+  display: flex;
+  min-height: 86px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+body.relic-castle-theme .featured-collection .card__heading,
+body.relic-castle-theme .featured-collection .price {
+  color: var(--relic-ivory);
+}
+
+body.relic-castle-theme .relic-multicolumn-theme:not(.pc-chase-odds) .multicolumn-list {
+  gap: clamp(12px, 1.8vw, 24px);
+}
+
+body.relic-castle-theme .relic-multicolumn-theme:not(.pc-chase-odds) .multicolumn-card__info {
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+body.relic-castle-theme .relic-multicolumn-theme:not(.pc-chase-odds) .multicolumn-card__info h3 {
+  color: var(--relic-ivory);
+  letter-spacing: .02em;
+}
+
+body.relic-castle-theme .multicolumn.pc-chase-odds {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(216,182,117,.11), transparent 48%),
+    linear-gradient(180deg, rgba(4,10,18,.12), rgba(4,10,18,.48));
+}
+
+body.relic-castle-theme .relic-multicolumn-theme:not(.pc-chase-odds) {
+  padding-block: 8px;
+}
+
+body.relic-castle-theme .multicolumn.pc-chase-odds .multicolumn__title {
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(216,182,117,.24);
 }
 
 /* =========================================================
@@ -250,6 +438,29 @@ body.relic-castle-theme .header__active-menu-item {
 body.relic-castle-theme .header__menu-item,
 body.relic-castle-theme .header__icon {
   color: color-mix(in srgb, rgb(var(--color-foreground)) 82%, transparent);
+}
+
+body.relic-castle-theme .multicolumn.pc-chase-odds {
+  position: relative;
+  width: 100%;
+}
+
+body.relic-castle-theme .multicolumn.pc-chase-odds .multicolumn-list {
+  width: min(100%, var(--page-width));
+  margin-inline: auto;
+  gap: 1.5rem;
+}
+
+body.relic-castle-theme .multicolumn.pc-chase-odds .pc-chase-column-shell {
+  border: 1px solid rgba(216, 182, 117, 0.32);
+  border-radius: 8px;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  background: linear-gradient(145deg, rgba(255,255,255,0.035), rgba(4,9,15,0.58));
+}
+
+body.relic-castle-theme .multicolumn.pc-chase-odds .pc-chase-column-shell .multicolumn-card__info {
+  background: linear-gradient(180deg, rgba(4,8,15,0) 0%, rgba(4,8,15,0.12) 26%, rgba(4,8,15,0.70) 100%);
+  border-radius: 0 0 8px 8px;
 }
 
 body.relic-castle-theme .header__icon {
@@ -935,7 +1146,8 @@ body.relic-castle-theme .footer-block__heading {
   }
 
   body.relic-castle-theme .relic-video-frame {
-    width: calc(100vw - 20px);
+    width: 100%;
+    max-width: 100%;
     padding: 1px;
     border-radius: 3px;
   }

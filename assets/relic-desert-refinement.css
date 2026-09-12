@@ -1,0 +1,172 @@
+/* Relic Castle storefront refinement. Loaded after the base visual system. */
+body.relic-castle-theme {
+  --relic-night: #100f12;
+  --relic-night-deep: #090a0d;
+  --relic-panel: rgba(23, 21, 23, .72);
+  --relic-panel-soft: rgba(30, 26, 26, .52);
+  --relic-panel-solid: #181719;
+  --relic-gold: #d9b879;
+  --relic-gold-bright: #f4dda7;
+  --relic-ivory: #f4eee4;
+  background: #0b0b0e;
+}
+
+body.relic-castle-theme .relic-world {
+  background-image:
+    linear-gradient(180deg, rgba(7, 8, 12, .38), rgba(9, 8, 11, .58) 55%, rgba(8, 8, 10, .72)),
+    var(--relic-world-desktop),
+    var(--relic-world-sand);
+  background-size: cover, cover, min(1600px, 140vw) auto;
+  opacity: 1;
+}
+
+body.relic-castle-theme .relic-world::after {
+  background-image: var(--relic-world-arch);
+  background-size: cover;
+  opacity: .28;
+}
+
+body.relic-castle-theme #MainContent > .shopify-section > :is(.gradient, .color-scheme-1, .color-scheme-2) {
+  background: rgba(13, 12, 15, .27);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+body.relic-castle-theme .relic-header-wrapper {
+  background: rgba(14, 14, 17, .76);
+  border-bottom-color: rgba(217, 184, 121, .43);
+  backdrop-filter: blur(18px) saturate(130%);
+  -webkit-backdrop-filter: blur(18px) saturate(130%);
+}
+
+body.relic-castle-theme .relic-section--live-vault {
+  padding-top: clamp(18px, 3vw, 40px);
+  padding-bottom: clamp(32px, 5vw, 60px);
+  background: linear-gradient(180deg, rgba(12, 11, 15, .28), rgba(16, 13, 15, .14));
+}
+
+body.relic-castle-theme .relic-section--live-vault::before {
+  opacity: .48;
+}
+
+body.relic-castle-theme .relic-section--live-vault .title-wrapper {
+  max-width: 1000px;
+  margin-bottom: clamp(16px, 2.5vw, 30px);
+}
+
+body.relic-castle-theme .relic-section--live-vault .title {
+  color: var(--relic-ivory);
+  font-size: clamp(3.2rem, 5.8vw, 7.2rem);
+  line-height: .94;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+body.relic-castle-theme .relic-video-frame {
+  background: rgba(18, 14, 17, .74);
+  border-color: rgba(244, 221, 167, .6);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, .5), 0 0 32px rgba(217, 184, 121, .12);
+}
+
+body.relic-castle-theme .video-section .video-section__media,
+body.relic-castle-theme .video-section .deferred-media {
+  border-radius: 5px;
+}
+
+body.relic-castle-theme :is(.card-wrapper .card, .article-card, .blog-articles__article,
+  .multicolumn.relic-multicolumn-theme.relic-glass-cards:not(.pc-chase-odds) .multicolumn-card,
+  .multicolumn.pc-chase-odds .pc-chase-column-shell) {
+  border-color: rgba(217, 184, 121, .34);
+  border-radius: 6px;
+  background: linear-gradient(155deg, rgba(64, 53, 48, .48), rgba(15, 15, 19, .78) 55%, rgba(10, 10, 14, .88));
+  backdrop-filter: blur(12px) saturate(120%);
+  -webkit-backdrop-filter: blur(12px) saturate(120%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .14), 0 16px 44px rgba(0, 0, 0, .31);
+}
+
+body.relic-castle-theme .card__media,
+body.relic-castle-theme .card__inner {
+  border-radius: 5px 5px 0 0;
+}
+
+body.relic-castle-theme .pc-featured-collection .product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(12px, 1.8vw, 24px);
+}
+
+body.relic-castle-theme .pc-featured-collection .product-grid > .grid__item {
+  width: auto;
+  max-width: none;
+  min-width: 0;
+}
+
+body.relic-castle-theme .card__heading,
+body.relic-castle-theme .price,
+body.relic-castle-theme .product__title h1 {
+  color: var(--relic-ivory);
+}
+
+body.relic-castle-theme :is(.button, .shopify-payment-button__button, .pc-chase-cta) {
+  border-radius: 5px;
+  letter-spacing: 0;
+}
+
+body.relic-castle-theme .relic-live-break-button,
+body.relic-castle-theme .custom-glass-btn {
+  border-radius: 5px !important;
+}
+
+body.relic-castle-theme :is(.product__info-container, .drawer__inner, .customer form, .facets__display, .mobile-facets__inner) {
+  background: rgba(21, 20, 24, .85);
+  border-color: rgba(217, 184, 121, .35);
+  backdrop-filter: blur(14px) saturate(115%);
+  -webkit-backdrop-filter: blur(14px) saturate(115%);
+}
+
+body.relic-castle-theme .footer {
+  background: rgba(10, 10, 13, .88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+body.relic-castle-theme :is(a, button, input, select):focus-visible {
+  outline: 2px solid var(--relic-gold-bright);
+  outline-offset: 3px;
+}
+
+@media screen and (min-width: 990px) {
+  body.relic-castle-theme .relic-section--live-vault .video-section__media {
+    height: clamp(430px, 49vh, 590px);
+  }
+}
+
+@media screen and (max-width: 989px) {
+  body.relic-castle-theme .pc-featured-collection .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: 749px) {
+  body.relic-castle-theme .relic-world {
+    background-image:
+      linear-gradient(180deg, rgba(7, 8, 12, .46), rgba(9, 8, 11, .63) 56%, rgba(8, 8, 10, .78)),
+      var(--relic-world-mobile),
+      var(--relic-world-sand);
+    background-size: cover, cover, min(1200px, 160vw) auto;
+  }
+
+  body.relic-castle-theme .relic-section--live-vault .title {
+    font-size: clamp(3.1rem, 10vw, 4.8rem);
+  }
+
+  body.relic-castle-theme .relic-section--live-vault .video-section__media {
+    aspect-ratio: 16 / 10;
+    min-height: 0;
+    padding-top: 0 !important;
+  }
+
+  body.relic-castle-theme .relic-video-frame {
+    width: calc(100vw - 32px);
+  }
+}

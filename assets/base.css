@@ -81,10 +81,15 @@ collection-component {
 
 /* base */
 
+:root {
+  --page-width: min(1200px, calc(100vw - 32px));
+  --content-padding: clamp(12px, 2vw, 24px);
+}
+
 .page-width {
   max-width: var(--page-width);
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 var(--content-padding);
 }
 
 body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
