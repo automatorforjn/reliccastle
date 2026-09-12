@@ -1,0 +1,864 @@
+/* =========================================================
+   RELIC CASTLE CARDS — FINAL VAULT SYSTEM
+   Direction: cinematic ruins + restrained obsidian glass
+   Native Shopify/Publisher structure and schemes stay authoritative.
+   ========================================================= */
+
+:root {
+  --relic-night: #07111f;
+  --relic-night-deep: #03070d;
+  --relic-night-soft: #0b1624;
+  --relic-obsidian: #090b0f;
+  --relic-gold: #d8b675;
+  --relic-gold-bright: #f1d59b;
+  --relic-gold-dim: rgba(216, 182, 117, .36);
+  --relic-ivory: #f1eadc;
+  --relic-copy: #c9c2b7;
+  --relic-muted: #8f8a82;
+  --relic-red: #ff4343;
+  --relic-prism-cyan: #9fe4ff;
+  --relic-prism-violet: #c9a8ff;
+  --relic-line: rgba(216, 182, 117, .34);
+  --relic-line-soft: rgba(255,255,255,.10);
+  --relic-panel: rgba(7, 13, 22, .78);
+  --relic-panel-soft: rgba(10, 18, 29, .58);
+  --relic-panel-solid: #0a121d;
+  --relic-glass-blur: 8px;
+  --relic-radius-panel: 3px;
+  --relic-radius-media: 5px;
+  --relic-shadow: 0 20px 56px rgba(0,0,0,.34);
+  --relic-shadow-strong: 0 30px 86px rgba(0,0,0,.46);
+  --relic-ui-font: var(--font-body-family);
+  --relic-display-font: var(--font-heading-family);
+}
+
+/* =========================================================
+   01 — WORLD / ATMOSPHERE
+   ========================================================= */
+
+html { scroll-behavior: smooth; }
+
+body.relic-castle-theme {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    linear-gradient(180deg, #07111f 0%, #050b13 32%, #03070d 100%);
+  color: rgb(var(--color-foreground));
+  font-family: var(--relic-ui-font);
+  text-rendering: optimizeLegibility;
+}
+
+body.relic-castle-theme::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  pointer-events: none;
+  background-image:
+    linear-gradient(180deg, rgba(4,10,18,.08), rgba(3,7,13,.64)),
+    var(--relic-atmosphere-url),
+    var(--relic-sand-url);
+  background-size: cover, cover, min(1500px, 135vw) auto;
+  background-position: center top, center top, center bottom;
+  background-repeat: no-repeat;
+  opacity: .62;
+}
+
+body.relic-castle-theme::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -9;
+  pointer-events: none;
+  background-image:
+    linear-gradient(90deg, rgba(216,182,117,.025), transparent 22% 78%, rgba(216,182,117,.025)),
+    var(--relic-arch-url);
+  background-size: cover, cover;
+  background-position: center, center bottom;
+  background-repeat: no-repeat;
+  opacity: .11;
+}
+
+body.relic-castle-theme #MainContent {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+}
+
+body.relic-castle-theme .shopify-section:not(.section-header) {
+  position: relative;
+  isolation: isolate;
+}
+
+body.relic-castle-theme .shopify-section:not(.section-header)::after {
+  content: "";
+  position: absolute;
+  left: max(18px, 4vw);
+  right: max(18px, 4vw);
+  bottom: 0;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(216,182,117,.20), rgba(255,255,255,.05), rgba(216,182,117,.20), transparent);
+}
+
+/* =========================================================
+   02 — TYPOGRAPHY / EDITORIAL RHYTHM
+   ========================================================= */
+
+body.relic-castle-theme h1,
+body.relic-castle-theme h2,
+body.relic-castle-theme h3,
+body.relic-castle-theme h4,
+body.relic-castle-theme h5,
+body.relic-castle-theme h6,
+body.relic-castle-theme .h0,
+body.relic-castle-theme .h1,
+body.relic-castle-theme .h2,
+body.relic-castle-theme .h3,
+body.relic-castle-theme .h4,
+body.relic-castle-theme .h5,
+body.relic-castle-theme .h6 {
+  font-family: var(--relic-display-font);
+  letter-spacing: -.018em;
+  text-wrap: balance;
+}
+
+body.relic-castle-theme :is(.title, .rich-text__heading, .collection-hero__title, .main-page-title) {
+  line-height: .98;
+}
+
+body.relic-castle-theme :is(.rte, .product__description, .article-template__content) {
+  color: color-mix(in srgb, rgb(var(--color-foreground)) 82%, transparent);
+}
+
+body.relic-castle-theme :is(.caption, .product__text, .article-card__excerpt) {
+  letter-spacing: .03em;
+}
+
+/* =========================================================
+   03 — HEADER / NAVIGATION
+   ========================================================= */
+
+body.relic-castle-theme .relic-header-wrapper {
+  position: relative;
+  overflow: visible;
+  background:
+    linear-gradient(180deg,
+      color-mix(in srgb, rgb(var(--color-background)) 95%, #07111f),
+      color-mix(in srgb, rgb(var(--color-background)) 88%, #03070d));
+  color: rgb(var(--color-foreground));
+  border-bottom: 1px solid color-mix(in srgb, var(--relic-gold) 34%, rgb(var(--color-foreground)) 7%);
+  box-shadow: 0 14px 44px rgba(0,0,0,.24);
+  backdrop-filter: blur(12px) saturate(118%);
+  -webkit-backdrop-filter: blur(12px) saturate(118%);
+}
+
+body.relic-castle-theme .relic-header-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: auto 7% -1px;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(216,182,117,.48), transparent);
+}
+
+body.relic-castle-theme .relic-header-wrapper .header {
+  min-height: 76px;
+  position: relative;
+  z-index: 2;
+  background: transparent;
+}
+
+body.relic-castle-theme .header__heading-logo-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,.28));
+}
+
+body.relic-castle-theme .header__heading-logo,
+body.relic-castle-theme .header__heading-logo.motion-reduce {
+  display: block;
+  width: auto;
+  max-width: min(100%, clamp(150px, 20vw, 300px));
+  max-height: 52px;
+  object-fit: contain;
+}
+
+body.relic-castle-theme .header__menu-item,
+body.relic-castle-theme .header__active-menu-item {
+  font-family: var(--relic-ui-font);
+  font-size: 1.12rem;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+body.relic-castle-theme .header__menu-item,
+body.relic-castle-theme .header__icon {
+  color: color-mix(in srgb, rgb(var(--color-foreground)) 82%, transparent);
+}
+
+body.relic-castle-theme .header__menu-item:hover,
+body.relic-castle-theme .header__active-menu-item,
+body.relic-castle-theme .header__icon:hover {
+  color: color-mix(in srgb, rgb(var(--color-link)) 72%, var(--relic-gold-bright));
+}
+
+body.relic-castle-theme .relic-header-wrapper .menu-drawer,
+body.relic-castle-theme .relic-header-wrapper .header__submenu,
+body.relic-castle-theme .relic-header-wrapper .mega-menu__content {
+  background:
+    linear-gradient(180deg,
+      color-mix(in srgb, rgb(var(--color-background)) 94%, #07111f),
+      color-mix(in srgb, rgb(var(--color-background)) 90%, #03070d));
+  color: rgb(var(--color-foreground));
+  border: 1px solid color-mix(in srgb, rgb(var(--color-foreground)) 12%, var(--relic-gold) 18%);
+  border-radius: var(--relic-radius-panel);
+  box-shadow: var(--relic-shadow-strong);
+  backdrop-filter: blur(14px) saturate(120%);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+}
+
+body.relic-castle-theme .relic-header-wrapper .menu-drawer { z-index: 50; }
+body.relic-castle-theme .relic-header-wrapper .header__inline-menu,
+body.relic-castle-theme .relic-header-wrapper .mega-menu { z-index: 25; }
+
+/* =========================================================
+   04 — BUTTONS / INPUTS / UI CONTROLS
+   ========================================================= */
+
+body.relic-castle-theme :is(.button, .shopify-payment-button__button, .shopify-payment-button__button--unbranded) {
+  border-radius: 2px;
+  font-family: var(--relic-ui-font);
+  font-weight: 700;
+  letter-spacing: .055em;
+  text-transform: uppercase;
+  box-shadow: 0 10px 28px rgba(var(--color-shadow), .18);
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease, border-color .2s ease;
+}
+
+body.relic-castle-theme .button:not(.button--secondary),
+body.relic-castle-theme .shopify-payment-button__button--unbranded {
+  background: linear-gradient(180deg,
+    color-mix(in srgb, rgb(var(--color-button)) 92%, white),
+    rgb(var(--color-button)));
+  color: rgb(var(--color-button-text));
+  border-color: color-mix(in srgb, rgb(var(--color-button)) 72%, white);
+}
+
+body.relic-castle-theme .button--secondary {
+  background: color-mix(in srgb, rgb(var(--color-background)) 78%, transparent);
+  color: rgb(var(--color-foreground));
+  border-color: color-mix(in srgb, rgb(var(--color-foreground)) 22%, var(--relic-gold) 26%);
+}
+
+body.relic-castle-theme :is(.button, .shopify-payment-button__button):hover {
+  transform: translateY(-1px);
+  filter: brightness(1.04);
+  box-shadow: 0 14px 34px rgba(var(--color-shadow), .28);
+}
+
+body.relic-castle-theme :is(.field__input, .select__select, .customer .field input, .facets__display, .facets__price input) {
+  border-radius: 2px;
+}
+
+body.relic-castle-theme :is(.field, .select) {
+  --inputs-radius: 2px;
+  --inputs-border-width: 1px;
+}
+
+body.relic-castle-theme :is(.field__input, .select__select, .customer .field input) {
+  background: color-mix(in srgb, rgb(var(--color-background)) 84%, #07111f);
+  border-color: color-mix(in srgb, rgb(var(--color-foreground)) 16%, var(--relic-gold) 18%);
+}
+
+/* =========================================================
+   05 — LIVE BREAK CTA + LIVE VAULT
+   ========================================================= */
+
+body.relic-castle-theme .relic-live-break-button {
+  border-radius: 2px;
+  background: linear-gradient(180deg,
+    color-mix(in srgb, rgb(var(--color-button)) 93%, white),
+    color-mix(in srgb, rgb(var(--color-button)) 88%, black));
+  color: rgb(var(--color-button-text)) !important;
+  border-color: color-mix(in srgb, rgb(var(--color-button)) 72%, white);
+  box-shadow: 0 14px 38px rgba(var(--color-shadow), .28);
+}
+
+body.relic-castle-theme .relic-live-break-button .live-dot-indicator,
+body.relic-castle-theme .relic-section-kicker span {
+  background: var(--relic-red);
+  box-shadow: 0 0 0 3px rgba(255,67,67,.10), 0 0 12px rgba(255,67,67,.72);
+}
+
+body.relic-castle-theme .relic-section--live-vault {
+  position: relative;
+  overflow: hidden;
+  padding-top: clamp(14px, 2vw, 26px);
+  padding-bottom: clamp(32px, 5vw, 68px);
+  background:
+    linear-gradient(180deg,
+      color-mix(in srgb, rgb(var(--color-background)) 88%, #07111f),
+      color-mix(in srgb, rgb(var(--color-background)) 94%, #03070d));
+}
+
+body.relic-castle-theme .relic-section--live-vault::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: var(--relic-atmosphere-url), var(--relic-sand-url);
+  background-size: cover, min(1400px, 125vw) auto;
+  background-position: center 12%, center bottom;
+  background-repeat: no-repeat;
+  opacity: .20;
+}
+
+body.relic-castle-theme .relic-section--live-vault > * { position: relative; z-index: 1; }
+
+body.relic-castle-theme .relic-section-kicker {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 auto 12px;
+  max-width: 1400px;
+  padding: 0 2px;
+  color: color-mix(in srgb, rgb(var(--color-foreground)) 66%, var(--relic-gold));
+  font: 700 9px/1.2 var(--relic-ui-font);
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+body.relic-castle-theme .relic-video-frame,
+body.relic-castle-theme .relic-section--custom-live-stage .pc-live-stage__frame {
+  position: relative;
+  width: min(1320px, calc(100vw - 48px));
+  max-width: none;
+  margin-inline: auto;
+  padding: 1px;
+  border: 1px solid color-mix(in srgb, rgb(var(--color-foreground)) 12%, var(--relic-gold) 46%);
+  border-radius: var(--relic-radius-media);
+  background: rgba(4,9,15,.72);
+  box-shadow: var(--relic-shadow-strong), inset 0 1px 0 rgba(255,255,255,.04);
+}
+
+body.relic-castle-theme .relic-video-frame::before,
+body.relic-castle-theme .relic-section--custom-live-stage .pc-live-stage__frame::before {
+  content: "";
+  position: absolute;
+  inset: 0 10% auto;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(241,213,155,.62), transparent);
+  z-index: 4;
+}
+
+body.relic-castle-theme .relic-video-frame::after {
+  content: "LIVE VAULT";
+  position: absolute;
+  top: -1px;
+  left: 18px;
+  z-index: 5;
+  padding: 5px 9px 6px;
+  border: 1px solid color-mix(in srgb, var(--relic-gold) 48%, transparent);
+  border-top: 0;
+  border-radius: 0 0 2px 2px;
+  background: color-mix(in srgb, rgb(var(--color-background)) 92%, #07111f);
+  color: color-mix(in srgb, rgb(var(--color-foreground)) 72%, var(--relic-gold));
+  font: 700 9px/1 var(--relic-ui-font);
+  letter-spacing: .16em;
+}
+
+body.relic-castle-theme .relic-video-frame--plain {
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  border: 0;
+}
+body.relic-castle-theme .relic-video-frame--plain::before,
+body.relic-castle-theme .relic-video-frame--plain::after { display: none; }
+
+body.relic-castle-theme .relic-section--live-vault .video-section__media,
+body.relic-castle-theme .relic-section--custom-live-stage .pc-live-stage__aspect {
+  border-radius: calc(var(--relic-radius-media) - 1px);
+  border: 0;
+  background: #03070d;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.025);
+  overflow: hidden;
+}
+
+body.relic-castle-theme .relic-section--live-vault .deferred-media__poster-button {
+  width: 62px;
+  height: 62px;
+  border: 1px solid rgba(216,182,117,.56);
+  background: rgba(5,11,18,.82);
+  color: var(--relic-gold-bright);
+  box-shadow: 0 12px 36px rgba(0,0,0,.42);
+}
+
+/* =========================================================
+   06 — PRODUCT / COLLECTION CARDS
+   ========================================================= */
+
+body.relic-castle-theme :is(.card-wrapper .card, .article-card, .blog-articles__article) {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, rgb(var(--color-foreground)) 12%, var(--relic-gold) 24%);
+  border-radius: var(--relic-radius-panel);
+  background:
+    linear-gradient(180deg,
+      color-mix(in srgb, rgb(var(--color-background)) 88%, #0b1624),
+      color-mix(in srgb, rgb(var(--color-background)) 94%, #03070d));
+  box-shadow: var(--relic-shadow);
+  transition: transform .24s ease, border-color .24s ease, box-shadow .24s ease;
+}
+
+body.relic-castle-theme .card-wrapper:hover .card,
+body.relic-castle-theme .article-card:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, rgb(var(--color-button)) 46%, var(--relic-gold));
+  box-shadow: 0 28px 70px rgba(0,0,0,.38);
+}
+
+body.relic-castle-theme .card__media,
+body.relic-castle-theme .card__inner,
+body.relic-castle-theme .card__media .media {
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+body.relic-castle-theme .card__media img {
+  transition: transform .34s ease, filter .34s ease;
+}
+
+body.relic-castle-theme .card-wrapper:hover .card__media img {
+  transform: scale(1.015);
+  filter: saturate(1.04) contrast(1.02);
+}
+
+body.relic-castle-theme .card__content {
+  padding-top: .45rem;
+}
+
+body.relic-castle-theme .card__heading {
+  line-height: 1.1;
+}
+
+body.relic-castle-theme .quick-add__submit {
+  border-radius: 2px;
+}
+
+body.relic-castle-theme .collection__title .title,
+body.relic-castle-theme .relic-section--sealed-vault .title,
+body.relic-castle-theme .relic-section--chase-archive .title {
+  max-width: 1100px;
+  font-size: clamp(3rem, 5.2vw, 6rem);
+  line-height: .94;
+}
+
+/* =========================================================
+   07 — GENERIC MULTICOLUMN / EDITORIAL BENTO
+   Chase geometry is explicitly excluded.
+   ========================================================= */
+
+body.relic-castle-theme .multicolumn.relic-multicolumn-theme:not(.pc-chase-odds) {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+body.relic-castle-theme .multicolumn.relic-multicolumn-theme.relic-sand-on:not(.pc-chase-odds)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: var(--relic-sand-url);
+  background-size: min(1300px, 120vw) auto;
+  background-position: center 78%;
+  background-repeat: no-repeat;
+  opacity: calc(var(--relic-mc-sand-opacity, .08) * .72);
+  mix-blend-mode: screen;
+}
+
+body.relic-castle-theme .multicolumn.relic-multicolumn-theme.relic-sand-on:not(.pc-chase-odds)::after {
+  display: none;
+}
+
+body.relic-castle-theme .multicolumn.relic-multicolumn-theme .title {
+  font-size: clamp(2.8rem, 4.4vw, 5rem);
+  line-height: .96;
+}
+
+body.relic-castle-theme .multicolumn.relic-multicolumn-theme .multicolumn-list {
+  position: relative;
+  z-index: 1;
+  align-items: stretch;
+}
+
+body.relic-castle-theme .multicolumn.relic-multicolumn-theme.relic-glass-cards:not(.pc-chase-odds) .multicolumn-card {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid color-mix(in srgb, rgb(var(--color-foreground)) 12%, var(--relic-gold) 22%);
+  border-radius: var(--relic-radius-panel);
+  background:
+    linear-gradient(145deg,
+      color-mix(in srgb, rgb(var(--color-background)) 78%, #0b1624),
+      color-mix(in srgb, rgb(var(--color-background)) 90%, #03070d));
+  backdrop-filter: blur(var(--relic-glass-blur)) saturate(118%);
+  -webkit-backdrop-filter: blur(var(--relic-glass-blur)) saturate(118%);
+  box-shadow: 0 18px 54px rgba(var(--color-shadow), .24), inset 0 1px 0 rgba(255,255,255,.035);
+  transition: transform .24s ease, border-color .24s ease, box-shadow .24s ease;
+}
+
+body.relic-castle-theme .multicolumn.relic-multicolumn-theme.relic-glass-cards:not(.pc-chase-odds) .multicolumn-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(241,213,155,.34), transparent);
+}
+
+body.relic-castle-theme .multicolumn.relic-multicolumn-theme.relic-glass-cards:not(.pc-chase-odds) .multicolumn-card::after {
+  display: none;
+}
+
+body.relic-castle-theme .multicolumn.relic-multicolumn-theme.relic-glass-cards:not(.pc-chase-odds) .multicolumn-card:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, rgb(var(--color-button)) 36%, var(--relic-gold));
+  box-shadow: 0 26px 66px rgba(var(--color-shadow), .30);
+}
+
+body.relic-castle-theme .multicolumn.relic-multicolumn-theme.relic-glass-cards:not(.pc-chase-odds) .multicolumn-card__image {
+  display: block;
+  width: 100%;
+  border-radius: 2px;
+  object-fit: cover;
+}
+
+body.relic-castle-theme .multicolumn.relic-multicolumn-theme.relic-glass-cards:not(.pc-chase-odds) .multicolumn-card__info {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  padding: clamp(18px, 2vw, 28px);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+}
+
+body.relic-castle-theme .multicolumn.relic-multicolumn-theme.relic-glass-cards:not(.pc-chase-odds) .multicolumn-card__info h3 {
+  margin-bottom: 8px;
+  letter-spacing: -.01em;
+}
+
+body.relic-castle-theme .multicolumn.relic-multicolumn-theme.relic-glass-cards:not(.pc-chase-odds) .multicolumn-card__info .rte {
+  color: color-mix(in srgb, rgb(var(--color-foreground)) 80%, transparent);
+}
+
+/* =========================================================
+   08 — CHASE ARCHIVE: VISUAL ONLY, GEOMETRY UNTOUCHED
+   ========================================================= */
+
+body.relic-castle-theme .multicolumn.pc-chase-odds .pc-chase-column-shell {
+  border-radius: 4px;
+  border-color: color-mix(in srgb, rgb(var(--color-foreground)) 12%, var(--relic-gold) 28%);
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.035), rgba(4,9,15,.58)) !important;
+  box-shadow: 0 20px 58px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.04);
+  backdrop-filter: blur(8px) saturate(116%);
+  -webkit-backdrop-filter: blur(8px) saturate(116%);
+}
+
+body.relic-castle-theme .multicolumn.pc-chase-odds .pc-chase-slab {
+  border-radius: 3px;
+}
+
+body.relic-castle-theme .multicolumn.pc-chase-odds .pc-chase-collectible-case {
+  border-color: rgba(216,182,117,.34);
+  box-shadow: 0 12px 28px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.10);
+}
+
+body.relic-castle-theme .multicolumn.pc-chase-odds .pc-chase-cta {
+  border-radius: 2px;
+  background: linear-gradient(180deg,
+    color-mix(in srgb, rgb(var(--color-button)) 92%, white),
+    rgb(var(--color-button)));
+  color: rgb(var(--color-button-text));
+  border-color: color-mix(in srgb, rgb(var(--color-button)) 72%, white);
+  box-shadow: 0 10px 28px rgba(var(--color-shadow), .26);
+}
+
+body.relic-castle-theme .multicolumn.pc-chase-odds .pc-chase-cta__arrow {
+  color: currentColor;
+  text-shadow: none;
+}
+
+/* =========================================================
+   09 — RICH TEXT / INFORMATION PANELS
+   ========================================================= */
+
+body.relic-castle-theme .rich-text:not(.rich-text--full-width),
+body.relic-castle-theme .content-container:not(.multicolumn-card):not(.card):not(.product__info-container) {
+  border-radius: var(--relic-radius-panel);
+}
+
+body.relic-castle-theme .rich-text__blocks {
+  max-width: 84rem;
+}
+
+body.relic-castle-theme .rich-text__heading {
+  font-size: clamp(2.8rem, 5vw, 5.4rem);
+}
+
+body.relic-castle-theme .rich-text__text {
+  color: color-mix(in srgb, rgb(var(--color-foreground)) 82%, transparent);
+}
+
+body.relic-castle-theme .custom-glass-btn {
+  border-radius: 2px !important;
+  backdrop-filter: blur(8px) saturate(118%) !important;
+  -webkit-backdrop-filter: blur(8px) saturate(118%) !important;
+}
+
+/* =========================================================
+   10 — COLLECTION / SEARCH / FACETS
+   ========================================================= */
+
+body.relic-castle-theme :is(.collection-hero, .template-search, .main-search) {
+  position: relative;
+}
+
+body.relic-castle-theme .collection-hero__inner {
+  border-bottom: 1px solid color-mix(in srgb, rgb(var(--color-foreground)) 10%, var(--relic-gold) 22%);
+}
+
+body.relic-castle-theme .collection-hero__title {
+  font-size: clamp(3.4rem, 6vw, 7rem);
+}
+
+body.relic-castle-theme :is(.facets__display, .mobile-facets__inner, .facet-filters__field .select, .facets__summary) {
+  border-color: color-mix(in srgb, rgb(var(--color-foreground)) 12%, var(--relic-gold) 22%);
+  border-radius: 2px;
+}
+
+body.relic-castle-theme :is(.facets__display, .mobile-facets__inner) {
+  background: color-mix(in srgb, rgb(var(--color-background)) 94%, #07111f);
+  box-shadow: var(--relic-shadow-strong);
+}
+
+body.relic-castle-theme .active-facets__button-inner {
+  border-radius: 2px;
+}
+
+/* =========================================================
+   11 — PRODUCT PAGE / MEDIA / BUY BOX
+   ========================================================= */
+
+body.relic-castle-theme .product__media-wrapper,
+body.relic-castle-theme .product__info-wrapper {
+  min-width: 0;
+}
+
+body.relic-castle-theme .product__media-list .product__media-item,
+body.relic-castle-theme .product__media {
+  border-radius: var(--relic-radius-media);
+}
+
+body.relic-castle-theme .product__media {
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, rgb(var(--color-foreground)) 12%, var(--relic-gold) 24%);
+  background: color-mix(in srgb, rgb(var(--color-background)) 86%, #07111f);
+  box-shadow: var(--relic-shadow);
+}
+
+body.relic-castle-theme .product__info-container {
+  padding: clamp(18px, 2.2vw, 30px);
+  border: 1px solid color-mix(in srgb, rgb(var(--color-foreground)) 12%, var(--relic-gold) 22%);
+  border-radius: var(--relic-radius-panel);
+  background: color-mix(in srgb, rgb(var(--color-background)) 88%, #07111f);
+  box-shadow: var(--relic-shadow);
+}
+
+body.relic-castle-theme .product__title h1 {
+  font-size: clamp(3rem, 4.5vw, 5.6rem);
+  line-height: .96;
+}
+
+body.relic-castle-theme :is(.product-form__input .form__label, .product__text) {
+  letter-spacing: .04em;
+}
+
+body.relic-castle-theme :is(.quantity, .product-form__input .select) {
+  border-radius: 2px;
+}
+
+/* =========================================================
+   12 — BLOG / ARTICLE / PAGES
+   ========================================================= */
+
+body.relic-castle-theme :is(.main-blog, .article-template, .main-page) {
+  position: relative;
+}
+
+body.relic-castle-theme .article-template__hero-container,
+body.relic-castle-theme .article-template__content,
+body.relic-castle-theme .main-page-title + .rte {
+  border-radius: var(--relic-radius-panel);
+}
+
+body.relic-castle-theme .article-template__content {
+  max-width: 82rem;
+}
+
+body.relic-castle-theme .article-template__title {
+  font-size: clamp(3.2rem, 6vw, 7rem);
+  line-height: .96;
+}
+
+body.relic-castle-theme .article-card__image-wrapper {
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+/* =========================================================
+   13 — CART / DRAWER / ACCOUNT / 404
+   ========================================================= */
+
+body.relic-castle-theme :is(.cart-drawer, .drawer__inner, .cart-items, .cart__footer, .customer form) {
+  border-color: color-mix(in srgb, rgb(var(--color-foreground)) 12%, var(--relic-gold) 20%);
+}
+
+body.relic-castle-theme .drawer__inner {
+  background: color-mix(in srgb, rgb(var(--color-background)) 94%, #07111f);
+  box-shadow: -18px 0 60px rgba(0,0,0,.42);
+}
+
+body.relic-castle-theme :is(.cart-item, .cart__footer, .customer form) {
+  border-radius: var(--relic-radius-panel);
+}
+
+body.relic-castle-theme .customer form {
+  padding: clamp(18px, 3vw, 32px);
+  background: color-mix(in srgb, rgb(var(--color-background)) 90%, #07111f);
+  box-shadow: var(--relic-shadow);
+}
+
+body.relic-castle-theme .template-404 {
+  padding-block: clamp(8rem, 14vw, 16rem);
+}
+
+body.relic-castle-theme .template-404 .title {
+  font-size: clamp(4rem, 9vw, 10rem);
+}
+
+/* =========================================================
+   14 — FOOTER
+   ========================================================= */
+
+body.relic-castle-theme .footer {
+  position: relative;
+  background:
+    linear-gradient(180deg,
+      color-mix(in srgb, rgb(var(--color-background)) 94%, #07111f),
+      color-mix(in srgb, rgb(var(--color-background)) 98%, #03070d));
+  border-top: 1px solid color-mix(in srgb, rgb(var(--color-foreground)) 10%, var(--relic-gold) 24%);
+}
+
+body.relic-castle-theme .footer::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(216,182,117,.46), transparent);
+}
+
+body.relic-castle-theme .footer-block__heading {
+  font-family: var(--relic-display-font);
+  letter-spacing: .02em;
+}
+
+/* =========================================================
+   15 — RESPONSIVE / ACCESSIBILITY
+   ========================================================= */
+
+@media screen and (max-width: 989px) {
+  body.relic-castle-theme .relic-video-frame,
+  body.relic-castle-theme .relic-section--custom-live-stage .pc-live-stage__frame {
+    width: calc(100vw - 28px);
+  }
+
+  body.relic-castle-theme .product__info-container {
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  body.relic-castle-theme::after { opacity: .07; }
+
+  body.relic-castle-theme .relic-header-wrapper .header { min-height: 68px; }
+
+  body.relic-castle-theme .header__heading-logo,
+  body.relic-castle-theme .header__heading-logo.motion-reduce {
+    max-height: 46px;
+    max-width: min(70vw, 250px);
+  }
+
+  body.relic-castle-theme :is(.collection__title .title, .relic-section--sealed-vault .title, .relic-section--chase-archive .title) {
+    font-size: clamp(2.8rem, 10vw, 4.6rem);
+  }
+
+  body.relic-castle-theme .multicolumn.relic-multicolumn-theme .title,
+  body.relic-castle-theme .rich-text__heading {
+    font-size: clamp(2.6rem, 9vw, 4.2rem);
+  }
+
+  body.relic-castle-theme .relic-video-frame,
+  body.relic-castle-theme .relic-section--custom-live-stage .pc-live-stage__frame {
+    width: calc(100vw - 20px);
+    padding: 1px;
+    border-radius: 3px;
+  }
+
+  body.relic-castle-theme .relic-section--live-vault .video-section__media,
+  body.relic-castle-theme .relic-section--custom-live-stage .pc-live-stage__aspect {
+    border-radius: 2px;
+  }
+
+  body.relic-castle-theme .multicolumn.relic-multicolumn-theme.relic-glass-cards:not(.pc-chase-odds) .multicolumn-card__info {
+    padding: 18px;
+  }
+
+  body.relic-castle-theme .product__info-container { padding: 18px; }
+}
+
+@supports not ((backdrop-filter: blur(8px))) {
+  body.relic-castle-theme :is(
+    .relic-header-wrapper,
+    .multicolumn.relic-multicolumn-theme.relic-glass-cards:not(.pc-chase-odds) .multicolumn-card,
+    .multicolumn.pc-chase-odds .pc-chase-column-shell,
+    .relic-header-wrapper .menu-drawer,
+    .relic-header-wrapper .header__submenu,
+    .relic-header-wrapper .mega-menu__content
+  ) {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  body.relic-castle-theme * {
+    animation-duration: .001ms !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

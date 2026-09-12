@@ -1,0 +1,21 @@
+<div class="pc-cyber-environment" aria-hidden="true">
+  <img class="pc-cyber-layer pc-cyber-starfield" src="{{ 'cyber-starfield.svg' | asset_url }}" alt="" width="1600" height="900" loading="eager">
+  <img class="pc-cyber-layer pc-cyber-orbits" src="{{ 'cyber-orbits.svg' | asset_url }}" alt="" width="1600" height="900" loading="lazy">
+  <img class="pc-cyber-layer pc-cyber-particles" src="{{ 'cyber-particles.svg' | asset_url }}" alt="" width="1600" height="900" loading="lazy">
+  <div class="pc-cyber-grid"></div>
+</div>
+<style>
+:root{
+  --pc-corners:url("{{ 'cyber-corners.svg' | asset_url }}");
+  --pc-constellation:url("{{ 'cyber-constellation.svg' | asset_url }}");
+  --pc-radial:url("{{ 'cyber-radial.svg' | asset_url }}");
+}
+.pc-cyber-environment{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;opacity:.78}
+.pc-cyber-layer{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pc-cyber-starfield{opacity:.48}
+.pc-cyber-orbits{opacity:.16;transform:scale(1.08);animation:pc-orbit-drift 28s ease-in-out infinite alternate}
+.pc-cyber-particles{opacity:.13;animation:pc-particle-drift 20s ease-in-out infinite alternate}
+.pc-cyber-grid{position:absolute;inset:0;background-image:url("{{ 'cyber-grid.svg' | asset_url }}");background-size:cover;background-position:center;opacity:.08}
+@keyframes pc-orbit-drift{from{transform:scale(1.06) translate3d(-1%,0,0)}to{transform:scale(1.10) translate3d(1%,1%,0)}}
+@keyframes pc-particle-drift{from{transform:translate3d(-1%,1%,0)}to{transform:translate3d(1%,-1%,0)}}
+</style>

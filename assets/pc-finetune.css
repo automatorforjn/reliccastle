@@ -1,0 +1,77 @@
+/* =========================================================
+   POKE CENTRAL — SECTION COLOR PARITY
+   Featured Collection + Chase & Odds
+   ========================================================= */
+
+/*
+   Keep Shopify/Dawn color-scheme gradients intact.
+   Do NOT make these sections transparent.
+*/
+
+.pc-featured-collection {
+  position: relative;
+  z-index: 1;
+}
+
+.pc-multicolumn-glass.multicolumn {
+  position: relative;
+  z-index: 1;
+}
+
+/*
+   Remove any older transparency override if one exists.
+   The Shopify .gradient background should remain visible.
+*/
+
+.pc-multicolumn-glass.multicolumn {
+  background-color: transparent;
+}
+/* =========================================================
+   FEATURED COLLECTION — PRODUCT CARDS ONLY
+   Live Breaks-inspired Liquid Glass
+   ========================================================= */
+
+.pc-featured-collection .card-wrapper .card {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.14) 0%,
+      rgba(255, 255, 255, 0.065) 35%,
+      rgba(255, 255, 255, 0.035) 65%,
+      rgba(255, 255, 255, 0.075) 100%
+    ) !important;
+
+  background-color: rgba(255, 255, 255, 0.045) !important;
+
+  backdrop-filter: blur(22px) saturate(140%);
+  -webkit-backdrop-filter: blur(22px) saturate(140%);
+
+  border: 1px solid rgba(255, 255, 255, 0.20);
+
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.06);
+
+  overflow: hidden;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+/* Hover — subtle lift and brighter glass edge */
+
+.pc-featured-collection .card-wrapper:hover .card {
+  border-color: rgba(255, 255, 255, 0.30);
+
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, 0.38),
+    0 0 28px rgba(168, 85, 247, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.34),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+
+  transform: translateY(-2px);
+}

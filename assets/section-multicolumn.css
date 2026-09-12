@@ -1,0 +1,1278 @@
+.multicolumn .title {
+  margin: 0;
+}
+
+.multicolumn.no-heading .title {
+  display: none;
+}
+
+.multicolumn .title-wrapper-with-link {
+  margin-top: 0;
+}
+
+@media screen and (max-width: 749px) {
+  .multicolumn .title-wrapper-with-link {
+    margin-bottom: 3rem;
+  }
+}
+
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .multicolumn__title {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .multicolumn .page-width {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.multicolumn-card__image-wrapper--third-width {
+  width: 33%;
+}
+
+.multicolumn-card__image-wrapper--half-width {
+  width: 50%;
+}
+
+.multicolumn-list__item.center .multicolumn-card__image-wrapper:not(.multicolumn-card__image-wrapper--full-width),
+.multicolumn-list__item:only-child {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.multicolumn .button {
+  margin-top: 1.5rem;
+}
+
+@media screen and (min-width: 750px) {
+  .multicolumn .button {
+    margin-top: 4rem;
+  }
+}
+
+.multicolumn-list {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.multicolumn-list__item:only-child {
+  max-width: 72rem;
+}
+
+.multicolumn-list__item--empty {
+  display: none;
+}
+
+.multicolumn:not(.background-none) .multicolumn-card {
+  background: rgb(var(--color-background));
+  height: 100%;
+}
+
+.multicolumn.background-primary .multicolumn-card {
+  background: rgb(var(--color-background))
+    linear-gradient(rgba(var(--color-foreground), 0.04), rgba(var(--color-foreground), 0.04));
+}
+
+.multicolumn-list h3 {
+  line-height: calc(1 + 0.5 / max(1, var(--font-heading-scale)));
+}
+
+.multicolumn-list h3,
+.multicolumn-list p {
+  margin: 0;
+}
+
+.multicolumn-card-spacing {
+  padding-top: 2.5rem;
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+}
+
+.multicolumn-card__info > :nth-child(2) {
+  margin-top: 1rem;
+}
+
+.multicolumn-list__item.center .media--adapt,
+.multicolumn-list__item .media--adapt .multicolumn-card__image {
+  width: auto;
+}
+
+.multicolumn-list__item.center .media--adapt img {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media screen and (max-width: 749px) {
+  .multicolumn-list {
+    margin: 0;
+    width: 100%;
+  }
+
+  .multicolumn-list:not(.slider) {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .multicolumn-list:not(.slider) {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .multicolumn-list.slider {
+    padding: 0;
+  }
+
+  .multicolumn-list__item,
+  .grid--4-col-desktop .multicolumn-list__item {
+    padding-bottom: 0;
+  }
+
+  .background-none .grid--2-col-tablet .multicolumn-list__item {
+    margin-top: 4rem;
+  }
+}
+
+.background-none .multicolumn-card-spacing {
+  padding: 0;
+  margin: 0;
+}
+
+.multicolumn-card__info {
+  padding: 2.5rem;
+}
+
+.background-none .multicolumn-card__info {
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.background-none .slider .multicolumn-card__info {
+  padding-bottom: 0;
+}
+
+.background-none .multicolumn-card__image-wrapper + .multicolumn-card__info {
+  padding-top: 2.5rem;
+}
+
+.background-none .slider .multicolumn-card__info {
+  padding-left: 0.5rem;
+}
+
+.background-none .slider .multicolumn-card__image-wrapper + .multicolumn-card__info {
+  padding-left: 1.5rem;
+}
+
+.background-none .multicolumn-list:not(.slider) .center .multicolumn-card__info {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+@media screen and (max-width: 749px) {
+  .background-none .slider .multicolumn-card__info {
+    padding-bottom: 1rem;
+  }
+
+  .multicolumn.background-none .slider.slider--mobile {
+    margin-bottom: 0rem;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .background-none .multicolumn-card__image-wrapper {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+
+  .background-none .multicolumn-list .multicolumn-card__info,
+  .background-none .multicolumn-list:not(.slider) .center .multicolumn-card__info {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+.multicolumn-card {
+  position: relative;
+  box-sizing: border-box;
+}
+
+.multicolumn-card > .multicolumn-card__image-wrapper--full-width:not(.multicolumn-card-spacing) {
+  border-top-left-radius: calc(var(--text-boxes-radius) - var(--text-boxes-border-width));
+  border-top-right-radius: calc(var(--text-boxes-radius) - var(--text-boxes-border-width));
+  overflow: hidden;
+}
+
+.multicolumn.background-none .multicolumn-card {
+  border-radius: 0;
+}
+
+.multicolumn-card__info .link {
+  text-decoration: none;
+  font-size: inherit;
+  margin-top: 1.5rem;
+}
+
+.multicolumn-card__info .icon-wrap {
+  margin-left: 0.8rem;
+  white-space: nowrap;
+}
+
+@media screen and (min-width: 990px) {
+  .multicolumn-list__item--empty {
+    display: list-item;
+  }
+}
+
+/* =========================================================
+   POKE CENTRAL — CHASE & ODDS LAYER
+   =========================================================
+
+   ARCHITECTURE
+   ---------------------------------------------------------
+   Shopify remains authoritative for:
+   - section structure
+   - page width
+   - grid columns
+   - grid spacing
+   - mobile slider
+   - grid-item width
+
+   Relic Castle controls ONLY:
+   - Chase Column Shell glass treatment
+   - Chase Background presentation inside the Shopify shell
+   - Chase Background Image
+   - Collectible Stage, Protector, and Card
+   - Chase Display Mode
+   - Feature Info overlay treatment
+
+   DOM / layer model
+   ---------------------------------------------------------
+   .multicolumn.pc-chase-odds
+     .multicolumn-list
+       .pc-chase-column                 Shopify grid slot + native ratio
+         .pc-chase-column-shell         native Shopify card shell
+           .pc-chase-surface             Relic Castle visual surface
+             .pc-chase-slab              background plane (2px inset)
+               .pc-chase-image-viewport Chase background window
+                 .pc-chase-environment-frame
+               .pc-chase-glass           glass atmosphere
+               .pc-chase-foreground      collectible stage
+                 .pc-chase-collectible-case
+                   .pc-chase-collectible-image
+               .pc-chase-bezel           optical finishing edge
+           .multicolumn-card__info       native Shopify content / overlay
+
+   The old ambiguous Chase card class is intentionally gone.
+   ========================================================= */
+
+
+/* =========================================================
+   01 — CHASE SECTION SCOPE
+   ========================================================= */
+
+.multicolumn.pc-chase-odds {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Chase-only row sizing. This changes the native <ul> footprint, not the
+   glass shell or its background. Native Shopify columns remain inside it. */
+@media screen and (min-width: 750px) {
+  .multicolumn.pc-chase-odds
+  .multicolumn-list.pc-feature-row-width--full {
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  .multicolumn.pc-chase-odds
+  .multicolumn-list.pc-feature-row-width--wide {
+    width: 92%;
+    margin-inline: auto;
+  }
+
+  .multicolumn.pc-chase-odds
+  .multicolumn-list.pc-feature-row-width--compact {
+    width: 84%;
+    margin-inline: auto;
+  }
+}
+
+
+/* =========================================================
+   02 — SHOPIFY GRID ITEM = CHASE COLUMN SLOT
+   =========================================================
+
+   Width is calculated by Shopify. The native image ratio is mirrored
+   onto the outer feature-card shell so the internal visual stage has a
+   real containing block. The Chase background fills that stage.
+   ========================================================= */
+
+.multicolumn.pc-chase-odds .pc-chase-column {
+  position: relative;
+  box-sizing: border-box;
+
+  /* Shopify owns this width through the native grid classes. */
+  min-width: 0;
+
+  align-self: start;
+}
+
+/* Native Multicolumn image_ratio → outer Chase column shape. */
+.multicolumn.pc-chase-odds .pc-chase-column--ratio-portrait {
+  aspect-ratio: 4 / 5;
+}
+
+.multicolumn.pc-chase-odds .pc-chase-column--ratio-square,
+.multicolumn.pc-chase-odds .pc-chase-column--ratio-circle {
+  aspect-ratio: 1 / 1;
+}
+
+.multicolumn.pc-chase-odds .pc-chase-column--ratio-adapt {
+  aspect-ratio: var(--pc-chase-column-adapt-ratio, 5 / 7);
+}
+
+/* Native circle presentation maps to a circular Shopify column shell. */
+.multicolumn.pc-chase-odds .pc-chase-column--ratio-circle .pc-chase-column-shell {
+  border-radius: 50%;
+}
+
+
+/* =========================================================
+   03 — NATIVE SHOPIFY CARD = COLUMN GLASS SHELL
+   =========================================================
+
+   The native .multicolumn-card remains in the DOM.
+   This is the Shopify-owned visual shell around the inner
+   Poke Central Chase surface.
+   ========================================================= */
+
+.multicolumn.pc-chase-odds .pc-chase-column-shell {
+  position: relative;
+
+  width: 100%;
+  height: auto;
+  min-width: 0;
+  min-height: 0;
+
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+  isolation: isolate;
+
+  border-radius: 4px;
+
+  /* Aspect ratio is supplied by the native Shopify image_ratio mirror below. */
+  aspect-ratio: 4 / 5;
+
+  background:
+    linear-gradient(145deg,
+      rgba(255, 255, 255, 0.095) 0%,
+      var(--pc-glass-card) 42%,
+      rgba(216, 182, 117, 0.055) 100%
+    ) !important;
+
+  border: 1px solid var(--pc-glass-border);
+
+  box-shadow:
+    0 18px 48px rgba(0, 0, 0, 0.34),
+    0 0 28px rgba(216, 182, 117, 0.085),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.045);
+
+  backdrop-filter:
+    blur(var(--pc-glass-blur-card))
+    saturate(135%);
+
+  -webkit-backdrop-filter:
+    blur(var(--pc-glass-blur-card))
+    saturate(135%);
+}
+
+
+/* Mirror Shopify's native ratio choices on the visual shell so its
+   percentage-height descendants always have a real containing block. */
+.multicolumn.pc-chase-odds .pc-chase-column--ratio-portrait .pc-chase-column-shell {
+  aspect-ratio: 4 / 5;
+}
+
+.multicolumn.pc-chase-odds .pc-chase-column--ratio-square .pc-chase-column-shell,
+.multicolumn.pc-chase-odds .pc-chase-column--ratio-circle .pc-chase-column-shell {
+  aspect-ratio: 1 / 1;
+}
+
+.multicolumn.pc-chase-odds .pc-chase-column--ratio-adapt .pc-chase-column-shell {
+  aspect-ratio: var(--pc-chase-column-adapt-ratio, 5 / 7);
+}
+
+
+/* =========================================================
+   04 — CHASE SURFACE
+   ========================================================= */
+
+.multicolumn.pc-chase-odds .pc-chase-surface {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  min-width: 0;
+  min-height: 0;
+
+  box-sizing: border-box;
+
+  pointer-events: none;
+
+  isolation: isolate;
+
+  z-index: 1;
+}
+
+
+/* =========================================================
+   05 — CHASE BACKGROUND DISPLAY
+   ========================================================= */
+
+.multicolumn.pc-chase-odds .pc-chase-slab {
+  position: absolute;
+  inset: 2px;
+
+  width: auto;
+  height: auto;
+  min-width: 0;
+  min-height: 0;
+  max-width: none;
+  max-height: none;
+
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: inherit;
+  isolation: isolate;
+
+  background:
+    linear-gradient(145deg, rgba(12, 7, 35, 0.10), rgba(8, 5, 26, 0.18));
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.085),
+    inset 0 0 26px rgba(255,255,255,0.022),
+    0 10px 28px rgba(0,0,0,0.16);
+
+  z-index: 1;
+}
+
+
+/* =========================================================
+   06 — CHASE ENVIRONMENT IMAGE
+   ========================================================= */
+
+.multicolumn.pc-chase-odds .pc-chase-image-viewport {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: inherit;
+  z-index: 1;
+}
+
+.multicolumn.pc-chase-odds .pc-chase-environment-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+
+.multicolumn.pc-chase-odds .pc-chase-environment-image {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.96;
+  pointer-events: none;
+}
+
+/* Mode A — clean environment: +3 percentage points of visual opacity. */
+.multicolumn.pc-chase-odds .pc-chase-surface.pc-mode--environment .pc-chase-environment-image {
+  opacity: 0.99;
+}
+
+.multicolumn.pc-chase-odds .pc-chase-image-viewport::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-sizing: border-box;
+  border-radius: inherit;
+  border: 1px solid rgba(255,255,255,0.13);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), inset 0 0 20px rgba(255,255,255,0.028);
+  pointer-events: none;
+  z-index: 2;
+}
+
+
+/* =========================================================
+   07 — GLASS ATMOSPHERE
+   =========================================================
+
+   Dawn/Publisher base.css contains div:empty { display:none }.
+   This element is intentionally empty and needs display:block
+   so its pseudo/visual layer is reliable.
+   ========================================================= */
+
+.multicolumn.pc-chase-odds .pc-chase-glass {
+  position: absolute;
+
+  inset: 0;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  box-sizing: border-box;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.052) 0%,
+      rgba(255,255,255,0.010) 34%,
+      rgba(216,182,117,0.022) 66%,
+      rgba(255,255,255,0.038) 100%
+    );
+
+  backdrop-filter:
+    blur(4px)
+    saturate(122%);
+
+  -webkit-backdrop-filter:
+    blur(4px)
+    saturate(122%);
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   08 — COLLECTIBLE CARD
+   =========================================================
+
+   The Chase Visual Surface is shared by the background, collectible,
+   and Feature Info overlay. The collectible gets its own stage so its
+   natural proportions remain independent from the Shopify grid.
+   ========================================================= */
+
+.multicolumn.pc-chase-odds .pc-chase-foreground {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: min(78%, calc(100% - 24px));
+  height: max(0px, calc(100% - var(--pc-info-height, 118px) - 24px));
+  min-width: 0;
+  min-height: 0;
+  max-width: calc(100% - 24px);
+  max-height: none;
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  overflow: visible;
+  pointer-events: none;
+  z-index: 6;
+}
+
+/* The shell always fills its Shopify LI. Row width is controlled on the native
+   .multicolumn-list above; the shell must never become the grid-spacing control. */
+/* Physical protector: tightly hugs the natural card image. */
+.multicolumn.pc-chase-odds .pc-chase-collectible-case {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  flex: 0 1 auto;
+
+  box-sizing: border-box;
+  padding: 2px;
+  overflow: hidden;
+
+  border-radius: 9px;
+  background:
+    linear-gradient(
+      135deg,
+      var(--pc-glass-collectible),
+      rgba(255,255,255,0.018) 48%,
+      rgba(139,92,246,0.045)
+    );
+  border: 1px solid rgba(255,255,255,0.30);
+
+  box-shadow:
+    0 12px 28px rgba(0,0,0,0.30),
+    0 0 0 1px rgba(183,145,255,0.055),
+    inset 0 1px 0 rgba(255,255,255,0.24),
+    inset 0 -1px 0 rgba(255,255,255,0.06);
+
+  backdrop-filter: blur(var(--pc-glass-blur-collectible)) saturate(125%);
+  -webkit-backdrop-filter: blur(var(--pc-glass-blur-collectible)) saturate(125%);
+  isolation: isolate;
+}
+
+.multicolumn.pc-chase-odds .pc-chase-collectible-case::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background:
+    linear-gradient(
+      118deg,
+      rgba(255,255,255,0.16) 0%,
+      rgba(255,255,255,0.045) 18%,
+      transparent 40%,
+      transparent 72%,
+      rgba(201,168,255,0.055) 100%
+    );
+  border: 1px solid rgba(255,255,255,0.16);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.20),
+    inset 0 -1px 0 rgba(255,255,255,0.055);
+  z-index: 2;
+}
+
+.multicolumn.pc-chase-odds .pc-chase-collectible-image {
+  position: relative;
+  z-index: 1;
+
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  object-position: center;
+  object-fit: contain;
+  opacity: 1;
+  border: 0;
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   09B — OUTER CIRCLE ISOLATION
+   =========================================================
+
+   Circle belongs ONLY to the Shopify outer column shell.
+   The Chase Background Plane follows that shell shape.
+   ========================================================= */
+
+.multicolumn.pc-chase-odds
+.pc-chase-column--ratio-circle
+.pc-chase-column-shell {
+  border-radius: 50%;
+}
+
+.multicolumn.pc-chase-odds
+.pc-chase-column--ratio-circle
+.pc-chase-column-shell .pc-chase-surface {
+  border-radius: inherit;
+}
+
+/* The background follows the outer Shopify shell shape, including circle mode. */
+.multicolumn.pc-chase-odds
+.pc-chase-column--ratio-circle
+.pc-chase-column-shell .pc-chase-slab {
+  border-radius: inherit;
+}
+
+/* =========================================================
+   10 — CHASE DISPLAY MODE
+   =========================================================
+
+   Display mode changes the optical treatment of the Chase background.
+   It does not change grid geometry or the collectible's proportions.
+   ========================================================= */
+
+.multicolumn.pc-chase-odds .pc-chase-surface.pc-mode--environment .pc-chase-glass {
+  background: linear-gradient(135deg, rgba(255,255,255,0.050) 0%, rgba(255,255,255,0.010) 38%, rgba(216,182,117,0.012) 68%, rgba(255,255,255,0.030) 100%);
+  backdrop-filter: blur(2px) saturate(112%);
+  -webkit-backdrop-filter: blur(2px) saturate(112%);
+}
+
+.multicolumn.pc-chase-odds .pc-chase-surface.pc-mode--encased .pc-chase-slab {
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.14), inset 0 0 26px rgba(216,182,117,0.10), 0 14px 34px rgba(0,0,0,0.28);
+}
+
+.multicolumn.pc-chase-odds .pc-chase-surface.pc-mode--encased .pc-chase-image-viewport::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  pointer-events: none;
+  border-radius: 11px;
+  border: 1px solid rgba(255,255,255,0.13);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), inset 0 0 20px rgba(255,255,255,0.025);
+  z-index: 3;
+}
+
+.multicolumn.pc-chase-odds .pc-chase-surface.pc-mode--encased .pc-chase-glass {
+  background: linear-gradient(135deg, rgba(255,255,255,0.075) 0%, rgba(255,255,255,0.018) 36%, rgba(216,182,117,0.028) 68%, rgba(255,255,255,0.050) 100%);
+  backdrop-filter: blur(3px) saturate(120%);
+  -webkit-backdrop-filter: blur(3px) saturate(120%);
+}
+
+/* =========================================================
+   11 — FINAL SLAB BEZEL
+   ========================================================= */
+
+.multicolumn.pc-chase-odds .pc-chase-bezel {
+  position: absolute;
+
+  inset: 0;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  box-sizing: border-box;
+
+  border-radius: inherit;
+
+  border:
+    1px solid rgba(255,255,255,0.12);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.10),
+    inset 0 -1px 0 rgba(255,255,255,0.04);
+
+  pointer-events: none;
+
+  z-index: 8;
+}
+
+
+/* =========================================================
+   13 — SHOPIFY INFORMATION ZONE
+   =========================================================
+
+   Feature Info remains native Shopify content, but visually becomes a
+   translucent overlay on the SAME Chase Background Plane. Its measured
+   height is exported to --pc-info-height by the section helper script so
+   the collectible stage automatically gives the text room.
+   ========================================================= */
+
+.multicolumn.pc-chase-odds
+.pc-chase-column-shell
+.multicolumn-card__info {
+  position: absolute;
+
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+
+  width: auto;
+  min-height: 0;
+  max-height: none;
+
+  margin: 0;
+  padding: clamp(10px, 1.2vw, 14px) clamp(13px, 1.5vw, 18px) clamp(11px, 1.25vw, 15px);
+
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: clamp(3px, 0.35vw, 5px);
+
+  overflow: visible;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(5,2,15,0) 0%,
+      rgba(5,2,15,0.12) 24%,
+      rgba(5,2,15,0.42) 62%,
+      rgba(5,2,15,0.70) 100%
+    );
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  border-radius: 0 0 3px 3px;
+
+  z-index: 20;
+}
+
+.multicolumn.pc-chase-odds
+.pc-chase-column-shell
+.multicolumn-card__info > * {
+  box-sizing: border-box;
+}
+
+.multicolumn.pc-chase-odds
+.pc-chase-column-shell
+.multicolumn-card__info h3 {
+  position: relative;
+  z-index: 21;
+
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  color: #ffffff;
+  font-size: calc(clamp(1.35rem, 1.20rem + 0.34vw, 1.82rem) * var(--pc-info-scale, 1));
+  line-height: 1.08;
+  font-weight: 700;
+  letter-spacing: -0.018em;
+  text-wrap: balance;
+
+  overflow: visible;
+  white-space: normal;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.78);
+}
+
+.multicolumn.pc-chase-odds
+.pc-chase-column-shell
+.multicolumn-card__info .rte {
+  position: relative;
+  z-index: 21;
+
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  color: rgba(255,255,255,0.88);
+  font-size: calc(clamp(1.02rem, 0.96rem + 0.16vw, 1.28rem) * var(--pc-info-scale, 1));
+  line-height: 1.35;
+  text-wrap: pretty;
+
+  overflow: visible;
+  white-space: normal;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.78);
+}
+
+.multicolumn.pc-chase-odds
+.pc-chase-column-shell
+.multicolumn-card__info .rte p {
+  margin: 0;
+}
+
+/* =========================================================
+   13 — CHASE CTA
+   ========================================================= */
+
+.multicolumn.pc-chase-odds
+.pc-chase-cta {
+  position: relative;
+
+  z-index: 22;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  align-self: flex-start;
+
+  width: fit-content;
+  max-width: 100%;
+
+  min-height: 0;
+
+  margin: 7px 0 0;
+  padding: 9px 15px;
+
+  box-sizing: border-box;
+
+  border-radius: 2px;
+
+  border:
+    1px solid color-mix(in srgb, rgb(var(--color-button)) 72%, white);
+
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, rgb(var(--color-button)) 92%, white),
+      rgb(var(--color-button))
+    );
+
+  color: rgb(var(--color-button-text));
+
+  font-size: clamp(1.15rem, 1.08rem + 0.12vw, 1.28rem);
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 9px 26px rgba(var(--color-shadow),0.24),
+    inset 0 1px 0 rgba(255,255,255,0.24);
+
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    filter 180ms ease;
+}
+
+.multicolumn.pc-chase-odds
+.pc-chase-cta__label {
+  display: inline-block;
+  min-width: 0;
+}
+
+.multicolumn.pc-chase-odds
+.pc-chase-cta__arrow {
+  display: inline-block;
+  margin-left: 0.45em;
+  color: currentColor;
+  font-size: 1.08em;
+  line-height: 1;
+  text-shadow: none;
+  animation: pc-chase-cta-arrow-blink 1.15s ease-in-out infinite;
+}
+
+@keyframes pc-chase-cta-arrow-blink {
+  0%, 100% { opacity: 0.35; transform: translateX(0); }
+  50% { opacity: 1; transform: translateX(3px); }
+}
+
+.multicolumn.pc-chase-odds
+.pc-chase-cta:hover {
+  transform: translateY(-2px);
+
+  filter: brightness(1.08);
+
+  box-shadow:
+    0 13px 32px rgba(var(--color-shadow),0.34),
+    inset 0 1px 0 rgba(255,255,255,0.28);
+}
+
+.multicolumn.pc-chase-odds
+.pc-chase-cta:focus-visible {
+  outline: 2px solid rgba(255,255,255,0.92);
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   14 — NO-COLLECTIBLE CONTENT STATE
+   =========================================================
+
+   State A (collectible uploaded) keeps the working ratio architecture.
+   State B (no collectible) becomes a normal content-driven editorial card.
+   The environment may remain visible, but no trading-card ratio is allowed
+   to dictate the empty card height.
+   ========================================================= */
+
+/* Release BOTH the Shopify grid item ratio and the shell ratio. */
+.multicolumn.pc-chase-odds
+.pc-chase-column--no-collectible {
+  aspect-ratio: auto !important;
+  height: auto;
+  min-height: 0;
+}
+
+.multicolumn.pc-chase-odds
+.pc-chase-column-shell--no-collectible,
+.multicolumn.pc-chase-odds
+.pc-chase-column--ratio-portrait .pc-chase-column-shell--no-collectible,
+.multicolumn.pc-chase-odds
+.pc-chase-column--ratio-square .pc-chase-column-shell--no-collectible,
+.multicolumn.pc-chase-odds
+.pc-chase-column--ratio-circle .pc-chase-column-shell--no-collectible,
+.multicolumn.pc-chase-odds
+.pc-chase-column--ratio-adapt .pc-chase-column-shell--no-collectible {
+  aspect-ratio: auto !important;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  overflow: hidden;
+}
+
+/* The atmospheric surface fills the natural content height. */
+.multicolumn.pc-chase-odds
+.pc-chase-column-shell--no-collectible
+.pc-chase-surface {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* In State B the 5:7 slab becomes a full-bleed background plane. */
+.multicolumn.pc-chase-odds
+.pc-chase-column-shell--no-collectible
+.pc-chase-slab {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  aspect-ratio: auto;
+  transform: none;
+  border-radius: inherit;
+}
+
+/* No collectible means no empty foreground stage. */
+.multicolumn.pc-chase-odds
+.pc-chase-column-shell--no-collectible
+.pc-chase-foreground {
+  display: none;
+}
+
+/* Native Shopify information returns to normal document flow. */
+.multicolumn.pc-chase-odds
+.pc-chase-column-shell--no-collectible
+.multicolumn-card__info {
+  position: relative;
+  inset: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  margin: 0;
+  padding: clamp(22px, 2.5vw, 34px) clamp(20px, 2.4vw, 32px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: clamp(12px, 1.4vw, 18px);
+  box-sizing: border-box;
+  overflow: visible;
+  background:
+    linear-gradient(145deg,
+      rgba(4, 10, 18, .30),
+      rgba(4, 10, 18, .54)
+    );
+  backdrop-filter: blur(5px) saturate(112%);
+  -webkit-backdrop-filter: blur(5px) saturate(112%);
+}
+
+.multicolumn.pc-chase-odds
+.pc-chase-column-shell--no-collectible
+.multicolumn-card__info h3 {
+  width: min(100%, 34rem);
+  margin: 0;
+  padding: 0;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  font-size: clamp(1.7rem, 1.45rem + .55vw, 2.3rem);
+  line-height: 1.08;
+  letter-spacing: -.02em;
+  text-wrap: balance;
+}
+
+.multicolumn.pc-chase-odds
+.pc-chase-column-shell--no-collectible
+.multicolumn-card__info .rte {
+  width: min(100%, 38rem);
+  margin: 0;
+  padding: 0;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  font-size: clamp(1.2rem, 1.08rem + .22vw, 1.48rem);
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+.multicolumn.pc-chase-odds
+.pc-chase-column-shell--no-collectible
+.multicolumn-card__info .rte p {
+  margin: 0;
+}
+
+.multicolumn.pc-chase-odds
+.pc-chase-column-shell--no-collectible
+.pc-chase-cta {
+  align-self: flex-start;
+  margin-top: clamp(4px, .7vw, 10px);
+  margin-bottom: 0;
+  width: auto;
+}
+
+.multicolumn.pc-chase-odds
+.pc-chase-column-shell--no-collectible::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: linear-gradient(125deg, rgba(255,255,255,.045), transparent 28% 76%, rgba(216,182,117,.035));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.07);
+  z-index: 19;
+}
+
+/* =========================================================
+   15 — RESPONSIVE CHASE
+   ========================================================= */
+
+@media screen and (max-width: 989px) {
+  /* Native Shopify grid width remains authoritative. Chase row width is
+     applied only to the native <ul>; the shell fills each LI. */
+  .multicolumn.pc-chase-odds
+  .pc-chase-column-shell {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .multicolumn.pc-chase-odds
+  .pc-chase-column-shell {
+    max-width: 100%;
+  }
+
+  .multicolumn.pc-chase-odds
+  .pc-chase-foreground {
+    top: 10px;
+    width: min(84%, calc(100% - 20px));
+    max-width: calc(100% - 20px);
+  }
+
+
+  .multicolumn.pc-chase-odds
+  .pc-chase-column-shell
+  .multicolumn-card__info {
+    padding: 12px 13px 14px;
+    border-radius: 0 0 3px 3px;
+  }
+
+  .multicolumn.pc-chase-odds
+  .pc-chase-column-shell
+  .multicolumn-card__info h3 {
+    font-size: clamp(1.45rem, 1.22rem + 0.9vw, 1.7rem);
+  }
+
+  .multicolumn.pc-chase-odds
+  .pc-chase-column-shell
+  .multicolumn-card__info .rte {
+    font-size: 1.12rem;
+  }
+
+  .multicolumn.pc-chase-odds
+  .pc-chase-cta {
+    padding: 8px 13px;
+    font-size: 1.08rem;
+  }
+}
+
+
+/* Mobile State B remains content-driven. */
+@media screen and (max-width: 749px) {
+  .multicolumn.pc-chase-odds
+  .pc-chase-column--no-collectible {
+    aspect-ratio: auto !important;
+    height: auto;
+    min-height: 0;
+  }
+
+  .multicolumn.pc-chase-odds
+  .pc-chase-column-shell--no-collectible {
+    aspect-ratio: auto !important;
+    height: auto;
+    min-height: 0;
+  }
+
+  .multicolumn.pc-chase-odds
+  .pc-chase-column-shell--no-collectible
+  .multicolumn-card__info {
+    position: relative;
+    inset: auto;
+    height: auto;
+    min-height: 0;
+    padding: 20px 18px 22px;
+    gap: 12px;
+    justify-content: flex-start;
+  }
+
+  .multicolumn.pc-chase-odds
+  .pc-chase-column-shell--no-collectible
+  .multicolumn-card__info h3 {
+    width: 100%;
+    font-size: clamp(1.65rem, 1.35rem + 1.2vw, 2rem);
+  }
+
+  .multicolumn.pc-chase-odds
+  .pc-chase-column-shell--no-collectible
+  .multicolumn-card__info .rte {
+    width: 100%;
+    padding: 0;
+    font-size: 1.18rem;
+    line-height: 1.48;
+  }
+
+  .multicolumn.pc-chase-odds
+  .pc-chase-column-shell--no-collectible
+  .pc-chase-cta {
+    padding: 9px 14px;
+  }
+}
+
+/* =========================================================
+   16 — ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .multicolumn.pc-chase-odds
+  .pc-chase-cta {
+    transition: none;
+  }
+
+  .multicolumn.pc-chase-odds
+  .pc-chase-cta__arrow {
+    animation: none;
+  }
+}

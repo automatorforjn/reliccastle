@@ -1,0 +1,747 @@
+/* =========================================================
+   POKE CENTRAL — CYBER SYSTEM
+   Global visual environment + shared component styling
+
+   Architecture:
+   - Native Shopify layout remains authoritative.
+   - Chase & Odds geometry and Chase layers live in
+     section-multicolumn.css.
+   - This file provides global atmosphere, actions, header,
+     Live Stage, and shared visual language.
+   - Chase-specific geometry is intentionally absent here.
+   ========================================================= */
+
+
+/* =========================================================
+   00 — GLOBAL TOKENS
+   ========================================================= */
+
+:root {
+  /* Core environment */
+  --pc-bg: #08051a;
+  --pc-bg-deep: #04020d;
+  --pc-bg-soft: #0c0820;
+
+  /* Cyber palette */
+  --pc-purple: #8b5cf6;
+  --pc-purple-2: #5b35c9;
+  --pc-magenta: #d946ef;
+  --pc-cyan: #22d3ee;
+
+  /* Action palette */
+  --pc-red: #ff3b3b;
+  --pc-red-hot: #ff5656;
+  --pc-red-bright: #ff3b3b;
+
+  /* Collector accent */
+  --pc-gold: #d7a93b;
+
+  /* Typography */
+  --pc-text: #ffffff;
+  --pc-text-soft: #e7e2f4;
+  --pc-muted: #a9a2bd;
+
+  /* Glass */
+  --pc-glass: rgba(18, 12, 43, 0.42);
+  --pc-glass-strong: rgba(20, 13, 48, 0.62);
+  --pc-border: rgba(183, 145, 255, 0.18);
+  --pc-border-hot: rgba(255, 59, 59, 0.55);
+  --pc-blur: 20px;
+
+  /* Shared layered glass materials */
+  --pc-glass-card: rgba(18, 12, 43, 0.42);
+  --pc-glass-surface: rgba(12, 7, 35, 0.16);
+  --pc-glass-collectible: rgba(255, 255, 255, 0.055);
+  --pc-glass-highlight: rgba(255, 255, 255, 0.14);
+  --pc-glass-border: rgba(183, 145, 255, 0.22);
+  --pc-glass-blur-card: 14px;
+  --pc-glass-blur-collectible: 3px;
+
+  /* Shape */
+  --pc-radius: 20px;
+  --pc-radius-small: 14px;
+
+  /* Shadow */
+  --pc-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.38);
+
+  /* Layout */
+  --pc-max: 1320px;
+  --pc-gutter: clamp(18px, 4vw, 64px);
+  --pc-section-y: clamp(56px, 7vw, 110px);
+
+  /* Motion */
+  --pc-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+
+  /* -------------------------------------------------------
+     Legacy cyber aliases
+     Preserve compatibility with earlier custom sections.
+     ------------------------------------------------------- */
+
+  --cyber-bg: #080a0f;
+  --cyber-bg-deep: #05070b;
+  --cyber-bg-soft: #0b0e15;
+
+  --cyber-purple: #8b5cf6;
+  --cyber-magenta: #d946ef;
+  --cyber-cyan: #22d3ee;
+
+  --cyber-red: #ff3b3b;
+  --cyber-red-hot: #ff5656;
+
+  --cyber-gold: #d7a93b;
+
+  --cyber-text: #ffffff;
+  --cyber-text-soft: #e7e2f4;
+  --cyber-muted: #a9a2bd;
+
+  --cyber-glass: rgba(18, 12, 43, 0.42);
+  --cyber-glass-strong: rgba(20, 13, 48, 0.62);
+  --cyber-border: rgba(183, 145, 255, 0.18);
+
+  --cyber-blur: 20px;
+  --cyber-radius: 20px;
+  --cyber-shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
+}
+
+
+/* =========================================================
+   01 — GLOBAL ENVIRONMENT
+   ========================================================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(
+      ellipse at 50% -15%,
+      rgba(116, 72, 255, 0.24),
+      transparent 46%
+    ),
+    radial-gradient(
+      ellipse at 5% 35%,
+      rgba(217, 70, 239, 0.10),
+      transparent 32%
+    ),
+    radial-gradient(
+      ellipse at 95% 72%,
+      rgba(34, 211, 238, 0.07),
+      transparent 30%
+    ),
+    linear-gradient(
+      180deg,
+      #09051d 0%,
+      #05020f 48%,
+      #070313 100%
+    );
+
+  background-color: #060314;
+  background-attachment: fixed;
+
+  color: rgb(var(--color-foreground));
+}
+
+#MainContent {
+  position: relative;
+  z-index: 1;
+  background: transparent !important;
+}
+
+.shopify-section {
+  position: relative;
+  isolation: isolate;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h0,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+
+/* Shared atmospheric section layer */
+
+.pc-cyber-section {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.pc-cyber-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(139, 92, 246, 0.10),
+      transparent 38%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.012),
+      transparent 30%
+    );
+}
+
+
+/* =========================================================
+   02 — SHARED GLASS SYSTEM
+   ========================================================= */
+
+.pc-glass,
+.pc-how-card,
+.pc-hit-card,
+.pc-trust-card,
+.card-wrapper .card {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.065),
+      rgba(255, 255, 255, 0.018)
+    );
+
+  border: 1px solid var(--pc-border);
+
+  box-shadow:
+    var(--pc-shadow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+  backdrop-filter:
+    blur(var(--pc-blur))
+    saturate(130%);
+
+  -webkit-backdrop-filter:
+    blur(var(--pc-blur))
+    saturate(130%);
+}
+
+
+/* Shared product/card treatment */
+
+.card-wrapper .card {
+  border-radius: var(--pc-radius);
+  overflow: hidden;
+}
+
+.card-wrapper:hover .card {
+  border-color: rgba(183, 145, 255, 0.35);
+
+  box-shadow:
+    0 28px 90px rgba(0, 0, 0, 0.45),
+    0 0 45px rgba(139, 92, 246, 0.10);
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   03 — ACTION / BUTTON SYSTEM
+   ========================================================= */
+
+.button {
+  min-height: 4.4rem;
+  border-radius: 999px;
+
+  transition:
+    transform 0.2s var(--pc-ease),
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+}
+
+
+/* Poke Central red action button */
+
+.pc-chase-cta {
+  background:
+    linear-gradient(
+      135deg,
+      #ff3b3b,
+      #d91f48
+    ) !important;
+
+  border-color: #ff3b3b !important;
+
+  box-shadow:
+    0 8px 28px rgba(255, 59, 59, 0.18);
+}
+
+.pc-chase-cta:hover {
+  background:
+    linear-gradient(
+      135deg,
+      #ff5656,
+      #e52c55
+    ) !important;
+}
+
+
+/* =========================================================
+   04 — HEADER
+   Native navigation/layout remains untouched.
+   ========================================================= */
+
+.header-wrapper,
+.header {
+  background: rgba(8, 5, 26, 0.72) !important;
+}
+
+.header-wrapper {
+  position: relative;
+  z-index: 20;
+
+  border-bottom:
+    1px solid rgba(183, 145, 255, 0.14);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.header__heading-link,
+.header__icon {
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.header__icon:hover {
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   05 — HOMEPAGE LIVE BREAKS CONTROL
+   Targets only the Shopify Button section immediately
+   before the custom Live Stage.
+   ========================================================= */
+
+#MainContent
+  > .shopify-section:has(+ .section-custom-live-stage)
+  .button {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  min-height: 42px;
+
+  padding:
+    10px
+    18px
+    10px
+    16px;
+
+  border:
+    1px solid rgba(255, 59, 59, 0.55) !important;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 59, 59, 0.20),
+      rgba(255, 59, 59, 0.07)
+    ) !important;
+
+  color: #ffffff !important;
+
+  box-shadow:
+    0 0 0 1px rgba(255, 59, 59, 0.06),
+    0 0 28px rgba(255, 59, 59, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+#MainContent
+  > .shopify-section:has(+ .section-custom-live-stage)
+  .button::before {
+  content: "";
+
+  width: 8px;
+  height: 8px;
+
+  flex: 0 0 8px;
+
+  border-radius: 50%;
+
+  background: var(--pc-red);
+
+  box-shadow:
+    0 0 8px rgba(255, 59, 59, 0.95),
+    0 0 20px rgba(255, 59, 59, 0.65);
+
+  animation:
+    pc-live-dot
+    1.25s
+    ease-in-out
+    infinite;
+}
+
+#MainContent
+  > .shopify-section:has(+ .section-custom-live-stage)
+  .button::after {
+  content: "";
+
+  position: absolute;
+  inset: -4px;
+
+  border:
+    1px solid rgba(255, 59, 59, 0.20);
+
+  border-radius: inherit;
+
+  pointer-events: none;
+
+  animation:
+    pc-live-ring
+    1.6s
+    ease-out
+    infinite;
+}
+
+@keyframes pc-live-dot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.48;
+    transform: scale(0.72);
+  }
+}
+
+@keyframes pc-live-ring {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.98);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.08);
+  }
+}
+
+
+/* =========================================================
+   06 — LIVE STAGE
+   ========================================================= */
+
+.section-custom-live-stage {
+  background: transparent !important;
+}
+
+.pc-section {
+  padding:
+    var(--pc-section-y)
+    var(--pc-gutter);
+
+  overflow: hidden;
+}
+
+.pc-section--compact-top {
+  padding-top:
+    clamp(18px, 3vw, 36px);
+}
+
+.pc-section__inner {
+  width: min(
+    100%,
+    var(--pc-max)
+  );
+
+  margin: 0 auto;
+}
+
+.pc-live-stage__badge-wrap {
+  display: none;
+}
+
+.pc-live-stage__frame {
+  position: relative;
+
+  width: min(
+    100%,
+    var(--pc-max)
+  );
+
+  margin: 0 auto;
+
+  padding:
+    clamp(7px, 1vw, 12px);
+
+  overflow: hidden;
+
+  border:
+    1px solid rgba(183, 145, 255, 0.30);
+
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(139, 92, 246, 0.18),
+      rgba(255, 255, 255, 0.035) 45%,
+      rgba(34, 211, 238, 0.08)
+    );
+
+  box-shadow:
+    0 28px 100px rgba(0, 0, 0, 0.52),
+    0 0 60px rgba(139, 92, 246, 0.13);
+}
+
+.pc-live-stage__frame::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    var(--pc-corners)
+    center / 100% 100%
+    no-repeat;
+
+  opacity: 0.6;
+
+  z-index: 2;
+}
+
+.pc-live-stage__frame::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: 2;
+
+  background:
+    linear-gradient(
+      115deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.05) 48%,
+      transparent 54%
+    );
+
+  transform: translateX(-100%);
+
+  animation:
+    pc-sheen
+    8s
+    linear
+    infinite;
+}
+
+@keyframes pc-sheen {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.pc-live-stage__aspect {
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 16 / 9;
+
+  overflow: hidden;
+
+  border-radius: 17px;
+
+  background: #020107;
+}
+
+.pc-live-stage__aspect iframe {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+}
+
+
+/* =========================================================
+   07 — SHARED CUSTOM CARD SYSTEM
+   NOTE:
+   Chase Column Shell / Chase Slab geometry is owned by
+   section-multicolumn.css and is intentionally absent here.
+   ========================================================= */
+
+.pc-how-card,
+.pc-hit-card,
+.pc-trust-card {
+  border-radius: var(--pc-radius);
+
+  transition:
+    transform 0.28s var(--pc-ease),
+    border-color 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.pc-how-card:hover,
+.pc-hit-card:hover,
+.pc-trust-card:hover {
+  transform: translateY(-3px);
+
+  border-color:
+    rgba(183, 145, 255, 0.36);
+
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.42),
+    0 0 40px rgba(139, 92, 246, 0.08);
+}
+
+
+/* =========================================================
+   08 — CUSTOM SECTION GRIDS
+   These belong to custom sections, not native Multicolumn.
+   ========================================================= */
+
+.pc-chase-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+  gap: 18px;
+}
+
+.pc-how-grid,
+.pc-trust-grid,
+.pc-hit-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0, 1fr)
+    );
+
+  gap: 18px;
+}
+
+
+/* =========================================================
+   09 — FORM / OVERLAY SURFACES
+   ========================================================= */
+
+.field__input,
+.select__select,
+.customer .field input,
+.customer select,
+input,
+textarea,
+select {
+  border-radius: 14px;
+}
+
+.drawer__inner,
+.modal__content,
+.popup-modal__content {
+  background:
+    rgba(10, 6, 28, 0.92);
+
+  backdrop-filter:
+    blur(22px);
+
+  -webkit-backdrop-filter:
+    blur(22px);
+}
+
+
+/* =========================================================
+   10 — RESPONSIVE SYSTEM
+   ========================================================= */
+
+@media screen and (max-width: 989px) {
+  .pc-how-grid,
+  .pc-hit-grid,
+  .pc-trust-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .pc-chase-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pc-section {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .pc-live-stage__frame {
+    padding: 6px;
+    border-radius: 18px;
+  }
+
+  .pc-live-stage__aspect {
+    border-radius: 13px;
+  }
+}
+
+
+/* =========================================================
+   11 — ACCESSIBILITY / REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* =========================================================
+   CHASE OWNERSHIP GUARD
+   ---------------------------------------------------------
+   Chase-specific geometry and visual layers are intentionally
+   not defined in this global file. They are scoped to the
+   native Multicolumn section in section-multicolumn.css.
+   ========================================================= */

@@ -1,0 +1,905 @@
+{{ 'section-rich-text.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+
+  /* =========================================================
+     POKE CENTRAL — RICH TEXT / LIQUID GLASS
+     CONTENT REMAINS TRANSPARENT.
+     ONLY THE ACTION CONTROL BECOMES GLASS.
+     ========================================================= */
+
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+
+  /* =========================================================
+     1. TRANSPARENT CONTENT PLANE
+     ========================================================= */
+
+  #shopify-section-{{ section.id }} {
+    position: relative;
+    z-index: 1;
+
+    /*
+      IMPORTANT:
+      Do NOT paint a solid background over the cyber environment.
+      The fixed cyber background lives underneath this layer.
+    */
+    background: transparent !important;
+  }
+
+
+  #shopify-section-{{ section.id }} .rich-text,
+  #shopify-section-{{ section.id }} .content-container,
+  #shopify-section-{{ section.id }} .gradient {
+    background: transparent !important;
+  }
+
+
+  /*
+     RELIC CASTLE — preserve Shopify scheme variables.
+     The section remains visually light enough for the Relic environment,
+     but its actual hue is now driven by the selected Shopify scheme.
+  */
+  #shopify-section-{{ section.id }} .color-{{ section.settings.color_scheme }} {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(var(--color-background), .78),
+        rgba(var(--color-background), .52)
+      ) !important;
+    color: rgb(var(--color-foreground));
+  }
+
+
+  /* =========================================================
+     2. TEXT — KEEP IT CLEAN AND ABOVE THE ENVIRONMENT
+     ========================================================= */
+
+  #shopify-section-{{ section.id }} .rich-text__blocks {
+    position: relative;
+    z-index: 2;
+  }
+
+  #shopify-section-{{ section.id }} .rich-text__heading,
+  #shopify-section-{{ section.id }} .rich-text__text,
+  #shopify-section-{{ section.id }} .rich-text__caption {
+    position: relative;
+    z-index: 2;
+  }
+
+
+  /* =========================================================
+     3. LIVE BREAKS BUTTON
+     LIQUID GLASS / FLOATING CONTROL
+     ========================================================= */
+
+  #shopify-section-{{ section.id }}
+  .rich-text__buttons
+  .button.custom-glass-btn {
+
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    padding: 12px 26px;
+
+    min-height: 48px;
+
+    border-radius: 999px;
+
+    color: rgb(var(--color-button-text)) !important;
+    opacity: 1 !important;
+
+    font-weight: 700;
+    text-decoration: none;
+
+    /*
+      Much more transparent than the old surface.
+
+      The environment underneath should remain visible.
+    */
+    background:
+      linear-gradient(
+        135deg,
+        rgba(var(--color-button), .94),
+        rgba(var(--color-button), .68) 48%,
+        rgba(var(--color-button), .82)
+      );
+
+    backdrop-filter:
+      blur(18px)
+      saturate(155%);
+
+    -webkit-backdrop-filter:
+      blur(18px)
+      saturate(155%);
+
+    /*
+      Thin luminous glass edge.
+    */
+    border: 1px solid color-mix(in srgb, rgb(var(--color-button-text)) 42%, transparent);
+
+    box-shadow:
+
+      /*
+        Outer depth
+      */
+      0 10px 28px rgba(var(--color-shadow), .34),
+
+      /*
+        Scheme-driven atmospheric glow
+      */
+      0 0 24px color-mix(in srgb, rgb(var(--color-button)) 16%, transparent),
+
+      /*
+        Glass top reflection
+      */
+      inset 0 1px 0 rgba(255, 255, 255, 0.24),
+
+      /*
+        Dark lower glass depth
+      */
+      inset 0 -1px 0 rgba(0, 0, 0, 0.24);
+
+    text-shadow:
+      0 1px 4px rgba(0, 0, 0, 0.85);
+
+    isolation: isolate;
+
+    overflow: hidden;
+
+    transform: translateZ(0);
+
+    transition:
+      transform 0.3s ease,
+      border-color 0.3s ease,
+      box-shadow 0.3s ease,
+      background 0.3s ease;
+  }
+
+
+  /* =========================================================
+     4. GLASS SPECULAR HIGHLIGHT
+     ========================================================= */
+
+  #shopify-section-{{ section.id }}
+  .rich-text__buttons
+  .button.custom-glass-btn::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 1px;
+
+    border-radius: inherit;
+
+    background:
+      linear-gradient(
+        110deg,
+        color-mix(in srgb, rgb(var(--color-button-text)) 18%, transparent) 0%,
+        color-mix(in srgb, rgb(var(--color-button-text)) 6%, transparent) 24%,
+        transparent 46%,
+        transparent 100%
+      );
+
+    pointer-events: none;
+
+    z-index: -1;
+
+    opacity: 0.85;
+  }
+
+
+  /* =========================================================
+     5. SUBTLE INNER GLASS GLOW
+     ========================================================= */
+
+  #shopify-section-{{ section.id }}
+  .rich-text__buttons
+  .button.custom-glass-btn::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 12%;
+    right: 12%;
+    top: 1px;
+
+    height: 1px;
+
+    border-radius: 999px;
+
+    background:
+      linear-gradient(
+        90deg,
+        transparent,
+        color-mix(in srgb, rgb(var(--color-button-text)) 65%, transparent),
+        transparent
+      );
+
+    opacity: 0.65;
+
+    pointer-events: none;
+  }
+
+
+  /* =========================================================
+     6. BUTTON CONTENT MUST STAY ABOVE GLASS LAYERS
+     ========================================================= */
+
+  #shopify-section-{{ section.id }}
+  .rich-text__buttons
+  .button.custom-glass-btn > * {
+
+    position: relative;
+
+    z-index: 3;
+
+    color: rgb(var(--color-button-text)) !important;
+
+    opacity: 1 !important;
+  }
+
+
+  /* =========================================================
+     7. LIVE DOT
+     ========================================================= */
+
+  #shopify-section-{{ section.id }}
+  .live-dot-indicator {
+
+    width: 8px;
+    height: 8px;
+
+    flex: 0 0 8px;
+
+    background-color: #ff3e3e;
+
+    border-radius: 50%;
+
+    display: inline-block;
+
+    box-shadow:
+      0 0 7px #ff3e3e,
+      0 0 16px rgba(255, 62, 62, 0.48);
+
+    animation:
+      live-pulse-dot 1.35s infinite ease-in-out;
+  }
+
+
+  /* =========================================================
+     8. HOVER — GLASS COMES ALIVE
+     ========================================================= */
+
+  #shopify-section-{{ section.id }}
+  .rich-text__buttons
+  .button.custom-glass-btn:hover {
+
+    transform: translateY(-2px);
+
+    background:
+      linear-gradient(
+        135deg,
+        rgba(var(--color-button), .98),
+        rgba(var(--color-button), .78) 42%,
+        rgba(var(--color-button), .92)
+      );
+
+    border-color:
+      color-mix(in srgb, rgb(var(--color-button-text)) 56%, transparent);
+
+    box-shadow:
+
+      0 14px 34px rgba(var(--color-shadow), .42),
+
+      0 0 30px color-mix(in srgb, rgb(var(--color-button)) 24%, transparent),
+
+      0 0 55px color-mix(in srgb, rgb(var(--color-button)) 14%, transparent),
+
+      inset 0 1px 0 color-mix(in srgb, rgb(var(--color-button-text)) 30%, transparent),
+
+      inset 0 -1px 0 rgba(var(--color-shadow), .25);
+  }
+
+
+  /* =========================================================
+     9. LIVE DOT ANIMATION
+     ========================================================= */
+
+  @keyframes live-pulse-dot {
+
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    50% {
+      opacity: 0.45;
+      transform: scale(0.72);
+    }
+  }
+
+
+  /* =========================================================
+     10. MOBILE
+     ========================================================= */
+
+  @media screen and (max-width: 749px) {
+
+    #shopify-section-{{ section.id }}
+    .rich-text__buttons
+    .button.custom-glass-btn {
+
+      padding: 11px 22px;
+
+      min-height: 46px;
+
+      backdrop-filter:
+        blur(15px)
+        saturate(150%);
+
+      -webkit-backdrop-filter:
+        blur(15px)
+        saturate(150%);
+    }
+  }
+
+
+  /* =========================================================
+     11. REDUCED MOTION
+     ========================================================= */
+
+  @media (prefers-reduced-motion: reduce) {
+
+    #shopify-section-{{ section.id }}
+    .rich-text__buttons
+    .button.custom-glass-btn {
+
+      transition: none;
+    }
+
+    #shopify-section-{{ section.id }}
+    .live-dot-indicator {
+
+      animation: none;
+    }
+  }
+
+{%- endstyle -%}
+
+
+<div class="isolate{% unless section.settings.full_width %} page-width{% endunless %}">
+
+  <div
+    class="
+      rich-text
+      content-container
+      color-{{ section.settings.color_scheme }}
+      gradient
+      {% if section.settings.full_width %}
+        rich-text--full-width
+        content-container--full-width
+      {% endif %}
+      section-{{ section.id }}-padding
+    "
+  >
+
+    <div
+      class="
+        rich-text__wrapper
+        rich-text__wrapper--{{ section.settings.desktop_content_position }}
+        {% if section.settings.full_width %}
+          page-width
+        {% endif %}
+      "
+    >
+
+      <div class="rich-text__blocks {{ section.settings.content_alignment }}">
+
+        {%- for block in section.blocks -%}
+
+          {%- case block.type -%}
+
+            {%- when 'heading' -%}
+
+              <h2
+                class="
+                  rich-text__heading
+                  rte
+                  inline-richtext
+                  {{ block.settings.heading_size }}
+                  {% if settings.animations_reveal_on_scroll %}
+                    scroll-trigger
+                    animate--slide-in
+                  {% endif %}
+                "
+                {{ block.shopify_attributes }}
+
+                {% if settings.animations_reveal_on_scroll %}
+                  data-cascade
+                  style="--animation-order: {{ forloop.index }};"
+                {% endif %}
+              >
+                {{ block.settings.heading }}
+              </h2>
+
+
+            {%- when 'caption' -%}
+
+              <p
+                class="
+                  rich-text__caption
+                  {{ block.settings.text_style }}
+                  {{ block.settings.text_style }}--{{ block.settings.text_size }}
+                  {% if settings.animations_reveal_on_scroll %}
+                    scroll-trigger
+                    animate--slide-in
+                  {% endif %}
+                "
+                {{ block.shopify_attributes }}
+
+                {% if settings.animations_reveal_on_scroll %}
+                  data-cascade
+                  style="--animation-order: {{ forloop.index }};"
+                {% endif %}
+              >
+                {{ block.settings.caption | escape }}
+              </p>
+
+
+            {%- when 'text' -%}
+
+              <div
+                class="
+                  rich-text__text
+                  rte
+                  {% if settings.animations_reveal_on_scroll %}
+                    scroll-trigger
+                    animate--slide-in
+                  {% endif %}
+                "
+                {{ block.shopify_attributes }}
+
+                {% if settings.animations_reveal_on_scroll %}
+                  data-cascade
+                  style="--animation-order: {{ forloop.index }};"
+                {% endif %}
+              >
+                {{ block.settings.text }}
+              </div>
+
+
+            {%- when 'button' -%}
+
+              <div
+                class="
+                  rich-text__buttons
+                  {% if block.settings.button_label != blank and block.settings.button_label_2 != blank %}
+                    rich-text__buttons--multiple
+                  {% endif %}
+                  {% if settings.animations_reveal_on_scroll %}
+                    scroll-trigger
+                    animate--slide-in
+                  {% endif %}
+                "
+                {{ block.shopify_attributes }}
+
+                {% if settings.animations_reveal_on_scroll %}
+                  data-cascade
+                  style="--animation-order: {{ forloop.index }};"
+                {% endif %}
+              >
+
+                {%- if block.settings.button_label != blank -%}
+
+                  <a
+                    {% if block.settings.button_link == blank %}
+                      role="link"
+                      aria-disabled="true"
+                    {% else %}
+                      href="{{ block.settings.button_link }}"
+                    {% endif %}
+
+                    class="
+                      button
+                      custom-glass-btn
+                      {% if block.settings.button_style_secondary %}
+                        button--secondary
+                      {% else %}
+                        button--primary
+                      {% endif %}
+                    "
+                  >
+
+                    <span class="live-dot-indicator"></span>
+
+                    {{- block.settings.button_label | escape -}}
+
+                  </a>
+
+                {%- endif -%}
+
+
+                {%- if block.settings.button_label_2 != blank -%}
+
+                  <a
+                    {% if block.settings.button_link_2 == blank %}
+                      role="link"
+                      aria-disabled="true"
+                    {% else %}
+                      href="{{ block.settings.button_link_2 }}"
+                    {% endif %}
+
+                    class="
+                      button
+                      {% if block.settings.button_style_secondary_2 %}
+                        button--secondary
+                      {% else %}
+                        button--primary
+                      {% endif %}
+                    "
+                  >
+                    {{- block.settings.button_label_2 | escape -}}
+                  </a>
+
+                {%- endif -%}
+
+              </div>
+
+          {%- endcase -%}
+
+        {%- endfor -%}
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+{% schema %}
+
+{
+  "name": "t:sections.rich-text.name",
+
+  "tag": "section",
+
+  "class": "section",
+
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer"
+    ]
+  },
+
+  "settings": [
+
+    {
+      "type": "select",
+      "id": "desktop_content_position",
+
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.rich-text.settings.desktop_content_position.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.rich-text.settings.desktop_content_position.options__2.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.rich-text.settings.desktop_content_position.options__3.label"
+        }
+      ],
+
+      "default": "center",
+
+      "label": "t:sections.rich-text.settings.desktop_content_position.label"
+    },
+
+    {
+      "type": "select",
+      "id": "content_alignment",
+
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.rich-text.settings.content_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.rich-text.settings.content_alignment.options__2.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.rich-text.settings.content_alignment.options__3.label"
+        }
+      ],
+
+      "default": "center",
+
+      "label": "t:sections.rich-text.settings.content_alignment.label"
+    },
+
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "default": true,
+      "label": "t:sections.rich-text.settings.full_width.label"
+    },
+
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 52
+    }
+
+  ],
+
+  "blocks": [
+
+    {
+      "type": "heading",
+      "name": "t:sections.rich-text.blocks.heading.name",
+      "limit": 3,
+
+      "settings": [
+
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "t:sections.rich-text.blocks.heading.settings.heading.default",
+          "label": "t:sections.rich-text.blocks.heading.settings.heading.label"
+        },
+
+        {
+          "type": "select",
+          "id": "heading_size",
+
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.all.heading_size.options__1.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.all.heading_size.options__2.label"
+            },
+            {
+              "value": "h0",
+              "label": "t:sections.all.heading_size.options__3.label"
+            },
+            {
+              "value": "hxl",
+              "label": "t:sections.all.heading_size.options__4.label"
+            },
+            {
+              "value": "hxxl",
+              "label": "t:sections.all.heading_size.options__5.label"
+            }
+          ],
+
+          "default": "h1",
+
+          "label": "t:sections.all.heading_size.label"
+        }
+
+      ]
+    },
+
+
+    {
+      "type": "caption",
+      "name": "t:sections.rich-text.blocks.caption.name",
+      "limit": 3,
+
+      "settings": [
+
+        {
+          "type": "text",
+          "id": "caption",
+          "default": "t:sections.rich-text.blocks.caption.settings.text.default",
+          "label": "t:sections.rich-text.blocks.caption.settings.text.label"
+        },
+
+        {
+          "type": "select",
+          "id": "text_style",
+
+          "options": [
+            {
+              "value": "subtitle",
+              "label": "t:sections.rich-text.blocks.caption.settings.text_style.options__1.label"
+            },
+            {
+              "value": "caption-with-letter-spacing",
+              "label": "t:sections.rich-text.blocks.caption.settings.text_style.options__2.label"
+            }
+          ],
+
+          "default": "caption-with-letter-spacing",
+
+          "label": "t:sections.rich-text.blocks.caption.settings.text_style.label"
+        },
+
+        {
+          "type": "select",
+          "id": "text_size",
+
+          "options": [
+            {
+              "value": "small",
+              "label": "t:sections.rich-text.blocks.caption.settings.caption_size.options__1.label"
+            },
+            {
+              "value": "medium",
+              "label": "t:sections.rich-text.blocks.caption.settings.caption_size.options__2.label"
+            },
+            {
+              "value": "large",
+              "label": "t:sections.rich-text.blocks.caption.settings.caption_size.options__3.label"
+            }
+          ],
+
+          "default": "medium",
+
+          "label": "t:sections.rich-text.blocks.caption.settings.caption_size.label"
+        }
+
+      ]
+    },
+
+
+    {
+      "type": "text",
+      "name": "t:sections.rich-text.blocks.text.name",
+      "limit": 3,
+
+      "settings": [
+
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "t:sections.rich-text.blocks.text.settings.text.default",
+          "label": "t:sections.rich-text.blocks.text.settings.text.label"
+        }
+
+      ]
+    },
+
+
+    {
+      "type": "button",
+      "name": "t:sections.rich-text.blocks.buttons.name",
+      "limit": 2,
+
+      "settings": [
+
+        {
+          "type": "header",
+          "content": "t:sections.rich-text.blocks.buttons.settings.header_button1.content"
+        },
+
+        {
+          "type": "text",
+          "id": "button_label",
+          "default": "t:sections.rich-text.blocks.buttons.settings.button_label_1.default",
+          "label": "t:sections.rich-text.blocks.buttons.settings.button_label_1.label",
+          "info": "t:sections.rich-text.blocks.buttons.settings.button_label_1.info"
+        },
+
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "t:sections.rich-text.blocks.buttons.settings.button_link_1.label"
+        },
+
+        {
+          "type": "checkbox",
+          "id": "button_style_secondary",
+          "default": false,
+          "label": "t:sections.rich-text.blocks.buttons.settings.button_style_secondary_1.label"
+        },
+
+        {
+          "type": "header",
+          "content": "t:sections.rich-text.blocks.buttons.settings.header_button2.content"
+        },
+
+        {
+          "type": "text",
+          "id": "button_label_2",
+          "label": "t:sections.rich-text.blocks.buttons.settings.button_label_2.label",
+          "info": "t:sections.rich-text.blocks.buttons.settings.button_label_2.info"
+        },
+
+        {
+          "type": "url",
+          "id": "button_link_2",
+          "label": "t:sections.rich-text.blocks.buttons.settings.button_link_2.label"
+        },
+
+        {
+          "type": "checkbox",
+          "id": "button_style_secondary_2",
+          "default": false,
+          "label": "t:sections.rich-text.blocks.buttons.settings.button_style_secondary_2.label"
+        }
+
+      ]
+    }
+
+  ],
+
+  "presets": [
+
+    {
+      "name": "t:sections.rich-text.presets.name",
+
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "button"
+        }
+      ]
+    }
+
+  ]
+}
+
+{% endschema %}

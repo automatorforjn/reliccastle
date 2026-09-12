@@ -1,0 +1,32 @@
+{{ 'poke-central.css' | asset_url | stylesheet_tag }}
+
+<section class="pc-section pc-section--compact-top pc-cyber-section">
+  <div class="pc-section__inner">
+    <div class="pc-live-stage__frame">
+      <div class="pc-live-stage__aspect">
+        <iframe
+          src="{{ section.settings.video_url | escape }}"
+          title="{{ section.settings.video_title | escape }}"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Custom Live Stage",
+  "tag": "section",
+  "class": "section-custom-live-stage",
+  "settings": [
+    { "type": "text", "id": "badge_text", "label": "Badge text (legacy)", "default": "LIVE BREAKS" },
+    { "type": "text", "id": "video_title", "label": "Video title", "default": "Poke Central live stream" },
+    { "type": "url", "id": "video_url", "label": "YouTube embed URL" },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Section color scheme", "default": "scheme-1" }
+  ],
+  "presets": [{ "name": "Custom Live Stage" }]
+}
+{% endschema %}

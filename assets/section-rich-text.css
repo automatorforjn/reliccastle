@@ -1,0 +1,173 @@
+.rich-text {
+  z-index: 1;
+}
+
+.rich-text__wrapper {
+  display: flex;
+  justify-content: center;
+  width: calc(100% - 4rem / var(--font-body-scale));
+}
+
+.rich-text:not(.rich-text--full-width) .rich-text__wrapper {
+  margin: auto;
+  width: calc(100% - 8rem / var(--font-body-scale));
+}
+
+.rich-text__blocks {
+  width: 100%;
+}
+
+@media screen and (min-width: 750px) {
+  .rich-text__wrapper {
+    width: 100%;
+  }
+
+  .rich-text__wrapper--left {
+    justify-content: flex-start;
+  }
+
+  .rich-text__wrapper--right {
+    justify-content: flex-end;
+  }
+
+  .rich-text__blocks {
+    max-width: 50rem;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .rich-text__blocks {
+    max-width: 78rem;
+  }
+}
+
+.rich-text__blocks * {
+  overflow-wrap: break-word;
+}
+
+.rich-text__blocks > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.rich-text__blocks > * + * {
+  margin-top: 2rem;
+}
+
+.rich-text__blocks > * + a {
+  margin-top: 3rem;
+}
+
+.rich-text__buttons {
+  display: inline-flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+  max-width: 45rem;
+  word-break: break-word;
+}
+
+.rich-text__buttons--multiple > * {
+  flex-grow: 1;
+  min-width: 22rem;
+}
+
+.rich-text__buttons + .rich-text__buttons {
+  margin-top: 1rem;
+}
+
+.rich-text__blocks.left .rich-text__buttons {
+  justify-content: flex-start;
+}
+
+.rich-text__blocks.right .rich-text__buttons {
+  justify-content: flex-end;
+}
+/* Instance-Scoped Liquid Glass Styling with Red Inner Glow */
+  #shopify-section-{{ section.id }} .rich-text__buttons .button.custom-glass-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 24px;
+    border-radius: 12px;
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+    
+    /* Red Glass Tint & Backdrop Blur */
+    background: rgba(220, 38, 38, 0.35) !important;
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    
+    /* Red Ambient Backlight & Internal Reflection */
+    box-shadow: 
+      0 0 20px rgba(220, 38, 38, 0.5),
+      0 8px 32px 0 rgba(0, 0, 0, 0.4),
+      inset 0 1px 1px 0 rgba(255, 255, 255, 0.5),
+      inset 0 -10px 20px rgba(185, 28, 28, 0.6) !important;
+    
+    transition: all 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .rich-text__buttons .button.custom-glass-btn:hover {
+    background: rgba(220, 38, 38, 0.5) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+    box-shadow: 
+      0 0 28px rgba(239, 68, 68, 0.7),
+      0 8px 32px 0 rgba(0, 0, 0, 0.5),
+      inset 0 1px 2px 0 rgba(255, 255, 255, 0.7),
+      inset 0 -12px 24px rgba(185, 28, 28, 0.8) !important;
+  }
+  /* Instance-Scoped Liquid Glass Styling with Red Inner Glow & Floating White Text */
+  #shopify-section-{{ section.id }} .rich-text__buttons .button.custom-glass-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 24px;
+    border-radius: 12px;
+    
+    /* 3D Elevated Text Styling */
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px;
+    text-shadow: 
+      0 1px 2px rgba(0, 0, 0, 0.6),
+      0 4px 8px rgba(0, 0, 0, 0.4),
+      0 0 1px rgba(255, 255, 255, 0.8) !important;
+    text-decoration: none;
+    
+    /* Red Glass Tint & Backdrop Blur */
+    background: rgba(220, 38, 38, 0.35) !important;
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    
+    /* Red Ambient Backlight & Internal Reflection */
+    box-shadow: 
+      0 0 20px rgba(220, 38, 38, 0.5),
+      0 8px 32px 0 rgba(0, 0, 0, 0.4),
+      inset 0 1px 1px 0 rgba(255, 255, 255, 0.5),
+      inset 0 -10px 20px rgba(185, 28, 28, 0.6) !important;
+    
+    transition: all 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .rich-text__buttons .button.custom-glass-btn:hover {
+    background: rgba(220, 38, 38, 0.5) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+    text-shadow: 
+      0 2px 4px rgba(0, 0, 0, 0.8),
+      0 6px 12px rgba(0, 0, 0, 0.5),
+      0 0 2px rgba(255, 255, 255, 1) !important;
+    box-shadow: 
+      0 0 28px rgba(239, 68, 68, 0.7),
+      0 8px 32px 0 rgba(0, 0, 0, 0.5),
+      inset 0 1px 2px 0 rgba(255, 255, 255, 0.7),
+      inset 0 -12px 24px rgba(185, 28, 28, 0.8) !important;
+  }
