@@ -880,7 +880,8 @@ body.relic-castle-theme .footer-block__heading {
 
 @media screen and (max-width: 989px) {
   body.relic-castle-theme .relic-video-frame {
-    width: calc(100vw - 28px);
+    width: 100%;
+    max-width: 100%;
   }
 
   body.relic-castle-theme .product__info-container {
