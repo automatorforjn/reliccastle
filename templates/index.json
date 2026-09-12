@@ -9,41 +9,12 @@
  */
 {
   "sections": {
-    "rich-text": {
-      "type": "rich-text",
-      "blocks": {
-        "button_ikehin": {
-          "type": "button",
-          "settings": {
-            "button_label": "Live Breaks",
-            "button_link": "",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "button_ikehin"
-      ],
-      "custom_css": [],
-      "name": "Live Break Button",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-2",
-        "full_width": true,
-        "padding_top": 28,
-        "padding_bottom": 4
-      }
-    },
-    "video_WARzCE": {
+    "main_hero_vault": {
       "type": "video",
-      "name": "t:sections.video.presets.name",
+      "name": "PRISM ARCHIVE // LIVE VAULT",
       "settings": {
-        "heading": "",
-        "heading_size": "h2",
+        "heading": "PRISM ARCHIVE // LIVE VAULT",
+        "heading_size": "hxxl",
         "enable_video_looping": true,
         "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
         "cover_image": "shopify://shop_images/Codex_Image_Sep_12_2026_08_13_18_AM.png",
@@ -51,27 +22,27 @@
         "full_width": false,
         "crystal_bezel": true,
         "crystal_strength": 70,
-        "color_scheme": "scheme-2",
+        "color_scheme": "scheme-1",
         "padding_top": 16,
         "padding_bottom": 24
       }
     },
-    "featured-collection": {
+    "sealed_vault_grid": {
       "type": "featured-collection",
       "settings": {
         "collection": "zip-line",
-        "products_to_show": 7,
+        "products_to_show": 4,
         "title": "THE SEALED VAULT",
         "heading_size": "hxxl",
         "description": "<p>Factory-sealed Japanese imports, curated sets, and live-break inventory.</p>",
         "show_description": false,
         "description_style": "uppercase",
-        "columns_desktop": 3,
-        "enable_desktop_slider": true,
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
         "full_width": true,
         "show_view_all": false,
         "view_all_style": "solid",
-        "color_scheme": "scheme-3",
+        "color_scheme": "scheme-1",
         "image_ratio": "portrait",
         "image_shape": "default",
         "show_secondary_image": true,
@@ -84,74 +55,11 @@
         "padding_bottom": 48
       }
     },
-    "multicolumn_3tzJGx": {
+    "chase_archive": {
       "type": "multicolumn",
+      "name": "THE CHASE ARCHIVE",
       "blocks": {
-        "column_e3PjTn": {
-          "type": "column",
-          "settings": {
-            "pc_chase_mode": "environment",
-            "pc_card_width": "three_quarters",
-            "pc_card_ratio": "pokemon_standard",
-            "title": "01",
-            "text": "<p><strong>CHOOSE YOUR RELIC</strong><br/>Select a pack, product, or available live-break slot.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_zE6hKP": {
-          "type": "column",
-          "settings": {
-            "pc_chase_mode": "environment",
-            "pc_card_width": "three_quarters",
-            "pc_card_ratio": "pokemon_standard",
-            "title": "02",
-            "text": "<p><strong>WATCH IT LIVE</strong><br/>Join the stream and watch your sealed product opened in real time.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_UMM9N4": {
-          "type": "column",
-          "settings": {
-            "pc_chase_mode": "environment",
-            "pc_card_width": "three_quarters",
-            "pc_card_ratio": "pokemon_standard",
-            "title": "03",
-            "text": "<p><strong>RECEIVE YOUR CARDS</strong><br/>Your pulls are protected, packed, and shipped to you securely.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column_e3PjTn",
-        "column_zE6hKP",
-        "column_UMM9N4"
-      ],
-      "name": "How it works",
-      "settings": {
-        "title": "HOW THE LIVE VAULT WORKS",
-        "heading_size": "hxl",
-        "pc_chase_odds": false,
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "button_label": "",
-        "button_link": "",
-        "columns_desktop": 3,
-        "column_alignment": "left",
-        "background_style": "primary",
-        "color_scheme": "scheme-3",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "multicolumn_4WM6ah": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_QcCwxj": {
+        "chase_pikachu": {
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/695687.jpg",
@@ -160,12 +68,12 @@
             "pc_card_width": "three_quarters",
             "pc_card_ratio": "pokemon_standard",
             "title": "Pikachu ex SAR",
-            "text": "<p>Super Secret Rare<br/>Est. Pull Rate: 1 in 4 </p>",
+            "text": "<p>Super Secret Rare<br/>Est. Pull Rate: 1 in 4</p>",
             "link_label": "Buy Pack Slot",
             "link": ""
           }
         },
-        "column_ExprA9": {
+        "chase_charizard": {
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/card1_287x400_f47359ea-2f99-4e7b-afa3-ef41dc01104a.jpg",
@@ -174,12 +82,12 @@
             "pc_card_width": "three_quarters",
             "pc_card_ratio": "pokemon_standard",
             "title": "Charizard ex IR",
-            "text": "<p>Super Secret Rare<br/>Est. Pull Rate: 1 in 4 </p>",
+            "text": "<p>Super Secret Rare<br/>Est. Pull Rate: 1 in 4</p>",
             "link_label": "Buy Pack Slot",
             "link": ""
           }
         },
-        "column_iqbe84": {
+        "chase_mystery": {
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/734745.jpg",
@@ -195,11 +103,10 @@
         }
       },
       "block_order": [
-        "column_QcCwxj",
-        "column_ExprA9",
-        "column_iqbe84"
+        "chase_pikachu",
+        "chase_charizard",
+        "chase_mystery"
       ],
-      "name": "Chase&Odds",
       "settings": {
         "title": "THE CHASE ARCHIVE",
         "heading_size": "hxl",
@@ -211,149 +118,17 @@
         "columns_desktop": 3,
         "column_alignment": "left",
         "background_style": "primary",
-        "color_scheme": "scheme-4",
+        "color_scheme": "scheme-1",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "padding_top": 20,
         "padding_bottom": 36
       }
-    },
-    "multicolumn_diLGh3": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_aPn4pT": {
-          "type": "column",
-          "settings": {
-            "pc_chase_mode": "environment",
-            "pc_card_width": "one_third",
-            "pc_card_ratio": "pokemon_standard",
-            "title": "Collector Provenance",
-            "text": "<p>Real pulls, collector stories, and memorable hits from the Relic Castle community.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_8Yzw8U": {
-          "type": "column",
-          "settings": {
-            "pc_chase_mode": "environment",
-            "pc_card_width": "three_quarters",
-            "pc_card_ratio": "pokemon_standard",
-            "title": "Japan Imports",
-            "text": "<p>Curated Japanese sealed products and collector-grade cards sourced for authenticity.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_x4qAnw": {
-          "type": "column",
-          "settings": {
-            "pc_chase_mode": "environment",
-            "pc_card_width": "three_quarters",
-            "pc_card_ratio": "pokemon_standard",
-            "title": "Live Pull Archive",
-            "text": "<p>Chase moments become part of the archive—transparent, watchable, and made for collectors.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column_aPn4pT",
-        "column_8Yzw8U",
-        "column_x4qAnw"
-      ],
-      "name": "Community Pulls",
-      "settings": {
-        "title": "THE RELIC STANDARD",
-        "heading_size": "h1",
-        "pc_chase_odds": false,
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "button_label": "",
-        "button_link": "",
-        "columns_desktop": 3,
-        "column_alignment": "left",
-        "background_style": "primary",
-        "color_scheme": "scheme-4",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "multicolumn_3yT7P4": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_gTAMhP": {
-          "type": "column",
-          "settings": {
-            "pc_chase_mode": "environment",
-            "pc_card_width": "three_quarters",
-            "pc_card_ratio": "pokemon_standard",
-            "title": "100% Factory Sealed Imports",
-            "text": "<p><br/>Directly sourced...<br/><br/></p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_fccA98": {
-          "type": "column",
-          "settings": {
-            "pc_chase_mode": "environment",
-            "pc_card_width": "three_quarters",
-            "pc_card_ratio": "pokemon_standard",
-            "title": "Secure Shipping",
-            "text": "<p><br/>Protected packaging...<br/><br/><br/></p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_dka4rC": {
-          "type": "column",
-          "settings": {
-            "pc_chase_mode": "environment",
-            "pc_card_width": "three_quarters",
-            "pc_card_ratio": "pokemon_standard",
-            "title": "Live Break Transparency",
-            "text": "<p><br/>Watch every pull live...<br/><br/></p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column_gTAMhP",
-        "column_fccA98",
-        "column_dka4rC"
-      ],
-      "name": "Trust&Guarantee",
-      "settings": {
-        "title": "TRUST & AUTHENTICITY",
-        "heading_size": "hxl",
-        "pc_chase_odds": false,
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "button_label": "",
-        "button_link": "",
-        "columns_desktop": 3,
-        "column_alignment": "left",
-        "background_style": "primary",
-        "color_scheme": "scheme-5",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
     }
   },
   "order": [
-    "rich-text",
-    "video_WARzCE",
-    "featured-collection",
-    "multicolumn_3tzJGx",
-    "multicolumn_4WM6ah",
-    "multicolumn_diLGh3",
-    "multicolumn_3yT7P4"
+    "main_hero_vault",
+    "sealed_vault_grid",
+    "chase_archive"
   ]
 }

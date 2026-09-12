@@ -16,7 +16,7 @@
     "heading_scale": 120,
     "type_body_font": "montserrat_n4",
     "body_scale": 100,
-    "page_width": 1400,
+    "page_width": 1200,
     "spacing_sections": 0,
     "spacing_grid_horizontal": 16,
     "spacing_grid_vertical": 16,
@@ -146,12 +146,12 @@
     "color_schemes": {
       "scheme-1": {
         "settings": {
-          "background": "#08101a",
-          "background_gradient": "linear-gradient(180deg, #0A1522 0%, #07111B 48%, #050A11 100%)",
-          "text": "#f1eadc",
-          "button": "#d8b675",
-          "button_label": "#07111b",
-          "secondary_button_label": "#d8b675",
+          "background": "#0B0C10",
+          "background_gradient": "#0B0C10",
+          "text": "#E5E5E5",
+          "button": "#C5A059",
+          "button_label": "#0B0C10",
+          "secondary_button_label": "#45E6B5",
           "shadow": "#020407"
         }
       },

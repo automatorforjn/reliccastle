@@ -24,6 +24,7 @@
   --relic-glass-blur: 8px;
   --relic-radius-panel: 3px;
   --relic-radius-media: 5px;
+  --relic-radius-cta: 999px;
   --relic-shadow: 0 20px 56px rgba(0,0,0,.34);
   --relic-shadow-strong: 0 30px 86px rgba(0,0,0,.46);
   --relic-ui-font: var(--font-body-family);
@@ -52,12 +53,12 @@ body.relic-castle-theme {
   z-index: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(180deg, rgb(3 7 13 / calc(var(--relic-world-darkness) * .34)), rgb(3 7 13 / var(--relic-world-darkness))),
+    linear-gradient(180deg, rgb(3 7 13 / calc(var(--relic-world-darkness) * .30)), rgb(3 7 13 / var(--relic-world-darkness))),
     var(--relic-world-desktop),
     var(--relic-world-sand);
   background-position: center top, center top, center bottom;
   background-repeat: no-repeat;
-  background-size: cover, cover, min(1500px, 135vw) auto;
+  background-size: cover, cover, min(1600px, 140vw) auto;
   opacity: var(--relic-world-strength);
 }
 
@@ -67,12 +68,12 @@ body.relic-castle-theme {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(90deg, rgb(216 182 117 / .025), transparent 22% 78%, rgb(216 182 117 / .025)),
+    linear-gradient(90deg, rgb(216 182 117 / .035), transparent 22% 78%, rgb(216 182 117 / .035)),
     var(--relic-world-arch);
   background-size: cover, cover;
   background-position: center, center bottom;
   background-repeat: no-repeat;
-  opacity: .11;
+  opacity: .16;
 }
 
 body.relic-castle-theme #MainContent {
@@ -81,7 +82,7 @@ body.relic-castle-theme #MainContent {
   background: transparent;
 }
 
-body.relic-castle-theme > :not(.relic-world) {
+body.relic-castle-theme > :not(.relic-world):not(cart-drawer) {
   position: relative;
   z-index: 1;
 }
@@ -99,7 +100,9 @@ body.relic-castle-theme .shopify-section:not(.section-header) {
 
 body.relic-castle-theme .shopify-section:not(.section-header) > :is(.color-scheme-1, .color-scheme-2, .color-scheme-3, .color-scheme-4, .color-scheme-5),
 body.relic-castle-theme .shopify-section:not(.section-header) > .gradient {
-  background: color-mix(in srgb, rgb(var(--color-background)) var(--relic-section-surface-opacity), transparent);
+  background: rgba(7, 14, 20, calc(var(--relic-section-surface-opacity) / 100));
+  backdrop-filter: blur(2px) saturate(1.08);
+  -webkit-backdrop-filter: blur(2px) saturate(1.08);
 }
 
 body.relic-castle-theme .shopify-section:not(.section-header)::after {
@@ -154,13 +157,10 @@ body.relic-castle-theme :is(.caption, .product__text, .article-card__excerpt) {
 body.relic-castle-theme .relic-header-wrapper {
   position: relative;
   overflow: visible;
-  background:
-    linear-gradient(180deg,
-      color-mix(in srgb, rgb(var(--color-background)) 95%, #07111f),
-      color-mix(in srgb, rgb(var(--color-background)) 88%, #03070d));
+  background: rgba(7, 14, 21, 0.60);
   color: rgb(var(--color-foreground));
-  border-bottom: 1px solid color-mix(in srgb, var(--relic-gold) 34%, rgb(var(--color-foreground)) 7%);
-  box-shadow: 0 14px 44px rgba(0,0,0,.24);
+  border-bottom: 1px solid color-mix(in srgb, var(--relic-gold) 36%, rgb(var(--color-foreground)) 8%);
+  box-shadow: 0 18px 42px rgba(0,0,0,.18);
   backdrop-filter: blur(12px) saturate(118%);
   -webkit-backdrop-filter: blur(12px) saturate(118%);
 }
@@ -179,6 +179,48 @@ body.relic-castle-theme .relic-header-wrapper .header {
   position: relative;
   z-index: 2;
   background: transparent;
+}
+
+@media screen and (min-width: 990px) {
+  body.relic-castle-theme .relic-header-wrapper .header {
+    grid-template-areas: 'navigation heading icons';
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    grid-template-rows: minmax(68px, 76px);
+    align-items: center;
+  }
+
+  body.relic-castle-theme .relic-header-wrapper .header__inline-menu {
+    grid-area: navigation;
+    justify-self: start;
+  }
+
+  body.relic-castle-theme .relic-header-wrapper .header__heading {
+    grid-area: heading;
+    align-self: center;
+    margin: 0;
+    line-height: 0;
+  }
+
+  body.relic-castle-theme .relic-header-wrapper .header__heading-logo-wrapper {
+    max-height: calc(76px - 14px);
+  }
+
+  body.relic-castle-theme .relic-header-wrapper .header__heading-logo,
+  body.relic-castle-theme .relic-header-wrapper .header__heading-logo.motion-reduce {
+    max-height: calc(76px - 14px);
+    height: auto;
+  }
+
+  body.relic-castle-theme .relic-header-wrapper .header__icons {
+    grid-area: icons;
+    gap: 6px;
+  }
+
+  body.relic-castle-theme .relic-header-wrapper .header__icon {
+    width: 40px;
+    height: 40px;
+    margin: 0;
+  }
 }
 
 body.relic-castle-theme .header__heading-logo-wrapper {
@@ -300,7 +342,7 @@ body.relic-castle-theme :is(.field__input, .select__select, .customer .field inp
    ========================================================= */
 
 body.relic-castle-theme .relic-live-break-button {
-  border-radius: 2px;
+  border-radius: var(--relic-radius-cta);
   background: linear-gradient(180deg,
     color-mix(in srgb, rgb(var(--color-button)) 93%, white),
     color-mix(in srgb, rgb(var(--color-button)) 88%, black));
@@ -346,7 +388,7 @@ body.relic-castle-theme .relic-section-kicker {
   align-items: center;
   gap: 9px;
   margin: 0 auto 12px;
-  max-width: 1400px;
+  max-width: var(--page-width);
   padding: 0 2px;
   color: color-mix(in srgb, rgb(var(--color-foreground)) 66%, var(--relic-gold));
   font: 700 9px/1.2 var(--relic-ui-font);
@@ -356,8 +398,8 @@ body.relic-castle-theme .relic-section-kicker {
 
 body.relic-castle-theme .relic-video-frame {
   position: relative;
-  width: min(1320px, calc(100vw - 48px));
-  max-width: none;
+  width: min(calc(var(--page-width) - 2rem), calc(100vw - 48px));
+  max-width: calc(var(--page-width) - 2rem);
   margin-inline: auto;
   padding: 1px;
   border: 1px solid color-mix(in srgb, rgb(var(--color-foreground)) 12%, var(--relic-gold) 46%);
@@ -670,7 +712,7 @@ body.relic-castle-theme .rich-text__text {
 }
 
 body.relic-castle-theme .custom-glass-btn {
-  border-radius: 2px !important;
+  border-radius: var(--relic-radius-cta) !important;
   backdrop-filter: blur(8px) saturate(118%) !important;
   -webkit-backdrop-filter: blur(8px) saturate(118%) !important;
 }
@@ -855,11 +897,31 @@ body.relic-castle-theme .footer-block__heading {
     background-size: cover, cover, min(1500px, 180vw) auto;
   }
 
-  body.relic-castle-theme .relic-header-wrapper .header { min-height: 68px; }
+  body.relic-castle-theme .relic-header-wrapper .header {
+    grid-template-columns: 48px 44px minmax(0, 1fr) auto;
+    min-height: 68px;
+  }
+
+  body.relic-castle-theme .relic-header-wrapper .header__heading {
+    min-width: 0;
+  }
 
   body.relic-castle-theme .header__heading-logo,
   body.relic-castle-theme .header__heading-logo.motion-reduce {
-    max-width: min(70vw, 250px);
+    max-width: 100%;
+    height: auto;
+  }
+
+  body.relic-castle-theme .relic-header-wrapper .header__icons {
+    width: auto;
+    padding-right: 0;
+    gap: 4px;
+  }
+
+  body.relic-castle-theme .relic-header-wrapper .header__icon {
+    width: 40px;
+    height: 40px;
+    margin: 0;
   }
 
   body.relic-castle-theme .collection__title .title {
