@@ -65,6 +65,7 @@
 
 <div
   class="color-{{ section.settings.color_scheme }} isolate gradient relic-featured-collection"
+  style="--relic-featured-card-image-fit: {{ section.settings.card_media_fit | default: 'contain' }}; --relic-featured-card-media-min-height: {{ section.settings.card_media_min_height | default: 0 }}px;"
 >
   <div
     class="collection{% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %} section-{{ section.id }}-padding{% if section.settings.full_width %} collection--full-width{% endif %}"
@@ -388,6 +389,34 @@
       ],
       "default": "adapt",
       "label": "t:sections.featured-collection.settings.image_ratio.label"
+    },
+    {
+      "type": "select",
+      "id": "card_media_fit",
+      "options": [
+        {
+          "value": "contain",
+          "label": "Show full artwork"
+        },
+        {
+          "value": "cover",
+          "label": "Fill media frame"
+        }
+      ],
+      "default": "contain",
+      "label": "Product image fit",
+      "info": "Choose whether product artwork stays fully visible or fills the shared media frame."
+    },
+    {
+      "type": "range",
+      "id": "card_media_min_height",
+      "min": 0,
+      "max": 600,
+      "step": 20,
+      "unit": "px",
+      "default": 0,
+      "label": "Minimum product image height",
+      "info": "Optional floor for the shared media window. Leave at 0 to use the responsive square frame."
     },
     {
       "type": "select",

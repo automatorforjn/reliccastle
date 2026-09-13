@@ -491,6 +491,7 @@ body.relic-castle-theme .relic-featured-collection .product-card-wrapper > .card
 body.relic-castle-theme .relic-featured-collection .card--media > .card__inner {
   aspect-ratio: 1 / 1;
   flex: 0 0 auto;
+  min-height: var(--relic-featured-card-media-min-height, 0px);
 }
 
 body.relic-castle-theme .relic-featured-collection .card--media > .card__inner.ratio::before {
@@ -498,7 +499,7 @@ body.relic-castle-theme .relic-featured-collection .card--media > .card__inner.r
 }
 
 body.relic-castle-theme .relic-featured-collection .card__media .media img {
-  object-fit: contain;
+  object-fit: var(--relic-featured-card-image-fit, contain);
   object-position: center;
 }
 
