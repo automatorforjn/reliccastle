@@ -1,4 +1,4 @@
-﻿/* =========================================================
+/* =========================================================
    RELIC CASTLE CARDS â€” FINAL VAULT SYSTEM
    Direction: cinematic ruins + restrained obsidian glass
    Native Shopify/Publisher structure and schemes stay authoritative.
@@ -192,6 +192,7 @@ body.relic-castle-theme .header__heading-logo-wrapper {
   align-items: center;
   justify-content: center;
   filter: drop-shadow(0 4px 12px rgba(0,0,0,.28));
+  max-width: none;
 }
 
 body.relic-castle-theme .header__heading-logo,
@@ -199,6 +200,7 @@ body.relic-castle-theme .header__heading-logo.motion-reduce {
   display: block;
   width: auto;
   max-width: 100%;
+  max-height: 72px;
   height: auto;
   object-fit: contain;
 }
