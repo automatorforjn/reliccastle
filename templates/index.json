@@ -60,8 +60,8 @@
     "featured-collection": {
       "type": "featured-collection",
       "settings": {
-        "collection": "zip-line",
-        "products_to_show": 7,
+        "collection": "shop",
+        "products_to_show": 2,
         "title": "THE SEALED VAULT",
         "heading_size": "hxxl",
         "description": "<p>Factory-sealed Japanese imports, curated sets, and live-break inventory.</p>",
