@@ -468,7 +468,8 @@ body.relic-castle-theme .card__heading {
   line-height: 1.1;
 }
 
-/* Featured products use one stable media window while preserving each asset's full artwork. */
+/* Keep the native Shopify slide width as the card width. The product-component
+   must stretch before the card's native ratio can size its media window. */
 body.relic-castle-theme :is(.relic-featured-collection, .relic-collection-product-grid) .product-grid {
   align-items: stretch;
 }
@@ -476,6 +477,14 @@ body.relic-castle-theme :is(.relic-featured-collection, .relic-collection-produc
 body.relic-castle-theme :is(.relic-featured-collection, .relic-collection-product-grid) .product-grid > .grid__item {
   display: flex;
   min-width: 0;
+}
+
+body.relic-castle-theme :is(.relic-featured-collection, .relic-collection-product-grid) .product-grid > .grid__item > product-component,
+body.relic-castle-theme :is(.relic-featured-collection, .relic-collection-product-grid) .product-grid > .grid__item > .product-card-wrapper {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: 100%;
 }
 
 body.relic-castle-theme :is(.relic-featured-collection, .relic-collection-product-grid) .product-card-wrapper,
