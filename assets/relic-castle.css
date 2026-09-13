@@ -331,7 +331,7 @@ body.relic-castle-theme .relic-section--live-vault::before {
   z-index: 0;
   pointer-events: none;
   background-image: var(--relic-atmosphere-url), var(--relic-sand-url);
-  background-size: cover, min(1400px, 125vw) auto;
+  background-size: cover, 125vw auto;
   background-position: center 12%, center bottom;
   background-repeat: no-repeat;
   opacity: .20;
@@ -344,7 +344,7 @@ body.relic-castle-theme .relic-section-kicker {
   align-items: center;
   gap: 9px;
   margin: 0 auto 12px;
-  max-width: 1400px;
+  max-width: var(--page-width);
   padding: 0 2px;
   color: color-mix(in srgb, rgb(var(--color-foreground)) 66%, var(--relic-gold));
   font: 700 9px/1.2 var(--relic-ui-font);
@@ -356,7 +356,7 @@ body.relic-castle-theme .relic-video-frame,
 body.relic-castle-theme .relic-section--custom-live-stage .pc-live-stage__frame {
   position: relative;
   width: 100%;
-  max-width: none;
+  max-width: 100%;
   margin-inline: auto;
   padding: 1px;
   border: 1px solid color-mix(in srgb, rgb(var(--color-foreground)) 12%, var(--relic-gold) 46%);
@@ -474,7 +474,7 @@ body.relic-castle-theme .quick-add__submit {
 body.relic-castle-theme .collection__title .title,
 body.relic-castle-theme .relic-section--sealed-vault .title,
 body.relic-castle-theme .relic-section--chase-archive .title {
-  max-width: 1100px;
+  max-width: 100%;
   font-size: clamp(3rem, 5.2vw, 6rem);
   line-height: .94;
 }
@@ -632,7 +632,7 @@ body.relic-castle-theme .content-container:not(.multicolumn-card):not(.card):not
 }
 
 body.relic-castle-theme .rich-text__blocks {
-  max-width: 84rem;
+  max-width: 100%;
 }
 
 body.relic-castle-theme .rich-text__heading {
@@ -708,7 +708,7 @@ body.relic-castle-theme .product__media {
 body.relic-castle-theme .product__media {
   overflow: hidden;
   border: 1px solid color-mix(in srgb, rgb(var(--color-foreground)) 12%, var(--relic-gold) 24%);
-  background: color-mix(in srgb, rgb(var(--color-background)) 86%, #07111f);
+  background: color-mix(in srgb, rgb(var(--color-background)) 92%, rgb(var(--color-foreground)));
   box-shadow: var(--relic-shadow);
 }
 
@@ -716,7 +716,7 @@ body.relic-castle-theme .product__info-container {
   padding: clamp(18px, 2.2vw, 30px);
   border: 1px solid color-mix(in srgb, rgb(var(--color-foreground)) 12%, var(--relic-gold) 22%);
   border-radius: var(--relic-radius-panel);
-  background: color-mix(in srgb, rgb(var(--color-background)) 88%, #07111f);
+  background: color-mix(in srgb, rgb(var(--color-background)) 94%, rgb(var(--color-foreground)));
   box-shadow: var(--relic-shadow);
 }
 
@@ -745,10 +745,6 @@ body.relic-castle-theme .article-template__hero-container,
 body.relic-castle-theme .article-template__content,
 body.relic-castle-theme .main-page-title + .rte {
   border-radius: var(--relic-radius-panel);
-}
-
-body.relic-castle-theme .article-template__content {
-  max-width: 82rem;
 }
 
 body.relic-castle-theme .article-template__title {
@@ -825,7 +821,8 @@ body.relic-castle-theme .footer-block__heading {
 @media screen and (max-width: 989px) {
   body.relic-castle-theme .relic-video-frame,
   body.relic-castle-theme .relic-section--custom-live-stage .pc-live-stage__frame {
-    width: calc(100vw - 28px);
+    width: 100%;
+    max-width: 100%;
   }
 
   body.relic-castle-theme .product__info-container {
@@ -853,7 +850,8 @@ body.relic-castle-theme .footer-block__heading {
 
   body.relic-castle-theme .relic-video-frame,
   body.relic-castle-theme .relic-section--custom-live-stage .pc-live-stage__frame {
-    width: calc(100vw - 20px);
+    width: 100%;
+    max-width: 100%;
     padding: 1px;
     border-radius: 3px;
   }
