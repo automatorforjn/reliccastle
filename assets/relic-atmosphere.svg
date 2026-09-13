@@ -1,58 +1,81 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
   <defs>
     <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#10263c" stop-opacity=".46"/>
-      <stop offset=".56" stop-color="#09131f" stop-opacity=".20"/>
-      <stop offset="1" stop-color="#03070d" stop-opacity="0"/>
+      <stop offset="0" stop-color="#10253a" stop-opacity=".82"/>
+      <stop offset=".45" stop-color="#0a1724" stop-opacity=".68"/>
+      <stop offset="1" stop-color="#03070d" stop-opacity=".18"/>
     </linearGradient>
-    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+    <radialGradient id="moonGlow" cx="70%" cy="14%" r="24%">
+      <stop offset="0" stop-color="#f4e8c8" stop-opacity=".18"/>
+      <stop offset=".3" stop-color="#d8b675" stop-opacity=".07"/>
+      <stop offset="1" stop-color="#d8b675" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="dune" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#8c6334" stop-opacity=".15"/>
+      <stop offset=".5" stop-color="#d8b675" stop-opacity=".07"/>
+      <stop offset="1" stop-color="#25190f" stop-opacity=".06"/>
+    </linearGradient>
+    <linearGradient id="goldRail" x1="0" y1="0" x2="1" y2="0">
       <stop stop-color="#d8b675" stop-opacity="0"/>
-      <stop offset=".5" stop-color="#f1d59b" stop-opacity=".30"/>
+      <stop offset=".5" stop-color="#f1d59b" stop-opacity=".34"/>
       <stop offset="1" stop-color="#d8b675" stop-opacity="0"/>
     </linearGradient>
-    <filter id="soft"><feGaussianBlur stdDeviation="9"/></filter>
+    <filter id="blur24"><feGaussianBlur stdDeviation="24"/></filter>
+    <filter id="blur8"><feGaussianBlur stdDeviation="8"/></filter>
   </defs>
 
   <rect width="1600" height="900" fill="url(#sky)"/>
+  <rect width="1600" height="900" fill="url(#moonGlow)"/>
 
-  <!-- distant moon / horizon glow -->
-  <circle cx="1120" cy="120" r="64" fill="#f1eadc" opacity=".05"/>
-  <ellipse cx="800" cy="700" rx="740" ry="120" fill="#d8b675" opacity=".025" filter="url(#soft)"/>
+  <circle cx="1135" cy="120" r="54" fill="#f1eadc" opacity=".12"/>
+  <circle cx="1135" cy="120" r="92" fill="#f1d59b" opacity=".025" filter="url(#blur24)"/>
 
-  <!-- distant castle / ruin skyline -->
-  <g fill="#06101a" opacity=".82">
-    <path d="M0 552H92v-98h32v-54h46v44h26v108h72v-136h34v-58h50v72h24v122h76v-96h44v96h68v-158h30v-72h42v58h22v172h86v-118h34v-46h54v64h26v100h72v-142h34v-66h44v48h22v160h78v-96h46v96h94v348H0Z"/>
-    <path d="M230 552v-52l46-44 46 44v52Zm848 0v-62l52-54 52 54v62Z" opacity=".72"/>
+  <!-- distant desert haze -->
+  <ellipse cx="760" cy="655" rx="720" ry="115" fill="#d8b675" opacity=".045" filter="url(#blur24)"/>
+
+  <!-- stepped desert dunes -->
+  <path d="M0 676C176 614 320 644 468 603C650 553 751 601 910 578C1097 550 1254 585 1600 512V900H0Z" fill="url(#dune)"/>
+  <path d="M0 740C196 688 334 717 520 668C704 620 848 684 1035 642C1226 600 1395 646 1600 590V900H0Z" fill="#130e0a" opacity=".30"/>
+
+  <!-- castle / ruin skyline -->
+  <g fill="#04101a" opacity=".94">
+    <path d="M0 575H78v-74h20v-72h30v-34h20v34h24v146h66v-108h28v-66h40v66h28v108h82v-145h34v-82h44v82h26v145h90v-104h30v-55h44v55h30v104h100v-164h32v-82h46v82h24v164h88v-120h34v-60h46v60h28v120h80v-92h36v92h86v325H0Z"/>
+    <path d="M188 575v-62l48-48 48 48v62Zm868 0v-70l58-58 58 58v70Z" opacity=".78"/>
+    <path d="M720 575v-112l80-82 80 82v112Z" opacity=".72"/>
   </g>
 
-  <!-- broken foreground ruins -->
-  <g fill="#050b12" opacity=".74">
-    <path d="M0 760h155l26-92 28 12 16-57 32 8 20-92 28 6 34 215H0Z"/>
-    <path d="M1600 760h-168l-28-84-26 14-18-62-28 7-18-94-31 8-25 211h342Z"/>
+  <!-- broken pillars / foreground archaeology -->
+  <g fill="#050b12" opacity=".88">
+    <path d="M0 900V696h122l18-76 28 8 15-64 32 10 30-112 28 8 46 430Z"/>
+    <path d="M1600 900V688h-128l-22-82-28 10-14-68-34 8-28-118-30 10-40 452Z"/>
+    <path d="M112 712h74v188h-74zM1420 702h68v198h-68z" opacity=".72"/>
   </g>
 
-  <!-- gold architectural horizon rails -->
-  <g fill="none" stroke="#d8b675" opacity=".13">
-    <path d="M80 648H1520"/>
-    <path d="M180 676H1420" stroke="url(#gold)"/>
+  <!-- crystal shards -->
+  <g fill="none" stroke="#d8b675" stroke-width="1.1" opacity=".28">
+    <path d="M98 820l30-104 34 104-34 38Z"/><path d="M128 716v142"/>
+    <path d="M1468 836l24-84 27 84-27 32Z"/><path d="M1492 752v116"/>
+    <path d="M1365 750l16-54 18 54-18 22Z" opacity=".55"/>
   </g>
 
-  <!-- sparse sand / star particles -->
+  <!-- architectural horizon lines -->
+  <path d="M76 640H1524" stroke="url(#goldRail)" stroke-width="1"/>
+  <path d="M200 672H1400" stroke="url(#goldRail)" stroke-width="1" opacity=".55"/>
+
+  <!-- wind-borne sand -->
   <g fill="#d8b675">
-    <circle cx="120" cy="134" r="1.5" opacity=".50"/><circle cx="210" cy="270" r="1" opacity=".28"/>
-    <circle cx="340" cy="112" r="1.2" opacity=".44"/><circle cx="452" cy="208" r="1.4" opacity=".32"/>
-    <circle cx="610" cy="142" r="1" opacity=".42"/><circle cx="744" cy="96" r="1.5" opacity=".36"/>
-    <circle cx="892" cy="180" r="1.1" opacity=".40"/><circle cx="1018" cy="88" r="1.4" opacity=".48"/>
-    <circle cx="1214" cy="218" r="1" opacity=".34"/><circle cx="1380" cy="120" r="1.5" opacity=".46"/>
-    <circle cx="1484" cy="310" r="1" opacity=".32"/><circle cx="126" cy="630" r="1.5" opacity=".34"/>
-    <circle cx="290" cy="704" r="1" opacity=".28"/><circle cx="470" cy="650" r="1.2" opacity=".38"/>
-    <circle cx="684" cy="736" r="1.5" opacity=".30"/><circle cx="914" cy="690" r="1" opacity=".34"/>
-    <circle cx="1130" cy="728" r="1.3" opacity=".32"/><circle cx="1394" cy="664" r="1.6" opacity=".38"/>
+    <circle cx="72" cy="238" r="1.3" opacity=".55"/><circle cx="116" cy="316" r="1" opacity=".36"/>
+    <circle cx="178" cy="208" r="1.6" opacity=".44"/><circle cx="250" cy="356" r="1.1" opacity=".33"/>
+    <circle cx="338" cy="145" r="1.2" opacity=".42"/><circle cx="422" cy="270" r="1.5" opacity=".35"/>
+    <circle cx="520" cy="190" r="1" opacity=".34"/><circle cx="606" cy="118" r="1.4" opacity=".46"/>
+    <circle cx="742" cy="222" r="1.2" opacity=".40"/><circle cx="874" cy="142" r="1.4" opacity=".50"/>
+    <circle cx="1018" cy="250" r="1" opacity=".36"/><circle cx="1240" cy="184" r="1.4" opacity=".44"/>
+    <circle cx="1368" cy="282" r="1.2" opacity=".36"/><circle cx="1490" cy="168" r="1.4" opacity=".46"/>
+    <circle cx="145" cy="650" r="2" opacity=".34"/><circle cx="302" cy="716" r="1.2" opacity=".28"/>
+    <circle cx="470" cy="642" r="1.6" opacity=".38"/><circle cx="662" cy="728" r="1.4" opacity=".30"/>
+    <circle cx="864" cy="676" r="1.6" opacity=".32"/><circle cx="1088" cy="740" r="1.2" opacity=".34"/>
+    <circle cx="1260" cy="664" r="1.8" opacity=".32"/><circle cx="1422" cy="724" r="1.4" opacity=".38"/>
   </g>
 
-  <!-- two restrained crystal silhouettes -->
-  <g fill="none" stroke="#d8b675" opacity=".16">
-    <path d="M118 752l28-92 30 92-30 34Z"/><path d="M146 660v126"/>
-    <path d="M1432 766l22-74 24 74-24 28Z"/><path d="M1454 692v102"/>
-  </g>
+  <path d="M30 760C286 688 470 756 720 694C940 640 1134 694 1570 612" stroke="#d8b675" stroke-width="2" opacity=".08" filter="url(#blur8)"/>
 </svg>

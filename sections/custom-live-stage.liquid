@@ -1,18 +1,39 @@
-<section class="relic-live-stage">
-  <div class="relic-live-stage__inner page-width">
+{{ 'video-section.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient relic-section relic-section--custom-live-stage">
+  <div class="{% unless section.settings.full_width %}page-width {% endunless %}section-{{ section.id }}-padding">
     <div class="pc-live-stage__frame">
       <div class="pc-live-stage__aspect">
-        <iframe
-          src="{{ section.settings.video_url | escape }}"
-          title="{{ section.settings.video_title | escape }}"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen>
-        </iframe>
+        {%- if section.settings.video_url != blank -%}
+          <iframe
+            src="{{ section.settings.video_url | escape }}"
+            title="{{ section.settings.video_title | default: 'Live stream' | escape }}"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        {%- else -%}
+          <div class="pc-live-stage__placeholder rte">
+            <p>Add a YouTube embed URL in this section's settings.</p>
+          </div>
+        {%- endif -%}
       </div>
     </div>
   </div>
-</section>
+</div>
 
 {% schema %}
 {
@@ -20,10 +41,13 @@
   "tag": "section",
   "class": "section-custom-live-stage",
   "settings": [
-    { "type": "text", "id": "badge_text", "label": "Badge text", "default": "LIVE BREAKS" },
     { "type": "text", "id": "video_title", "label": "Video title", "default": "Relic Castle live stream" },
     { "type": "url", "id": "video_url", "label": "YouTube embed URL" },
-    { "type": "color_scheme", "id": "color_scheme", "label": "Section color scheme", "default": "scheme-1" }
+    { "type": "color_scheme", "id": "color_scheme", "label": "Section color scheme", "default": "scheme-1" },
+    { "type": "checkbox", "id": "full_width", "label": "Make section full width", "default": false },
+    { "type": "header", "content": "Section spacing" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Top padding", "default": 24 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Bottom padding", "default": 36 }
   ],
   "presets": [{ "name": "Custom Live Stage" }]
 }

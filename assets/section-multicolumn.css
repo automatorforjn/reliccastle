@@ -233,7 +233,7 @@
 }
 
 /* =========================================================
-   POKE CENTRAL — CHASE & ODDS LAYER
+   RELIC CASTLE — CHASE ARCHIVE LAYER
    =========================================================
 
    ARCHITECTURE
@@ -282,11 +282,6 @@
 .multicolumn.pc-chase-odds {
   width: 100%;
   box-sizing: border-box;
-  --pc-glass-card: rgba(7, 13, 22, .72);
-  --pc-glass-border: rgba(216, 182, 117, .34);
-  --pc-glass-blur-card: 8px;
-  --pc-glass-collectible: rgba(216, 182, 117, .24);
-  --pc-glass-blur-collectible: 6px;
 }
 
 /* Chase-only row sizing. This changes the native <ul> footprint, not the
@@ -357,7 +352,7 @@
 
    The native .multicolumn-card remains in the DOM.
    This is the Shopify-owned visual shell around the inner
-   Poke Central Chase surface.
+   Relic Castle Chase surface.
    ========================================================= */
 
 .multicolumn.pc-chase-odds .pc-chase-column-shell {
@@ -468,7 +463,7 @@
   isolation: isolate;
 
   background:
-    linear-gradient(145deg, rgba(7, 17, 31, 0.12), rgba(3, 7, 13, 0.28));
+    linear-gradient(145deg, rgba(20, 17, 13, 0.14), rgba(7, 13, 22, 0.20));
 
   box-shadow:
     inset 0 0 0 1px rgba(255,255,255,0.085),
@@ -610,7 +605,7 @@
   justify-content: center;
 
   width: min(78%, calc(100% - 24px));
-  height: max(0px, calc(100% - var(--pc-info-height, 118px) - 24px));
+  height: calc(100% - 24px);
   min-width: 0;
   min-height: 0;
   max-width: calc(100% - 24px);
@@ -623,6 +618,47 @@
   overflow: visible;
   pointer-events: none;
   z-index: 6;
+}
+
+
+/* Theme Editor collectible width controls — foreground only. */
+.multicolumn.pc-chase-odds .pc-chase-foreground.pc-width--one_third { width: 33%; }
+.multicolumn.pc-chase-odds .pc-chase-foreground.pc-width--half { width: 50%; }
+.multicolumn.pc-chase-odds .pc-chase-foreground.pc-width--three_quarters { width: 78%; }
+.multicolumn.pc-chase-odds .pc-chase-foreground.pc-width--full { width: calc(100% - 24px); }
+
+/* Theme Editor collectible ratio controls — foreground only. */
+.multicolumn.pc-chase-odds .pc-chase-foreground.pc-ratio--pokemon_standard .pc-chase-collectible-case {
+  aspect-ratio: 5 / 7;
+  width: 100%;
+  max-width: 100%;
+}
+.multicolumn.pc-chase-odds .pc-chase-foreground.pc-ratio--square .pc-chase-collectible-case {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  max-width: 100%;
+}
+.multicolumn.pc-chase-odds .pc-chase-foreground.pc-ratio--square .pc-chase-collectible-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.multicolumn.pc-chase-odds .pc-chase-foreground.pc-ratio--pokemon_standard .pc-chase-collectible-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.multicolumn.pc-chase-odds .pc-chase-foreground.pc-ratio--adapt,
+.multicolumn.pc-chase-odds .pc-chase-foreground.pc-ratio--adapt .pc-chase-collectible-case {
+  aspect-ratio: auto;
+  height: auto;
+}
+.multicolumn.pc-chase-odds .pc-chase-foreground.pc-ratio--adapt .pc-chase-collectible-image {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 /* The shell always fills its Shopify LI. Row width is controlled on the native
@@ -679,7 +715,7 @@
       rgba(255,255,255,0.045) 18%,
       transparent 40%,
       transparent 72%,
-      rgba(201,168,255,0.055) 100%
+      rgba(241,213,155,0.055) 100%
     );
   border: 1px solid rgba(255,255,255,0.16);
   box-shadow:
@@ -760,7 +796,7 @@
   position: absolute;
   inset: 8px;
   pointer-events: none;
-  border-radius: 11px;
+  border-radius: 9px;
   border: 1px solid rgba(255,255,255,0.13);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), inset 0 0 20px rgba(255,255,255,0.025);
   z-index: 3;
@@ -807,10 +843,8 @@
    13 — SHOPIFY INFORMATION ZONE
    =========================================================
 
-   Feature Info remains native Shopify content, but visually becomes a
-   translucent overlay on the SAME Chase Background Plane. Its measured
-   height is exported to --pc-info-height by the section helper script so
-   the collectible stage automatically gives the text room.
+   Feature Info remains native Shopify content. No JavaScript measurement
+   is required; the foreground card is sized independently from the info layer.
    ========================================================= */
 
 .multicolumn.pc-chase-odds
@@ -1020,7 +1054,7 @@
 /* Release BOTH the Shopify grid item ratio and the shell ratio. */
 .multicolumn.pc-chase-odds
 .pc-chase-column--no-collectible {
-  aspect-ratio: auto;
+  aspect-ratio: auto !important;
   height: auto;
   min-height: 0;
 }
@@ -1035,7 +1069,7 @@
 .pc-chase-column--ratio-circle .pc-chase-column-shell--no-collectible,
 .multicolumn.pc-chase-odds
 .pc-chase-column--ratio-adapt .pc-chase-column-shell--no-collectible {
-  aspect-ratio: auto;
+  aspect-ratio: auto !important;
   height: auto;
   min-height: 0;
   max-height: none;
@@ -1219,14 +1253,14 @@
 @media screen and (max-width: 749px) {
   .multicolumn.pc-chase-odds
   .pc-chase-column--no-collectible {
-    aspect-ratio: auto;
+    aspect-ratio: auto !important;
     height: auto;
     min-height: 0;
   }
 
   .multicolumn.pc-chase-odds
   .pc-chase-column-shell--no-collectible {
-    aspect-ratio: auto;
+    aspect-ratio: auto !important;
     height: auto;
     min-height: 0;
   }

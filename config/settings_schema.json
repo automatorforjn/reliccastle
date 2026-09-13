@@ -19,9 +19,9 @@
         "type": "range",
         "id": "logo_width",
         "min": 50,
-        "max": 300,
+        "max": 480,
         "step": 10,
-        "default": 300,
+        "default": 180,
         "unit": "px",
         "label": "t:settings_schema.logo.settings.logo_width.label"
       },
@@ -98,53 +98,6 @@
           "on_secondary_button": "secondary_button_label",
           "secondary_button_border": "secondary_button_label"
         }
-      }
-    ]
-  },
-  {
-    "name": "Relic Castle Atmosphere",
-    "settings": [
-      {
-        "type": "image_picker",
-        "id": "relic_world_image",
-        "label": "Desktop world background",
-        "info": "Optional. Uses the Relic Castle fallback atmosphere when empty."
-      },
-      {
-        "type": "image_picker",
-        "id": "relic_world_image_mobile",
-        "label": "Mobile world background",
-        "info": "Optional. Desktop background is used when empty."
-      },
-      {
-        "type": "range",
-        "id": "relic_world_darkness",
-        "min": 0,
-        "max": 90,
-        "step": 5,
-        "unit": "%",
-        "default": 60,
-        "label": "World darkness"
-      },
-      {
-        "type": "range",
-        "id": "relic_world_strength",
-        "min": 0,
-        "max": 100,
-        "step": 5,
-        "unit": "%",
-        "default": 60,
-        "label": "Atmosphere strength"
-      },
-      {
-        "type": "range",
-        "id": "relic_section_surface_opacity",
-        "min": 40,
-        "max": 100,
-        "step": 5,
-        "unit": "%",
-        "default": 80,
-        "label": "Section surface opacity"
       }
     ]
   },
@@ -1403,6 +1356,56 @@
         "id": "social_vimeo_link",
         "label": "t:settings_schema.social-media.settings.social_vimeo_link.label",
         "placeholder": "t:settings_schema.social-media.settings.social_vimeo_link.info"
+      }
+    ]
+  },
+  {
+    "name": "Relic Castle atmosphere",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "relic_world_desktop",
+        "label": "Desktop desert / ruins background"
+      },
+      {
+        "type": "image_picker",
+        "id": "relic_world_mobile",
+        "label": "Mobile desert / ruins background (optional)"
+      },
+      {
+        "type": "range",
+        "id": "relic_world_darkness",
+        "min": 0,
+        "max": 85,
+        "step": 5,
+        "unit": "%",
+        "label": "Background darkness",
+        "default": 45
+      },
+      {
+        "type": "range",
+        "id": "relic_atmosphere_strength",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "label": "Atmosphere strength",
+        "default": 90
+      },
+      {
+        "type": "range",
+        "id": "relic_section_surface_opacity",
+        "min": 20,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "label": "Section surface opacity",
+        "default": 40,
+        "info": "Controls only the tint strength of native Shopify section schemes over the shared Relic world. Lower values reveal more ruins and sand while preserving each selected scheme."
+      },
+      {
+        "type": "paragraph",
+        "content": "A built-in desert/ruins vector is always available. Upload desktop/mobile art here to override it. Native Shopify schemes, section padding, grids and controls remain authoritative."
       }
     ]
   },

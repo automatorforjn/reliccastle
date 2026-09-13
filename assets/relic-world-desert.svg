@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#06111f"/>
+      <stop offset="0.55" stop-color="#0a1826"/>
+      <stop offset="1" stop-color="#150f0a"/>
+    </linearGradient>
+    <linearGradient id="dune" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3d2a18" stop-opacity=".36"/>
+      <stop offset=".55" stop-color="#7e5630" stop-opacity=".2"/>
+      <stop offset="1" stop-color="#120d09" stop-opacity=".58"/>
+    </linearGradient>
+    <radialGradient id="haze" cx="50%" cy="32%" r="60%">
+      <stop offset="0" stop-color="#d8b675" stop-opacity=".16"/>
+      <stop offset=".45" stop-color="#a98755" stop-opacity=".05"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#sky)"/>
+  <rect width="1920" height="1080" fill="url(#haze)"/>
+
+  <!-- distant moon / expedition glow -->
+  <circle cx="1510" cy="180" r="92" fill="#d9c49b" opacity=".055" filter="url(#blur)"/>
+  <circle cx="1510" cy="180" r="52" fill="#e4d3b6" opacity=".045"/>
+
+  <!-- far ruins -->
+  <g fill="#081019" opacity=".88">
+    <path d="M0 660h150v-170h42v-78h44v78h56v170H0z"/>
+    <path d="M118 490l52-90 52 90z"/>
+    <path d="M242 660h86v-118h25v-42h29v42h72v118z"/>
+    <path d="M1460 660h112v-138h28v-86h36v86h85v138z"/>
+    <path d="M1600 522l54-92 54 92z"/>
+    <path d="M1740 660h180v-210h-44v-68h-38v68h-98z"/>
+  </g>
+
+  <!-- central broken arch / castle silhouette -->
+  <g fill="#0a1118" opacity=".72">
+    <path d="M650 670V460h88V350h54v110h60v210z"/>
+    <path d="M1040 670V440h70v-120h58v120h98v230z"/>
+    <path d="M760 670V520h400v150h-85c0-118-67-204-159-204S757 552 757 670z"/>
+  </g>
+  <g fill="none" stroke="#d8b675" stroke-opacity=".15" stroke-width="2">
+    <path d="M742 670V520h436V670"/>
+    <path d="M808 520c16-116 82-182 154-182 77 0 140 68 154 182"/>
+    <path d="M930 332v-58m-19 19h38"/>
+  </g>
+
+  <!-- foreground dunes -->
+  <path d="M0 760C270 690 420 770 650 820c320 70 550-85 780-32 180 42 303 97 490 40v252H0z" fill="url(#dune)"/>
+  <path d="M0 880c260-108 520-35 760 8 250 44 504-41 730-6 169 26 278 45 430 4v194H0z" fill="#090b0d" opacity=".72"/>
+
+  <!-- sand trails -->
+  <g fill="none" stroke="#d8b675" stroke-linecap="round">
+    <path d="M-40 860c320-138 612-52 878-5" stroke-opacity=".14" stroke-width="3"/>
+    <path d="M1180 828c250-58 485-48 780 52" stroke-opacity=".1" stroke-width="2"/>
+    <path d="M250 934c420-82 850-48 1260 6" stroke-opacity=".07" stroke-width="2"/>
+  </g>
+
+  <!-- sparse dust / stars -->
+  <g fill="#f0d49a">
+    <circle cx="120" cy="168" r="2" opacity=".32"/><circle cx="300" cy="252" r="1.5" opacity=".24"/>
+    <circle cx="510" cy="144" r="1.5" opacity=".28"/><circle cx="720" cy="206" r="2" opacity=".22"/>
+    <circle cx="926" cy="118" r="1.3" opacity=".28"/><circle cx="1148" cy="220" r="2" opacity=".25"/>
+    <circle cx="1340" cy="114" r="1.5" opacity=".24"/><circle cx="1630" cy="282" r="2" opacity=".3"/>
+    <circle cx="1780" cy="158" r="1.4" opacity=".28"/><circle cx="1882" cy="344" r="1.8" opacity=".24"/>
+    <circle cx="204" cy="742" r="2" opacity=".2"/><circle cx="1580" cy="760" r="1.8" opacity=".22"/>
+    <circle cx="1710" cy="800" r="2.2" opacity=".18"/><circle cx="640" cy="792" r="1.6" opacity=".18"/>
+  </g>
+</svg>

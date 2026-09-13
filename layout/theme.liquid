@@ -282,8 +282,7 @@
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
-    {{ 'relic-castle.css' | asset_url | stylesheet_tag }}
-    {{ 'relic-desert-refinement.css' | asset_url | stylesheet_tag }}
+{{ 'relic-castle.css' | asset_url | stylesheet_tag }}
 <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
     {%- if settings.cart_type == 'drawer' -%}
       {{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
@@ -325,13 +324,34 @@
     </script>
   </head>
 
-  <body class="gradient relic-castle-theme{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}"
-    style="--relic-world-darkness: {{ settings.relic_world_darkness | default: 52 | divided_by: 100.0 }}; --relic-world-strength: {{ settings.relic_world_strength | default: 92 | divided_by: 100.0 }}; --relic-section-surface-opacity: {{ settings.relic_section_surface_opacity | default: 54 }}%;">
-    <div
-      class="relic-world"
-      aria-hidden="true"
-      style="--relic-world-desktop: {% if settings.relic_world_image != blank %}url('{{ settings.relic_world_image | image_url: width: 2400 }}'){% else %}url('{{ 'relic-desert-night.svg' | asset_url }}'){% endif %}; --relic-world-mobile: {% if settings.relic_world_image_mobile != blank %}url('{{ settings.relic_world_image_mobile | image_url: width: 1400 }}'){% elsif settings.relic_world_image != blank %}url('{{ settings.relic_world_image | image_url: width: 2400 }}'){% else %}url('{{ 'relic-desert-night.svg' | asset_url }}'){% endif %}; --relic-world-arch: url('{{ 'relic-arch.svg' | asset_url }}'); --relic-world-sand: url('{{ 'relic-sand-drift.svg' | asset_url }}');"
-    ></div>
+  {%- liquid
+    assign relic_world_fallback = 'relic-world-desert.svg' | asset_url | prepend: "url('" | append: "')"
+    assign relic_world_desktop_url = relic_world_fallback
+    assign relic_world_mobile_url = relic_world_fallback
+
+    if settings.relic_world_desktop != blank
+      assign relic_world_desktop_url = settings.relic_world_desktop | image_url: width: 2400 | prepend: "url('" | append: "')"
+      assign relic_world_mobile_url = relic_world_desktop_url
+    endif
+
+    if settings.relic_world_mobile != blank
+      assign relic_world_mobile_url = settings.relic_world_mobile | image_url: width: 1400 | prepend: "url('" | append: "')"
+    endif
+  -%}
+  <body
+    class="gradient relic-castle-theme{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}"
+    style="
+      --relic-world-desktop-url: {{ relic_world_desktop_url }};
+      --relic-world-mobile-url: {{ relic_world_mobile_url }};
+      --relic-world-darkness: {{ settings.relic_world_darkness | default: 50 | divided_by: 100.0 }};
+      --relic-atmosphere-strength: {{ settings.relic_atmosphere_strength | default: 90 | divided_by: 100.0 }};
+      --relic-section-surface-alpha: {{ settings.relic_section_surface_opacity | default: 55 | divided_by: 100.0 }};
+      --relic-atmosphere-url: url('{{ 'relic-atmosphere.svg' | asset_url }}');
+      --relic-arch-url: url('{{ 'relic-arch.svg' | asset_url }}');
+      --relic-sand-url: url('{{ 'relic-sand-drift.svg' | asset_url }}');
+    "
+  >
+    <div class="relic-world" aria-hidden="true"></div>
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
