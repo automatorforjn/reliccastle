@@ -49,6 +49,7 @@ body.relic-castle-theme {
 body.relic-castle-theme .relic-world {
   position: fixed;
   inset: 0;
+  display: block;
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
@@ -465,6 +466,40 @@ body.relic-castle-theme .card__content {
 
 body.relic-castle-theme .card__heading {
   line-height: 1.1;
+}
+
+/* Featured products use one stable media window while preserving each asset's full artwork. */
+body.relic-castle-theme .relic-featured-collection .product-grid {
+  align-items: stretch;
+}
+
+body.relic-castle-theme .relic-featured-collection .product-grid > .grid__item {
+  display: flex;
+  min-width: 0;
+}
+
+body.relic-castle-theme .relic-featured-collection .product-card-wrapper,
+body.relic-castle-theme .relic-featured-collection .product-card-wrapper > .card {
+  width: 100%;
+  height: 100%;
+}
+
+body.relic-castle-theme .relic-featured-collection .product-card-wrapper > .card {
+  min-height: 0;
+}
+
+body.relic-castle-theme .relic-featured-collection .card--media > .card__inner {
+  aspect-ratio: 1 / 1;
+  flex: 0 0 auto;
+}
+
+body.relic-castle-theme .relic-featured-collection .card--media > .card__inner.ratio::before {
+  padding-bottom: 0;
+}
+
+body.relic-castle-theme .relic-featured-collection .card__media .media img {
+  object-fit: contain;
+  object-position: center;
 }
 
 body.relic-castle-theme .quick-add__submit {
@@ -923,29 +958,6 @@ body.relic-castle-theme .header__icons details-modal > .header__icon:hover {
 body.relic-castle-theme .header__icons .svg-wrapper {
   width: 1.9rem;
   height: 1.9rem;
-}
-
-/* Equal-height product cards without fixed heights or JavaScript. */
-body.relic-castle-theme .collection .grid__item,
-body.relic-castle-theme .featured-collection .grid__item {
-  display: flex;
-}
-body.relic-castle-theme .collection .card-wrapper,
-body.relic-castle-theme .featured-collection .card-wrapper,
-body.relic-castle-theme .collection .card,
-body.relic-castle-theme .featured-collection .card {
-  width: 100%;
-  height: 100%;
-}
-body.relic-castle-theme .collection .card__content,
-body.relic-castle-theme .featured-collection .card__content {
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 auto;
-}
-body.relic-castle-theme .collection .card__information,
-body.relic-castle-theme .featured-collection .card__information {
-  flex: 1 1 auto;
 }
 
 /* Generic Adapt respects each block's own media proportions. */
