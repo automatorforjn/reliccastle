@@ -337,6 +337,20 @@
     if settings.relic_world_mobile != blank
       assign relic_world_mobile_url = settings.relic_world_mobile | image_url: width: 1400 | prepend: "url('" | append: "')"
     endif
+
+    assign relic_glass_tint = settings.relic_glass_tint | default: 'obsidian'
+    case relic_glass_tint
+      when 'native'
+        assign relic_glass_tint_value = 'rgb(var(--color-background))'
+      when 'crystal'
+        assign relic_glass_tint_value = '#617181'
+      when 'amber'
+        assign relic_glass_tint_value = '#8a5b2b'
+      when 'verdant'
+        assign relic_glass_tint_value = '#245843'
+      else
+        assign relic_glass_tint_value = '#07111f'
+    endcase
   -%}
   <body
     class="gradient relic-castle-theme{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}"
@@ -346,6 +360,9 @@
       --relic-world-darkness: {{ settings.relic_world_darkness | default: 50 | divided_by: 100.0 }};
       --relic-atmosphere-strength: {{ settings.relic_atmosphere_strength | default: 90 | divided_by: 100.0 }};
       --relic-section-surface-alpha: {{ settings.relic_section_surface_opacity | default: 55 | divided_by: 100.0 }};
+      --relic-glass-tint: {{ relic_glass_tint_value }};
+      --relic-glass-alpha: {{ settings.relic_glass_alpha | default: 76 }}%;
+      --relic-glass-blur: {{ settings.relic_glass_blur | default: 12 }}px;
       --relic-atmosphere-url: url('{{ 'relic-atmosphere.svg' | asset_url }}');
       --relic-arch-url: url('{{ 'relic-arch.svg' | asset_url }}');
       --relic-sand-url: url('{{ 'relic-sand-drift.svg' | asset_url }}');

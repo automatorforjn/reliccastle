@@ -1437,6 +1437,39 @@
         "info": "Controls only the tint strength of native Shopify section schemes over the shared Relic world. Lower values reveal more ruins and sand while preserving each selected scheme."
       },
       {
+        "type": "select",
+        "id": "relic_glass_tint",
+        "label": "Glass tint",
+        "options": [
+          { "value": "obsidian", "label": "Obsidian relic" },
+          { "value": "crystal", "label": "Neutral crystal" },
+          { "value": "amber", "label": "Amber relic" },
+          { "value": "verdant", "label": "Verdant relic" },
+          { "value": "native", "label": "Native scheme" }
+        ],
+        "default": "obsidian"
+      },
+      {
+        "type": "range",
+        "id": "relic_glass_blur",
+        "min": 0,
+        "max": 24,
+        "step": 1,
+        "unit": "px",
+        "label": "Glass blur",
+        "default": 12
+      },
+      {
+        "type": "range",
+        "id": "relic_glass_alpha",
+        "min": 30,
+        "max": 95,
+        "step": 1,
+        "unit": "%",
+        "label": "Glass opacity",
+        "default": 76
+      },
+      {
         "type": "paragraph",
         "content": "A built-in desert/ruins vector is always available. Upload desktop/mobile art here to override it. Native Shopify schemes, section padding, grids and controls remain authoritative."
       }

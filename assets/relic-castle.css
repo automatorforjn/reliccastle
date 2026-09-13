@@ -162,13 +162,13 @@ body.relic-castle-theme .relic-header-wrapper {
   overflow: visible;
   background:
     linear-gradient(180deg,
-      color-mix(in srgb, rgb(var(--color-background)) 95%, #07111f),
-      color-mix(in srgb, rgb(var(--color-background)) 88%, #03070d));
+      color-mix(in srgb, var(--relic-glass-tint) var(--relic-glass-alpha, 76%), transparent),
+      color-mix(in srgb, var(--relic-glass-tint) calc(var(--relic-glass-alpha, 76%) * .82), transparent));
   color: rgb(var(--color-foreground));
   border-bottom: 1px solid color-mix(in srgb, var(--relic-gold) 34%, rgb(var(--color-foreground)) 7%);
   box-shadow: 0 14px 44px rgba(0,0,0,.24);
-  backdrop-filter: blur(12px) saturate(118%);
-  -webkit-backdrop-filter: blur(12px) saturate(118%);
+  backdrop-filter: blur(var(--relic-glass-blur, 12px)) saturate(118%);
+  -webkit-backdrop-filter: blur(var(--relic-glass-blur, 12px)) saturate(118%);
 }
 
 body.relic-castle-theme .relic-header-wrapper::before {
@@ -230,14 +230,14 @@ body.relic-castle-theme .relic-header-wrapper .header__submenu,
 body.relic-castle-theme .relic-header-wrapper .mega-menu__content {
   background:
     linear-gradient(180deg,
-      color-mix(in srgb, rgb(var(--color-background)) 94%, #07111f),
-      color-mix(in srgb, rgb(var(--color-background)) 90%, #03070d));
+      color-mix(in srgb, var(--relic-glass-tint) var(--relic-glass-alpha, 76%), transparent),
+      color-mix(in srgb, var(--relic-glass-tint) calc(var(--relic-glass-alpha, 76%) * .86), transparent));
   color: rgb(var(--color-foreground));
   border: 1px solid color-mix(in srgb, rgb(var(--color-foreground)) 12%, var(--relic-gold) 18%);
   border-radius: var(--relic-radius-panel);
   box-shadow: var(--relic-shadow-strong);
-  backdrop-filter: blur(14px) saturate(120%);
-  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  backdrop-filter: blur(var(--relic-glass-blur, 12px)) saturate(120%);
+  -webkit-backdrop-filter: blur(var(--relic-glass-blur, 12px)) saturate(120%);
 }
 
 body.relic-castle-theme .relic-header-wrapper .menu-drawer { z-index: 50; }
@@ -603,10 +603,10 @@ body.relic-castle-theme .multicolumn.relic-multicolumn-theme.relic-glass-cards:n
   border-radius: var(--relic-radius-panel);
   background:
     linear-gradient(145deg,
-      color-mix(in srgb, rgb(var(--color-background)) 78%, #0b1624),
-      color-mix(in srgb, rgb(var(--color-background)) 90%, #03070d));
-  backdrop-filter: blur(var(--relic-glass-blur)) saturate(118%);
-  -webkit-backdrop-filter: blur(var(--relic-glass-blur)) saturate(118%);
+      color-mix(in srgb, var(--relic-glass-tint) calc(var(--relic-glass-alpha, 76%) * .82), transparent),
+      color-mix(in srgb, var(--relic-glass-tint) calc(var(--relic-glass-alpha, 76%) * .94), transparent));
+  backdrop-filter: blur(var(--relic-glass-blur, 12px)) saturate(118%);
+  -webkit-backdrop-filter: blur(var(--relic-glass-blur, 12px)) saturate(118%);
   box-shadow: 0 18px 54px rgba(var(--color-shadow), .24), inset 0 1px 0 rgba(255,255,255,.035);
   transition: transform .24s ease, border-color .24s ease, box-shadow .24s ease;
 }
