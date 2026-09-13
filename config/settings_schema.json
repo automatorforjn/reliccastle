@@ -34,6 +34,39 @@
     ]
   },
   {
+    "name": "Relic Castle brand assets",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Upload the approved Relic Castle artwork here. The wordmark is used by the global header; the seals and stamp are reserved for optional trust and authenticity content."
+      },
+      {
+        "type": "image_picker",
+        "id": "relic_wordmark",
+        "label": "Relic Castle wordmark logo",
+        "info": "Primary storefront logo for the global header when the native Logo image field is empty."
+      },
+      {
+        "type": "image_picker",
+        "id": "relic_round_seal",
+        "label": "Round seal watermark",
+        "info": "Use as a restrained collector or provenance watermark."
+      },
+      {
+        "type": "image_picker",
+        "id": "relic_red_wax_seal",
+        "label": "Red wax authenticity seal",
+        "info": "Use for order, packaging, or sealed-product trust content."
+      },
+      {
+        "type": "image_picker",
+        "id": "relic_authenticity_stamp",
+        "label": "Verified authenticity stamp",
+        "info": "Use sparingly beside authenticity or verification messaging."
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.colors.name",
     "settings": [
       {

@@ -333,6 +333,7 @@
         "title": "TRUST & AUTHENTICITY",
         "heading_size": "hxl",
         "pc_chase_odds": false,
+        "relic_show_trust_marks": true,
         "image_width": "full",
         "image_ratio": "adapt",
         "button_label": "",

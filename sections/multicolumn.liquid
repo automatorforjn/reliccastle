@@ -331,6 +331,31 @@
         {%- endfor -%}
       </ul>
 
+      {%- if section.settings.relic_show_trust_marks -%}
+        {%- if settings.relic_round_seal != blank or settings.relic_red_wax_seal != blank or settings.relic_authenticity_stamp != blank -%}
+          <div class="relic-trust-marks" aria-label="Relic Castle authenticity marks">
+            {%- if settings.relic_round_seal != blank -%}
+              <figure class="relic-trust-mark">
+                {{ settings.relic_round_seal | image_url: width: 360 | image_tag: loading: 'lazy', decoding: 'async', alt: 'Relic Castle round seal watermark' }}
+                <figcaption>Collector provenance</figcaption>
+              </figure>
+            {%- endif -%}
+            {%- if settings.relic_red_wax_seal != blank -%}
+              <figure class="relic-trust-mark">
+                {{ settings.relic_red_wax_seal | image_url: width: 360 | image_tag: loading: 'lazy', decoding: 'async', alt: 'Relic Castle red wax authenticity seal' }}
+                <figcaption>Factory-sealed trust</figcaption>
+              </figure>
+            {%- endif -%}
+            {%- if settings.relic_authenticity_stamp != blank -%}
+              <figure class="relic-trust-mark">
+                {{ settings.relic_authenticity_stamp | image_url: width: 520 | image_tag: loading: 'lazy', decoding: 'async', alt: 'Relic Castle verified authenticity stamp' }}
+                <figcaption>Verified authenticity</figcaption>
+              </figure>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      {%- endif -%}
+
       {%- if show_mobile_slider -%}
         <div class="slider-buttons large-up-hide">
           <button
@@ -441,6 +466,13 @@
       "label": "Enable Poke Central Chase & Odds",
       "default": false,
       "info": "Adds the Poke Central Chase visual layer while Shopify keeps control of the section and grid layout."
+    },
+    {
+      "type": "checkbox",
+      "id": "relic_show_trust_marks",
+      "label": "Show Relic trust marks",
+      "default": false,
+      "info": "Displays the optional seals and authenticity stamp selected in Theme settings. Use this only for a trust or authenticity section."
     },
 
     {

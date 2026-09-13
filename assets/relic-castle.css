@@ -497,6 +497,49 @@ body.relic-castle-theme :is(.relic-featured-collection, .relic-collection-produc
   min-height: 0;
 }
 
+body.relic-castle-theme .relic-trust-marks {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.2rem, 3vw, 3rem);
+  align-items: start;
+  max-width: 960px;
+  margin: 2.8rem auto 0;
+  padding-top: 1.8rem;
+  border-top: 1px solid color-mix(in srgb, var(--relic-gold) 28%, transparent);
+}
+
+body.relic-castle-theme .relic-trust-mark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .8rem;
+  min-width: 0;
+  margin: 0;
+  text-align: center;
+}
+
+body.relic-castle-theme .relic-trust-mark img {
+  display: block;
+  width: min(100%, 180px);
+  height: 120px;
+  object-fit: contain;
+  object-position: center;
+}
+
+body.relic-castle-theme .relic-trust-mark figcaption {
+  color: color-mix(in srgb, rgb(var(--color-foreground)) 68%, var(--relic-gold));
+  font: 700 .78rem/1.25 var(--relic-ui-font);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 749px) {
+  body.relic-castle-theme .relic-trust-marks {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+  }
+}
+
 body.relic-castle-theme .quick-add__submit {
   border-radius: 2px;
 }
