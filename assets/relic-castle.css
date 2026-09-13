@@ -488,21 +488,6 @@ body.relic-castle-theme :is(.relic-featured-collection, .relic-collection-produc
   min-height: 0;
 }
 
-body.relic-castle-theme :is(.relic-featured-collection, .relic-collection-product-grid) .card--media > .card__inner {
-  aspect-ratio: var(--relic-card-media-ratio, 1);
-  flex: 0 0 auto;
-  min-height: var(--relic-card-media-min-height, 0px);
-}
-
-body.relic-castle-theme :is(.relic-featured-collection, .relic-collection-product-grid) .card--media > .card__inner.ratio::before {
-  padding-bottom: 0;
-}
-
-body.relic-castle-theme :is(.relic-featured-collection, .relic-collection-product-grid) .card__media .media img {
-  object-fit: var(--relic-card-image-fit, contain);
-  object-position: center;
-}
-
 body.relic-castle-theme .quick-add__submit {
   border-radius: 2px;
 }
