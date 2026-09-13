@@ -1024,3 +1024,133 @@ body.relic-castle-theme .relic-featured-collection {
 body.relic-castle-theme .relic-featured-collection .collection {
   background: transparent;
 }
+/* RELIC-MANAGED: CART-ICON-START */
+/* ============================================================
+   RELIC CASTLE — CART ICON OPTICAL SIZE
+   Enlarges cart/store SVG artwork only.
+   Native button hit area and header geometry remain unchanged.
+   ============================================================ */
+
+body.relic-castle-theme .header__icon--cart .svg-wrapper {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+body.relic-castle-theme .header__icon--cart .svg-wrapper svg {
+  width: 100%;
+  height: 100%;
+}
+/* RELIC-MANAGED: CART-ICON-END */
+
+/* RELIC-MANAGED: SECTION-SURFACE-START */
+/* ============================================================
+   RELIC CASTLE — SECTION SURFACE TRANSLUCENCY
+   Global world bleed-through.
+
+   Only top-level Relic section environments are affected.
+   Native Shopify scheme RGB remains authoritative.
+   Nested cards/media/controls keep their independent surfaces.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   RICH TEXT / EDITORIAL
+   Includes "HOW THE LIVE VAULT WORKS"
+   ------------------------------------------------------------ */
+
+body.relic-castle-theme .rich-text.relic-section--editorial {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(
+        var(--color-background),
+        var(--relic-section-surface-alpha, .55)
+      ),
+      rgba(
+        var(--color-background),
+        calc(var(--relic-section-surface-alpha, .55) * .85)
+      )
+    );
+}
+
+/* ------------------------------------------------------------
+   GENERIC MULTICOLUMN
+   Chase mode deliberately handled separately below.
+   ------------------------------------------------------------ */
+
+body.relic-castle-theme
+.multicolumn.relic-multicolumn-theme:not(.pc-chase-odds) {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(
+        var(--color-background),
+        var(--relic-section-surface-alpha, .55)
+      ),
+      rgba(
+        var(--color-background),
+        calc(var(--relic-section-surface-alpha, .55) * .85)
+      )
+    );
+}
+
+/* ------------------------------------------------------------
+   CHASE ARCHIVE OUTER ENVIRONMENT ONLY
+
+   Does NOT alter:
+   .pc-chase-surface
+   .pc-chase-slab
+   .pc-chase-glass
+   .pc-chase-foreground
+   .pc-chase-collectible-case
+   .multicolumn-card__info
+   ------------------------------------------------------------ */
+
+body.relic-castle-theme
+.multicolumn.pc-chase-odds.relic-section--chase-archive {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(
+        var(--color-background),
+        var(--relic-section-surface-alpha, .55)
+      ),
+      rgba(
+        var(--color-background),
+        calc(var(--relic-section-surface-alpha, .55) * .85)
+      )
+    );
+}
+
+/* ------------------------------------------------------------
+   CUSTOM LIVE STAGE OUTER SECTION ONLY
+
+   The inner frame/aspect retain their own glass/media surfaces.
+   ------------------------------------------------------------ */
+
+body.relic-castle-theme .relic-section--custom-live-stage {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(
+        var(--color-background),
+        var(--relic-section-surface-alpha, .55)
+      ),
+      rgba(
+        var(--color-background),
+        calc(var(--relic-section-surface-alpha, .55) * .85)
+      )
+    );
+}
+
+/*
+   Intentionally NOT duplicated here:
+
+   .relic-section--live-vault
+   already has the correct alpha architecture.
+
+   .relic-featured-collection
+   already has its own translucent color-mix treatment.
+
+   Do not add generic .gradient or .color-* transparency rules.
+*/
+/* RELIC-MANAGED: SECTION-SURFACE-END */
