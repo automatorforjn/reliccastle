@@ -469,37 +469,37 @@ body.relic-castle-theme .card__heading {
 }
 
 /* Featured products use one stable media window while preserving each asset's full artwork. */
-body.relic-castle-theme .relic-featured-collection .product-grid {
+body.relic-castle-theme :is(.relic-featured-collection, .relic-collection-product-grid) .product-grid {
   align-items: stretch;
 }
 
-body.relic-castle-theme .relic-featured-collection .product-grid > .grid__item {
+body.relic-castle-theme :is(.relic-featured-collection, .relic-collection-product-grid) .product-grid > .grid__item {
   display: flex;
   min-width: 0;
 }
 
-body.relic-castle-theme .relic-featured-collection .product-card-wrapper,
-body.relic-castle-theme .relic-featured-collection .product-card-wrapper > .card {
+body.relic-castle-theme :is(.relic-featured-collection, .relic-collection-product-grid) .product-card-wrapper,
+body.relic-castle-theme :is(.relic-featured-collection, .relic-collection-product-grid) .product-card-wrapper > .card {
   width: 100%;
   height: 100%;
 }
 
-body.relic-castle-theme .relic-featured-collection .product-card-wrapper > .card {
+body.relic-castle-theme :is(.relic-featured-collection, .relic-collection-product-grid) .product-card-wrapper > .card {
   min-height: 0;
 }
 
-body.relic-castle-theme .relic-featured-collection .card--media > .card__inner {
-  aspect-ratio: 1 / 1;
+body.relic-castle-theme :is(.relic-featured-collection, .relic-collection-product-grid) .card--media > .card__inner {
+  aspect-ratio: var(--relic-card-media-ratio, 1);
   flex: 0 0 auto;
-  min-height: var(--relic-featured-card-media-min-height, 0px);
+  min-height: var(--relic-card-media-min-height, 0px);
 }
 
-body.relic-castle-theme .relic-featured-collection .card--media > .card__inner.ratio::before {
+body.relic-castle-theme :is(.relic-featured-collection, .relic-collection-product-grid) .card--media > .card__inner.ratio::before {
   padding-bottom: 0;
 }
 
-body.relic-castle-theme .relic-featured-collection .card__media .media img {
-  object-fit: var(--relic-featured-card-image-fit, contain);
+body.relic-castle-theme :is(.relic-featured-collection, .relic-collection-product-grid) .card__media .media img {
+  object-fit: var(--relic-card-image-fit, contain);
   object-position: center;
 }
 

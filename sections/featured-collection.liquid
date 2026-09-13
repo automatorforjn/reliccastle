@@ -61,11 +61,16 @@
   if section.settings.enable_desktop_slider and products_to_display > section.settings.columns_desktop
     assign show_desktop_slider = true
   endif
+
+  assign relic_card_media_ratio = 1
+  if section.settings.image_ratio == 'portrait'
+    assign relic_card_media_ratio = 0.8
+  endif
 -%}
 
 <div
   class="color-{{ section.settings.color_scheme }} isolate gradient relic-featured-collection"
-  style="--relic-featured-card-image-fit: {{ section.settings.card_media_fit | default: 'contain' }}; --relic-featured-card-media-min-height: {{ section.settings.card_media_min_height | default: 0 }}px;"
+  style="--relic-card-image-fit: {{ section.settings.card_media_fit | default: 'contain' }}; --relic-card-media-min-height: {{ section.settings.card_media_min_height | default: 0 }}px; --relic-card-media-ratio: {{ relic_card_media_ratio }};"
 >
   <div
     class="collection{% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %} section-{{ section.id }}-padding{% if section.settings.full_width %} collection--full-width{% endif %}"

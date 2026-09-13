@@ -36,11 +36,21 @@
   }
 {%- endstyle -%}
 
+{%- liquid
+  assign relic_card_media_ratio = 1
+  if section.settings.image_ratio == 'portrait'
+    assign relic_card_media_ratio = 0.8
+  endif
+-%}
+
 <collection-component
   view-event-payload="{{ collection | standard_event_data: 'view' | escape }}"
   data-collection-id="{{ collection.id }}"
 >
-  <div class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
+  <div
+    class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }} relic-collection-product-grid"
+    style="--relic-card-image-fit: {{ section.settings.card_media_fit | default: 'contain' }}; --relic-card-media-min-height: {{ section.settings.card_media_min_height | default: 0 }}px; --relic-card-media-ratio: {{ relic_card_media_ratio }};"
+  >
     {%- paginate collection.products by section.settings.products_per_page -%}
       {% comment %} Sort is the first tabbable element when filter type is vertical {% endcomment %}
       {%- if section.settings.enable_sorting and section.settings.filter_type == 'vertical' -%}
@@ -270,6 +280,34 @@
       ],
       "default": "adapt",
       "label": "t:sections.main-collection-product-grid.settings.image_ratio.label"
+    },
+    {
+      "type": "select",
+      "id": "card_media_fit",
+      "options": [
+        {
+          "value": "contain",
+          "label": "Show full artwork"
+        },
+        {
+          "value": "cover",
+          "label": "Fill media frame"
+        }
+      ],
+      "default": "contain",
+      "label": "Product image fit",
+      "info": "Choose whether product artwork stays fully visible or fills the shared media frame."
+    },
+    {
+      "type": "range",
+      "id": "card_media_min_height",
+      "min": 0,
+      "max": 600,
+      "step": 20,
+      "unit": "px",
+      "default": 0,
+      "label": "Minimum product image height",
+      "info": "Optional floor for the shared media window. Leave at 0 to use the responsive frame."
     },
     {
       "type": "select",
