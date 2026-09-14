@@ -475,6 +475,61 @@ body.relic-castle-theme .card__heading {
   line-height: 1.1;
 }
 
+body.relic-castle-theme .relic-product-trust {
+  max-width: 100%;
+  min-width: 0;
+  margin-top: 1.8rem;
+  padding: 1.25rem;
+  border: 1px solid color-mix(in srgb, var(--relic-gold) 28%, transparent);
+  background: color-mix(in srgb, rgb(var(--color-background)) 82%, var(--relic-gold));
+}
+
+body.relic-castle-theme .relic-product-trust__title {
+  margin: 0 0 1rem;
+  color: rgb(var(--color-foreground));
+  font: 700 clamp(1.05rem, 2vw, 1.35rem)/1.15 var(--relic-ui-font);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+body.relic-castle-theme .relic-product-trust__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 1.25rem;
+  margin: 0;
+}
+
+body.relic-castle-theme .relic-product-trust__item {
+  min-width: 0;
+}
+
+body.relic-castle-theme .relic-product-trust__item dt {
+  margin-bottom: .35rem;
+  color: color-mix(in srgb, rgb(var(--color-foreground)) 82%, var(--relic-gold));
+  font: 700 .72rem/1.3 var(--relic-ui-font);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+body.relic-castle-theme .relic-product-trust__item dt span {
+  display: block;
+  font: 400 .68rem/1.35 var(--relic-ui-font);
+  letter-spacing: .02em;
+  text-transform: none;
+}
+
+body.relic-castle-theme .relic-product-trust__item dd {
+  margin: 0;
+  color: color-mix(in srgb, rgb(var(--color-foreground)) 88%, transparent);
+  line-height: 1.45;
+}
+
+@media screen and (max-width: 749px) {
+  body.relic-castle-theme .relic-product-trust__list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 /* Keep the native Shopify slide width as the card width. The product-component
    must stretch before the card's native ratio can size its media window. */
 body.relic-castle-theme :is(.relic-featured-collection, .relic-collection-product-grid) .product-grid {

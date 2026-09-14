@@ -17,7 +17,7 @@
 
 {%- liquid
   assign video_id = section.settings.video.id | default: section.settings.video_url.id
-  assign video_alt = section.settings.video.alt | default: section.settings.description
+  assign video_alt = section.settings.video.alt | default: section.settings.description | strip_html | strip_newlines
   assign alt = 'sections.video.load_video' | t: description: video_alt | escape
   assign poster = section.settings.video.preview_image | default: section.settings.cover_image
 
@@ -97,7 +97,7 @@
               class="js-youtube"
               allow="autoplay; encrypted-media"
               allowfullscreen
-              title="{{ section.settings.description | escape }}"
+              title="{{ section.settings.description | strip_html | escape }}"
             ></iframe>
           {%- else -%}
             <iframe
@@ -105,7 +105,7 @@
               class="js-vimeo"
               allow="autoplay; encrypted-media"
               allowfullscreen
-              title="{{ section.settings.description | escape }}"
+              title="{{ section.settings.description | strip_html | escape }}"
             ></iframe>
           {%- endif -%}
         {%- else -%}

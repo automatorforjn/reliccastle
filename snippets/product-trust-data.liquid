@@ -1,0 +1,42 @@
+{%- liquid
+  assign raw_condition = product.metafields.custom.raw_condition.value
+  assign seal_condition = product.metafields.custom.seal_condition.value
+  assign condition_notes = product.metafields.custom.condition_notes.value
+  assign authenticity_notes = product.metafields.custom.authenticity_notes.value
+  assign has_trust_data = false
+  if raw_condition != blank or seal_condition != blank or condition_notes != blank or authenticity_notes != blank
+    assign has_trust_data = true
+  endif
+-%}
+
+{%- if has_trust_data -%}
+  <section class="relic-product-trust" aria-labelledby="RelicTrust-{{ section.id }}">
+    <h2 class="relic-product-trust__title" id="RelicTrust-{{ section.id }}">Relic Standard</h2>
+    <dl class="relic-product-trust__list">
+      {%- if raw_condition != blank -%}
+        <div class="relic-product-trust__item">
+          <dt>Raw condition <span>(not a professional grade)</span></dt>
+          <dd>{{ raw_condition | escape | newline_to_br }}</dd>
+        </div>
+      {%- endif -%}
+      {%- if seal_condition != blank -%}
+        <div class="relic-product-trust__item">
+          <dt>Seal condition</dt>
+          <dd>{{ seal_condition | escape | newline_to_br }}</dd>
+        </div>
+      {%- endif -%}
+      {%- if condition_notes != blank -%}
+        <div class="relic-product-trust__item">
+          <dt>Condition notes</dt>
+          <dd>{{ condition_notes | escape | newline_to_br }}</dd>
+        </div>
+      {%- endif -%}
+      {%- if authenticity_notes != blank -%}
+        <div class="relic-product-trust__item">
+          <dt>Authenticity notes</dt>
+          <dd>{{ authenticity_notes | escape | newline_to_br }}</dd>
+        </div>
+      {%- endif -%}
+    </dl>
+  </section>
+{%- endif -%}
