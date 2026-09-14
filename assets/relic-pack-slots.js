@@ -6,9 +6,18 @@
     const optionElements = Array.from(consoleElement.querySelectorAll('[data-pack-slot-option]'));
     const addButton = consoleElement.querySelector('[data-pack-slot-add]');
     const statusElement = consoleElement.querySelector('[data-pack-slot-status]');
+    const selectedElement = consoleElement.querySelector('[data-pack-slot-selected]');
+    const totalElement = consoleElement.querySelector('[data-pack-slot-total]');
     const errorElement = consoleElement.querySelector('[data-pack-slot-error]');
     const maxSlots = Number(consoleElement.dataset.maxSlots) || 5;
     const selectedVariantIds = new Set();
+    const optionByVariantId = new Map(optionElements.map((option) => [option.dataset.variantId, option]));
+    const currency = consoleElement.dataset.currency || 'INR';
+    const currencyFormatter = new Intl.NumberFormat(document.documentElement.lang || 'en-IN', {
+      style: 'currency',
+      currency,
+      maximumFractionDigits: 2,
+    });
 
     if (!addButton || !statusElement || optionElements.length === 0) return;
 
@@ -20,6 +29,15 @@
     const updateState = () => {
       const selectedCount = selectedVariantIds.size;
       statusElement.textContent = `${selectedCount} of ${maxSlots} positions selected`;
+      const selectedTitles = Array.from(selectedVariantIds).map(
+        (variantId) => optionByVariantId.get(variantId)?.dataset.variantTitle || variantId
+      );
+      const totalMinorUnits = Array.from(selectedVariantIds).reduce((total, variantId) => {
+        const price = Number(optionByVariantId.get(variantId)?.dataset.variantPrice || 0);
+        return total + price;
+      }, 0);
+      selectedElement.textContent = selectedTitles.length ? selectedTitles.join(' · ') : 'None yet';
+      totalElement.textContent = currencyFormatter.format(totalMinorUnits / 100);
       addButton.disabled = selectedCount === 0 || selectedCount > maxSlots;
       addButton.setAttribute('aria-disabled', String(addButton.disabled));
       optionElements.forEach((optionElement) => {
@@ -41,7 +59,7 @@
         } else if (selectedVariantIds.size < maxSlots) {
           selectedVariantIds.add(variantId);
         } else {
-          statusElement.textContent = `Choose up to ${maxSlots} positions`;
+          setError(`FAIR PLAY LIMIT REACHED — Maximum ${maxSlots} packs may be selected from this physical box.`);
         }
         updateState();
       });
