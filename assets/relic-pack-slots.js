@@ -30,6 +30,8 @@
 
     optionElements.forEach((optionElement) => {
       optionElement.addEventListener('click', () => {
+        if (optionElement.getAttribute('aria-disabled') === 'true') return;
+
         setError();
         const variantId = optionElement.dataset.variantId;
         if (!variantId) return;

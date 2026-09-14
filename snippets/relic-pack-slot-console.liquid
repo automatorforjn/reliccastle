@@ -34,7 +34,7 @@
           data-pack-slot-option
           data-variant-id="{{ variant.id }}"
           aria-pressed="false"
-          {% unless variant.available %}disabled aria-disabled="true"{% endunless %}
+          {% unless variant.available %}aria-disabled="true"{% endunless %}
         >
           <span class="relic-pack-slot-console__option-title">{{ variant.title | escape }}</span>
           <span class="relic-pack-slot-console__option-meta">
