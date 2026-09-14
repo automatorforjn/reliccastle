@@ -103,6 +103,9 @@
 
         if (cart && responseData.sections && typeof cart.renderContents === 'function') {
           cart.renderContents(responseData);
+          selectedVariantIds.clear();
+          addButton.removeAttribute('aria-busy');
+          updateState();
         } else {
           window.location.href = consoleElement.dataset.cartUrl;
         }
