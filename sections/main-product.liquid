@@ -27,7 +27,12 @@
 
   {%- assign pack_slot_box_id = product.metafields.rc_slot.box_id.value | default: '' | strip -%}
   {%- assign pack_slot_layout_type = product.metafields.rc_slot.layout_type.value | default: '' | strip -%}
-  {%- if pack_slot_box_id != blank and pack_slot_layout_type != blank -%}
+  {%- assign pack_slot_layout_types = 'TWO_STACK_30,TWO_STACK_36,SINGLE_STACK,CUSTOM' | split: ',' -%}
+  {%- assign pack_slot_mode = false -%}
+  {%- if pack_slot_box_id != blank and pack_slot_layout_types contains pack_slot_layout_type -%}
+    {%- assign pack_slot_mode = true -%}
+  {%- endif -%}
+  {%- if pack_slot_mode -%}
     {{ 'relic-pack-slots.css' | asset_url | stylesheet_tag }}
     <script src="{{ 'relic-pack-slots.js' | asset_url }}" defer="defer"></script>
   {%- endif -%}
@@ -93,7 +98,7 @@
           >
             {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
-            {%- if pack_slot_box_id != blank and pack_slot_layout_type != blank -%}
+            {%- if pack_slot_mode -%}
               {% render 'relic-pack-slot-console',
                 product: product,
                 section_id: section.id,
@@ -245,7 +250,7 @@
                     </details>
                   </div>
                 {%- when 'quantity_selector' -%}
-                  {%- if pack_slot_box_id == blank or pack_slot_layout_type == blank -%}
+                  {%- unless pack_slot_mode -%}
                     <div
                     id="Quantity-Form-{{ section.id }}"
                     class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
@@ -472,7 +477,7 @@
                       </volume-pricing>
                     {%- endif -%}
                     </div>
-                  {%- endif -%}
+                  {%- endunless -%}
                 {%- when 'popup' -%}
                   <modal-opener
                     class="product-popup-modal__opener quick-add-hidden"
@@ -504,15 +509,15 @@
                     surface: 'product_page'
                   -%}
                 {%- when 'variant_picker' -%}
-                  {%- if pack_slot_box_id == blank or pack_slot_layout_type == blank -%}
+                  {%- unless pack_slot_mode -%}
                     {% render 'product-variant-picker',
                       product: product,
                       block: block,
                       product_form_id: product_form_id
                     %}
-                  {%- endif -%}
+                  {%- endunless -%}
                 {%- when 'buy_buttons' -%}
-                  {%- if pack_slot_box_id == blank or pack_slot_layout_type == blank -%}
+                  {%- unless pack_slot_mode -%}
                     {%- render 'buy-buttons',
                       block: block,
                       product: product,
@@ -520,7 +525,7 @@
                       section_id: section.id,
                       show_pickup_availability: true
                     -%}
-                  {%- endif -%}
+                  {%- endunless -%}
                 {%- when 'rating' -%}
                   {%- if product.metafields.reviews.rating.value != blank -%}
                     <div class="rating-wrapper">
