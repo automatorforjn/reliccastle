@@ -25,6 +25,12 @@
     {{ 'component-volume-pricing.css' | asset_url | stylesheet_tag }}
   {%- endif -%}
 
+  {%- assign pack_slot_box_id = product.metafields.rc_slot.box_id.value | default: '' -%}
+  {%- if pack_slot_box_id != blank -%}
+    {{ 'relic-pack-slots.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'relic-pack-slots.js' | asset_url }}" defer="defer"></script>
+  {%- endif -%}
+
   {%- style -%}
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -85,6 +91,14 @@
             class="product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
           >
             {%- assign product_form_id = 'product-form-' | append: section.id -%}
+
+            {%- if pack_slot_box_id != blank -%}
+              {% render 'relic-pack-slot-console',
+                product: product,
+                section_id: section.id,
+                box_id: pack_slot_box_id
+              %}
+            {%- endif -%}
 
             {%- for block in section.blocks -%}
               {%- case block.type -%}

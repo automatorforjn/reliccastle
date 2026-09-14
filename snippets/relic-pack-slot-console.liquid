@@ -1,0 +1,68 @@
+{% comment %}
+  Renders an optional multi-position pack selector for products marked with
+  the rc_slot.box_id metafield. Shopify's native product form remains below
+  as the single-position and no-JavaScript fallback.
+
+  Accepts:
+  - product: Product object.
+  - section_id: Section identifier.
+  - box_id: Merchant-owned box identifier.
+{% endcomment %}
+<section
+  class="relic-pack-slot-console"
+  data-pack-slot-console
+  data-max-slots="5"
+  data-box-id="{{ box_id | escape }}"
+  data-cart-add-url="{{ routes.cart_add_url }}"
+  data-cart-url="{{ routes.cart_url }}"
+  aria-labelledby="RelicPackSlotHeading-{{ section_id }}"
+>
+  <div class="relic-pack-slot-console__header">
+    <p class="relic-pack-slot-console__eyebrow">Build your box</p>
+    <h2 id="RelicPackSlotHeading-{{ section_id }}" class="h3">Choose your pack positions</h2>
+    <p class="relic-pack-slot-console__intro">
+      Select up to five different positions, then add them together. Each position is a Shopify variant with its own inventory.
+    </p>
+  </div>
+
+  <ul class="relic-pack-slot-console__grid" aria-label="Available pack positions">
+    {%- for variant in product.variants -%}
+      <li>
+        <button
+          type="button"
+          class="relic-pack-slot-console__option"
+          data-pack-slot-option
+          data-variant-id="{{ variant.id }}"
+          aria-pressed="false"
+          {% unless variant.available %}disabled aria-disabled="true"{% endunless %}
+        >
+          <span class="relic-pack-slot-console__option-title">{{ variant.title | escape }}</span>
+          <span class="relic-pack-slot-console__option-meta">
+            <span>{{ variant.price | money }}</span>
+            <span>{% if variant.available %}Available{% else %}Sold out{% endif %}</span>
+          </span>
+        </button>
+      </li>
+    {%- endfor -%}
+  </ul>
+
+  <div class="relic-pack-slot-console__actions">
+    <p class="relic-pack-slot-console__status" data-pack-slot-status role="status" aria-live="polite" aria-atomic="true">
+      0 of 5 positions selected
+    </p>
+    <button type="button" class="button button--primary" data-pack-slot-add disabled aria-disabled="true">
+      Add selected positions
+    </button>
+  </div>
+
+  <p class="relic-pack-slot-console__note">
+    Pack limits are finalized by Shopify checkout validation when the pack-slot validation app is active. The standard Shopify variant controls below remain available for a single-position purchase.
+  </p>
+
+  <p class="relic-pack-slot-console__error" data-pack-slot-error role="alert" hidden></p>
+  <noscript>
+    <p class="relic-pack-slot-console__noscript">
+      Enable JavaScript to select several positions together. Use the standard Shopify variant controls below for a single-position purchase.
+    </p>
+  </noscript>
+</section>
