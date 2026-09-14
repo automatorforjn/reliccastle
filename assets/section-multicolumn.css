@@ -281,6 +281,7 @@
 
 .multicolumn.pc-chase-odds {
   width: 100%;
+  max-width: 100%;
   box-sizing: border-box;
 }
 
@@ -322,6 +323,7 @@
 
   /* Shopify owns this width through the native grid classes. */
   min-width: 0;
+  max-width: 100%;
 
   align-self: start;
 }
@@ -362,6 +364,7 @@
   height: auto;
   min-width: 0;
   min-height: 0;
+  max-width: 100%;
 
   margin: 0;
   padding: 0;
@@ -431,6 +434,7 @@
 
   min-width: 0;
   min-height: 0;
+  max-width: 100%;
 
   box-sizing: border-box;
 
@@ -454,7 +458,7 @@
   height: auto;
   min-width: 0;
   min-height: 0;
-  max-width: none;
+  max-width: 100%;
   max-height: none;
 
   box-sizing: border-box;
@@ -488,6 +492,7 @@
   height: 100%;
   min-width: 0;
   min-height: 0;
+  max-width: 100%;
   box-sizing: border-box;
   overflow: hidden;
   border-radius: inherit;
@@ -500,6 +505,7 @@
   height: 100%;
   min-width: 0;
   min-height: 0;
+  max-width: 100%;
   box-sizing: border-box;
   overflow: hidden;
   border-radius: inherit;
@@ -512,7 +518,8 @@
   display: block;
   width: 100%;
   height: 100%;
-  max-width: none;
+  min-width: 0;
+  max-width: 100%;
   max-height: none;
   margin: 0;
   padding: 0;
@@ -559,6 +566,9 @@
 
   width: 100%;
   height: 100%;
+
+  min-width: 0;
+  max-width: 100%;
 
   box-sizing: border-box;
 
@@ -608,7 +618,7 @@
   height: calc(100% - 24px);
   min-width: 0;
   min-height: 0;
-  max-width: calc(100% - 24px);
+  max-width: 100%;
   max-height: none;
 
   margin: 0;
@@ -656,6 +666,7 @@
 .multicolumn.pc-chase-odds .pc-chase-foreground.pc-ratio--adapt .pc-chase-collectible-image {
   width: auto;
   height: auto;
+  min-width: 0;
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
@@ -673,6 +684,7 @@
 
   width: auto;
   height: auto;
+  min-width: 0;
   max-width: 100%;
   max-height: 100%;
   flex: 0 1 auto;
@@ -731,6 +743,7 @@
   display: block;
   width: auto;
   height: auto;
+  min-width: 0;
   max-width: 100%;
   max-height: 100%;
 
@@ -821,6 +834,8 @@
 
   width: 100%;
   height: 100%;
+  min-width: 0;
+  max-width: 100%;
 
   box-sizing: border-box;
 
@@ -858,6 +873,8 @@
 
   width: auto;
   min-height: 0;
+  min-width: 0;
+  max-width: 100%;
   max-height: none;
 
   margin: 0;
@@ -892,6 +909,8 @@
 .pc-chase-column-shell
 .multicolumn-card__info > * {
   box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .multicolumn.pc-chase-odds
@@ -901,6 +920,8 @@
   z-index: 21;
 
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
   margin: 0;
   padding: 0;
 
@@ -923,6 +944,8 @@
   z-index: 21;
 
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
   margin: 0;
   padding: 0;
 
@@ -962,6 +985,7 @@
   width: fit-content;
   max-width: 100%;
 
+  min-width: 0;
   min-height: 0;
 
   margin: 7px 0 0;
@@ -1005,11 +1029,14 @@
 .pc-chase-cta__label {
   display: inline-block;
   min-width: 0;
+  max-width: 100%;
 }
 
 .multicolumn.pc-chase-odds
 .pc-chase-cta__arrow {
   display: inline-block;
+  min-width: 0;
+  max-width: 100%;
   margin-left: 0.45em;
   color: currentColor;
   font-size: 1.08em;
@@ -1095,7 +1122,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  max-width: none;
+  min-width: 0;
+  max-width: 100%;
   aspect-ratio: auto;
   transform: none;
   border-radius: inherit;
@@ -1120,6 +1148,8 @@
   width: 100%;
   height: auto;
   min-height: 0;
+  min-width: 0;
+  max-width: 100%;
   max-height: none;
   margin: 0;
   padding: clamp(22px, 2.5vw, 34px) clamp(20px, 2.4vw, 32px);
@@ -1143,6 +1173,8 @@
 .pc-chase-column-shell--no-collectible
 .multicolumn-card__info h3 {
   width: min(100%, 34rem);
+  min-width: 0;
+  max-width: 100%;
   margin: 0;
   padding: 0;
   white-space: normal;
@@ -1158,6 +1190,8 @@
 .pc-chase-column-shell--no-collectible
 .multicolumn-card__info .rte {
   width: min(100%, 38rem);
+  min-width: 0;
+  max-width: 100%;
   margin: 0;
   padding: 0;
   white-space: normal;
@@ -1218,7 +1252,7 @@
   .pc-chase-foreground {
     top: 10px;
     width: min(84%, calc(100% - 20px));
-    max-width: calc(100% - 20px);
+    max-width: 100%;
   }
 
 

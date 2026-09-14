@@ -34,11 +34,14 @@
    01 â€” WORLD / ATMOSPHERE
    ========================================================= */
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
 
 body.relic-castle-theme {
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: clip;
   background:
     linear-gradient(180deg, #07111f 0%, #070b0d 48%, #050403 100%);
   color: rgb(var(--color-foreground));
@@ -49,6 +52,8 @@ body.relic-castle-theme {
 body.relic-castle-theme .relic-world {
   position: fixed;
   inset: 0;
+  max-width: 100vw;
+  max-height: 100vh;
   display: block;
   z-index: 0;
   pointer-events: none;
@@ -62,7 +67,7 @@ body.relic-castle-theme .relic-world {
     var(--relic-world-desktop-url, none),
     var(--relic-atmosphere-url),
     var(--relic-sand-url);
-  background-size: cover, cover, cover, min(1500px, 135vw) auto;
+  background-size: cover, cover, cover, cover;
   background-position: center, center center, center top, center bottom;
   background-repeat: no-repeat;
   opacity: var(--relic-atmosphere-strength, .90);
