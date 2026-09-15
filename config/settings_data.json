@@ -11,7 +11,11 @@
   "current": {
     "logo": "shopify://shop_images/Codex_Image_Sep_13_2026_03_38_19_PM.png",
     "logo_width": 300,
-    "favicon": "shopify://shop_images/relic-castle-logo-gold.png",
+    "favicon": "shopify://shop_images/Codex_Image_Sep_13_2026_03_38_11_PM_8739c4cb-5931-4913-a588-bacac84f5b60.png",
+    "relic_wordmark": "shopify://shop_images/Codex_Image_Sep_13_2026_03_38_19_PM.png",
+    "relic_round_seal": "shopify://shop_images/Codex_Image_Sep_13_2026_03_38_11_PM_8739c4cb-5931-4913-a588-bacac84f5b60.png",
+    "relic_red_wax_seal": "shopify://shop_images/Codex_Image_Sep_13_2026_03_38_05_PM_879e76b3-6290-43e8-8fb4-5b093397c1eb.png",
+    "relic_authenticity_stamp": "shopify://shop_images/Codex_Image_Sep_13_2026_03_38_02_PM_aaf571fb-a669-4029-908b-277e177e30f4.png",
     "type_header_font": "red_hat_display_n8",
     "heading_scale": 120,
     "type_body_font": "montserrat_n4",
@@ -122,11 +126,11 @@
     "social_vimeo_link": "",
     "relic_world_desktop": "shopify://shop_images/relic-live-vault-desert-ruins-v1.webp",
     "relic_world_mobile": "shopify://shop_images/relic-live-vault-desert-ruins-v1.webp",
-    "relic_world_darkness": 0,
+    "relic_world_darkness": 40,
     "relic_atmosphere_strength": 100,
-    "relic_section_surface_opacity": 20,
+    "relic_section_surface_opacity": 35,
     "relic_glass_blur": 12,
-    "relic_glass_alpha": 95,
+    "relic_glass_alpha": 64,
     "predictive_search_enabled": true,
     "predictive_search_show_vendor": false,
     "predictive_search_show_price": false,
@@ -134,7 +138,7 @@
     "cart_type": "drawer",
     "show_vendor": false,
     "show_cart_note": false,
-    "cart_drawer_collection": "",
+    "cart_drawer_collection": "zip-line",
     "cart_color_scheme": "scheme-1",
     "sections": {
       "main-password-header": {
@@ -188,7 +192,7 @@
       "scheme-4": {
         "settings": {
           "background": "#1a100c",
-          "background_gradient": "linear-gradient(145deg, #2A1710 0%, #1A100C 55%, #090604 100%)",
+          "background_gradient": "linear-gradient(145deg, rgba(42, 23, 16, 1), rgba(26, 16, 12, 1) 55%, rgba(9, 6, 4, 1) 100%)",
           "text": "#f7ede2",
           "button": "#d6a460",
           "button_label": "#160b06",
@@ -199,7 +203,7 @@
       "scheme-5": {
         "settings": {
           "background": "#e9e0d2",
-          "background_gradient": "linear-gradient(135deg, #F2ECE3 0%, #E8DDCD 55%, #D9CCBA 100%)",
+          "background_gradient": "linear-gradient(135deg, rgba(242, 236, 227, 1), rgba(232, 221, 205, 1) 55%, rgba(217, 204, 186, 1) 100%)",
           "text": "#171715",
           "button": "#8a6939",
           "button_label": "#fff9ef",
@@ -210,7 +214,7 @@
       "scheme-84e7fe81-8fbc-4907-838e-1e11cfcf606a": {
         "settings": {
           "background": "#10171e",
-          "background_gradient": "linear-gradient(145deg, #17232D 0%, #10171E 58%, #080D12 100%)",
+          "background_gradient": "linear-gradient(145deg, rgba(23, 35, 45, 1), rgba(16, 23, 30, 1) 58%, rgba(8, 13, 18, 1) 100%)",
           "text": "#eef1f2",
           "button": "#c9b27d",
           "button_label": "#0a0f14",

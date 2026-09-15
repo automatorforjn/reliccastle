@@ -12,52 +12,28 @@
     "rich-text": {
       "type": "rich-text",
       "blocks": {
-        "caption_relic": {
-          "type": "caption",
-          "settings": {
-            "caption": "AUTHENTIC JAPANESE COLLECTIBLES",
-            "text_style": "caption-with-letter-spacing",
-            "text_size": "medium"
-          }
-        },
-        "heading_relic": {
-          "type": "heading",
-          "settings": {
-            "heading": "THE RELIC CASTLE",
-            "heading_size": "hxxl"
-          }
-        },
-        "text_relic": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Factory-sealed Japanese trading-card collectibles, curated with collector-grade care.</p>"
-          }
-        },
         "button_ikehin": {
           "type": "button",
           "settings": {
-            "button_label": "ENTER THE BREAK",
+            "button_label": "Live Breaks",
             "button_link": "/collections/zip-line",
             "button_style_secondary": false,
-            "button_label_2": "EXPLORE THE VAULT",
-            "button_link_2": "/collections/shop",
-            "button_style_secondary_2": true,
-            "show_live_status": true
+            "show_live_status": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
           }
         }
       },
       "block_order": [
-        "caption_relic",
-        "heading_relic",
-        "text_relic",
         "button_ikehin"
       ],
       "custom_css": [],
-      "name": "Castle Entrance",
+      "name": "Live Break Button",
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
-        "color_scheme": "scheme-2",
+        "color_scheme": "scheme-1",
         "full_width": true,
         "padding_top": 28,
         "padding_bottom": 4
@@ -67,12 +43,12 @@
       "type": "video",
       "name": "t:sections.video.presets.name",
       "settings": {
-        "heading": "LIVE FROM THE VAULT",
+        "heading": "",
         "heading_size": "h2",
         "enable_video_looping": true,
         "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "cover_image": "shopify://shop_images/Codex_Image_Sep_12_2026_08_13_18_AM.png",
-        "description": "<p>Enter the break. Watch the seal open. Follow every pull.</p>",
+        "cover_image": "shopify://shop_images/5d7d4be5-454e-41d4-b818-d767b56f323e.png",
+        "description": "",
         "full_width": false,
         "crystal_bezel": true,
         "crystal_strength": 70,
@@ -93,7 +69,7 @@
         "description_style": "uppercase",
         "columns_desktop": 3,
         "enable_desktop_slider": true,
-        "full_width": true,
+        "full_width": false,
         "show_view_all": false,
         "view_all_style": "solid",
         "color_scheme": "scheme-1",
@@ -106,7 +82,7 @@
         "columns_mobile": "1",
         "swipe_on_mobile": true,
         "padding_top": 4,
-        "padding_bottom": 48
+        "padding_bottom": 32
       }
     },
     "multicolumn_3tzJGx": {
@@ -154,11 +130,12 @@
         "column_zE6hKP",
         "column_UMM9N4"
       ],
-      "name": "Enter the Break",
+      "name": "How it works",
       "settings": {
-        "title": "ENTER THE BREAK",
+        "title": "HOW THE LIVE VAULT WORKS",
         "heading_size": "hxl",
         "pc_chase_odds": false,
+        "relic_show_trust_marks": false,
         "image_width": "full",
         "image_ratio": "adapt",
         "button_label": "",
@@ -180,27 +157,27 @@
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/695687.jpg",
-            "pc_chase_mode": "environment",
+            "pc_chase_mode": "encased",
             "pc_chase_image": "shopify://shop_images/695687.jpg",
             "pc_card_width": "three_quarters",
             "pc_card_ratio": "pokemon_standard",
-            "title": "Pikachu ex SAR",
-            "text": "<p>Featured chase relic.<br/>See the current live-break offering.</p>",
-            "link_label": "VIEW LIVE BREAKS",
+            "title": "Mega Lucario ex [#092/063]",
+            "text": "<p>Mega Brave Pack — Japanese Gold MUR<br/>Est. Pull Rate: 1 in 1600 Packs </p>",
+            "link_label": "Buy Pack Slot",
             "link": "/collections/zip-line"
           }
         },
         "column_ExprA9": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/card1_287x400_f47359ea-2f99-4e7b-afa3-ef41dc01104a.jpg",
-            "pc_chase_mode": "environment",
-            "pc_chase_image": "shopify://shop_images/745742.jpg",
+            "image": "shopify://shop_images/87be8e00-ffce-4c60-8ac9-7d3afa5e0095.webp",
+            "pc_chase_mode": "encased",
+            "pc_chase_image": "shopify://shop_images/87be8e00-ffce-4c60-8ac9-7d3afa5e0095.webp",
             "pc_card_width": "three_quarters",
             "pc_card_ratio": "pokemon_standard",
-            "title": "Charizard ex IR",
-            "text": "<p>Featured chase relic.<br/>See the current live-break offering.</p>",
-            "link_label": "VIEW LIVE BREAKS",
+            "title": "Mega Darkrai ex #{118/081 }",
+            "text": "<p>Abyss Eye Pack — Japanese Gold MUR</p><p>Est. Pull Rate: 1 in 4 </p>",
+            "link_label": "Buy Pack Slot",
             "link": "/collections/zip-line"
           }
         },
@@ -208,13 +185,13 @@
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/734745.jpg",
-            "pc_chase_mode": "environment",
+            "pc_chase_mode": "encased",
             "pc_chase_image": "shopify://shop_images/734745.jpg",
             "pc_card_width": "three_quarters",
             "pc_card_ratio": "pokemon_standard",
             "title": "Mystery Chase",
             "text": "<p>Rotating featured hit<br/>Revealed with the current live break.</p>",
-            "link_label": "VIEW LIVE BREAKS",
+            "link_label": "View Live Breaks",
             "link": "/collections/zip-line"
           }
         }
@@ -229,6 +206,7 @@
         "title": "THE CHASE ARCHIVE",
         "heading_size": "hxl",
         "pc_chase_odds": true,
+        "relic_show_trust_marks": false,
         "image_width": "full",
         "image_ratio": "adapt",
         "button_label": "",
@@ -252,8 +230,8 @@
             "pc_chase_mode": "environment",
             "pc_card_width": "one_third",
             "pc_card_ratio": "pokemon_standard",
-            "title": "COLLECTOR JOURNEYS",
-            "text": "<p>Discover sealed Japanese products and the stories around them.</p>",
+            "title": "Collector Provenance",
+            "text": "<p>Real pulls, collector stories, and memorable hits from the Relic Castle community.</p>",
             "link_label": "",
             "link": ""
           }
@@ -264,8 +242,8 @@
             "pc_chase_mode": "environment",
             "pc_card_width": "three_quarters",
             "pc_card_ratio": "pokemon_standard",
-            "title": "SHARED DISCOVERIES",
-            "text": "<p>Explore collector discoveries from the Relic Castle world.</p>",
+            "title": "Japan Imports",
+            "text": "<p>Curated Japanese sealed products and collector-grade cards sourced for authenticity.</p>",
             "link_label": "",
             "link": ""
           }
@@ -276,8 +254,8 @@
             "pc_chase_mode": "environment",
             "pc_card_width": "three_quarters",
             "pc_card_ratio": "pokemon_standard",
-            "title": "ARCHIVE IN PROGRESS",
-            "text": "<p>The archive grows as each new relic is documented.</p>",
+            "title": "Live Pull Archive",
+            "text": "<p>Chase moments become part of the archive—transparent, watchable, and made for collectors.</p>",
             "link_label": "",
             "link": ""
           }
@@ -288,11 +266,12 @@
         "column_8Yzw8U",
         "column_x4qAnw"
       ],
-      "name": "The Explorers",
+      "name": "Community Pulls",
       "settings": {
-        "title": "THE EXPLORERS",
+        "title": "THE RELIC STANDARD",
         "heading_size": "h1",
         "pc_chase_odds": false,
+        "relic_show_trust_marks": false,
         "image_width": "full",
         "image_ratio": "adapt",
         "button_label": "",
@@ -316,8 +295,8 @@
             "pc_chase_mode": "environment",
             "pc_card_width": "three_quarters",
             "pc_card_ratio": "pokemon_standard",
-            "title": "AUTHENTIC SEALED IMPORTS",
-            "text": "<p>Product-specific seal and authenticity notes are shown when available.</p>",
+            "title": "100% Factory Sealed Imports",
+            "text": "<p><br/>Directly sourced...<br/><br/></p>",
             "link_label": "",
             "link": ""
           }
@@ -328,8 +307,8 @@
             "pc_chase_mode": "environment",
             "pc_card_width": "three_quarters",
             "pc_card_ratio": "pokemon_standard",
-            "title": "PROTECTED JOURNEYS",
-            "text": "<p>Orders are prepared with condition-conscious packing.</p>",
+            "title": "Secure Shipping",
+            "text": "<p><br/>Protected packaging...<br/><br/><br/></p>",
             "link_label": "",
             "link": ""
           }
@@ -340,8 +319,8 @@
             "pc_chase_mode": "environment",
             "pc_card_width": "three_quarters",
             "pc_card_ratio": "pokemon_standard",
-            "title": "TRANSPARENT BREAKS",
-            "text": "<p>Follow the reveal live when a Live Break is active.</p>",
+            "title": "Live Break Transparency",
+            "text": "<p><br/>Watch every pull live...<br/><br/></p>",
             "link_label": "",
             "link": ""
           }
@@ -352,9 +331,9 @@
         "column_fccA98",
         "column_dka4rC"
       ],
-      "name": "The Relic Standard",
+      "name": "Trust&Guarantee",
       "settings": {
-        "title": "THE RELIC STANDARD",
+        "title": "TRUST & AUTHENTICITY",
         "heading_size": "hxl",
         "pc_chase_odds": false,
         "relic_show_trust_marks": true,
@@ -377,8 +356,8 @@
     "rich-text",
     "video_WARzCE",
     "featured-collection",
-    "multicolumn_4WM6ah",
     "multicolumn_3tzJGx",
+    "multicolumn_4WM6ah",
     "multicolumn_diLGh3",
     "multicolumn_3yT7P4"
   ]
